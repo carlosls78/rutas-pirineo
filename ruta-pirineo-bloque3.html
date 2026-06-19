@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruta Pirineo Aragonés · Bloque 3 — Valle de Benasque (11-16 julio 2026)</title>
+<style>
+  :root{
+    --verde-bosque:#2f5d3a;--verde-claro:#4a8259;--piedra:#b88c4a;
+    --crema:#f7f3e9;--crema-card:#fffdf7;--texto:#2b2b26;--gris-suave:#6b6b60;
+    --azul-rio:#3a7ca5;--sombra:0 6px 24px rgba(47,93,58,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;color:var(--texto);background:var(--crema);line-height:1.65;}
+  .hero{background:linear-gradient(135deg,var(--verde-bosque) 0%,var(--verde-claro) 60%,var(--azul-rio) 130%);color:#fff;padding:60px 24px 70px;text-align:center;position:relative;}
+  .hero .badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);padding:6px 16px;border-radius:30px;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;}
+  .hero h1{font-size:2.5rem;font-weight:800;line-height:1.15;margin-bottom:14px;text-shadow:0 2px 12px rgba(0,0,0,.2);}
+  .hero .sub{font-size:1.15rem;opacity:.95;max-width:760px;margin:0 auto 24px;}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:10px;}
+  .hero .meta span{background:rgba(255,255,255,.15);padding:8px 16px;border-radius:10px;font-size:.95rem;backdrop-filter:blur(4px);}
+  .hero .nav{margin-top:22px;}
+  .hero .nav a{color:#fff;text-decoration:none;background:rgba(255,255,255,.22);padding:7px 16px;border-radius:8px;margin:0 5px;font-size:.9rem;display:inline-block;}
+  .hero .nav a:hover{background:rgba(255,255,255,.35);}
+  .wrap{max-width:980px;margin:0 auto;padding:40px 20px 80px;}
+  .intro-box{background:var(--crema-card);border-left:6px solid var(--piedra);border-radius:12px;padding:24px 28px;box-shadow:var(--sombra);margin-bottom:30px;}
+  .intro-box h2{color:var(--verde-bosque);font-size:1.3rem;margin-bottom:10px;}
+  .intro-box p{color:var(--gris-suave);}
+  .intro-box strong{color:var(--texto);}
+  .ok-box{background:#e8f5ec;border:1px solid #b6dcc1;border-left:6px solid #2f8a4a;border-radius:12px;padding:20px 26px;margin-bottom:46px;box-shadow:var(--sombra);}
+  .ok-box h2{color:#1f7a38;font-size:1.15rem;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+  .ok-box p{color:#2a5e3a;}
+  .dia{background:var(--crema-card);border-radius:16px;box-shadow:var(--sombra);margin-bottom:40px;overflow:hidden;border:1px solid rgba(184,140,74,.18);}
+  .dia-header{background:linear-gradient(100deg,var(--verde-bosque),var(--verde-claro));color:#fff;padding:22px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;}
+  .dia-header .num{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;opacity:.85;display:block;}
+  .dia-header h3{font-size:1.5rem;font-weight:700;}
+  .dia-header .fecha{background:rgba(255,255,255,.2);padding:7px 15px;border-radius:20px;font-size:.9rem;white-space:nowrap;}
+  .dia-body{padding:10px 28px 26px;}
+  .seccion{padding:18px 0;border-bottom:1px dashed rgba(184,140,74,.3);}
+  .seccion:last-child{border-bottom:none;}
+  .seccion h4{font-size:1.08rem;color:var(--verde-bosque);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+  .seccion .emoji{font-size:1.25rem;}
+  .seccion p{color:var(--texto);margin-bottom:8px;}
+  .seccion ul{list-style:none;margin-top:6px;}
+  .seccion ul li{padding:4px 0 4px 22px;position:relative;color:var(--texto);}
+  .seccion ul li::before{content:"›";position:absolute;left:6px;color:var(--piedra);font-weight:bold;}
+  .evocador{font-style:italic;color:var(--gris-suave);}
+  .destacado{background:linear-gradient(90deg,rgba(184,140,74,.12),transparent);border-radius:10px;padding:14px 16px;}
+  .consejo{background:#fff7e6;border:1px solid #f0d9a8;border-radius:10px;padding:14px 16px;}
+  .consejo h4{color:#a9761c;}
+  .timeline{background:#eef4ec;border-radius:10px;padding:14px 18px;}
+  .timeline h4{color:var(--azul-rio);}
+  .timeline ul li{padding:5px 0 5px 0;border-bottom:1px dotted rgba(0,0,0,.08);}
+  .timeline ul li::before{content:"";}
+  .timeline .hora{display:inline-block;min-width:96px;font-weight:700;color:var(--verde-bosque);}
+  .tag{display:inline-block;font-size:.82rem;font-weight:600;padding:2px 10px;border-radius:20px;margin-left:4px;}
+  .si{background:#dff3e3;color:#1f7a38;}
+  .precaucion{background:#fff1d6;color:#b3760a;}
+  .no{background:#fbe0e0;color:#b32020;}
+  .label{font-weight:600;color:var(--gris-suave);}
+  .final{background:var(--crema-card);border-radius:16px;box-shadow:var(--sombra);padding:28px 30px;margin-bottom:34px;border-top:5px solid var(--azul-rio);}
+  .final h2{color:var(--verde-bosque);font-size:1.5rem;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .final ul{list-style:none;}
+  .final ul li{padding:8px 0 8px 26px;position:relative;border-bottom:1px solid rgba(0,0,0,.05);}
+  .final ul li:last-child{border-bottom:none;}
+  .final ul li::before{content:"🐾";position:absolute;left:0;font-size:.9rem;}
+  .final.mochila ul li::before{content:"🎒";}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px 30px;}
+  .grid2 h3{grid-column:1/-1;color:var(--azul-rio);font-size:1.05rem;margin-top:10px;margin-bottom:2px;}
+  .cierre{background:linear-gradient(135deg,#fff6ea,#fdfdf6);border:1px solid #f0d9a8;border-radius:16px;padding:30px 32px;margin-bottom:34px;box-shadow:var(--sombra);}
+  .cierre h2{color:#b3760a;font-size:1.6rem;margin-bottom:14px;text-align:center;}
+  .cierre p{margin-bottom:14px;color:var(--texto);}
+  .cierre .firma{text-align:center;font-size:1.3rem;font-weight:700;color:var(--verde-bosque);margin-top:18px;}
+  .mapa{font-family:'Courier New',monospace;background:#1f3326;color:#cfe6d4;padding:24px;border-radius:12px;white-space:pre;overflow-x:auto;line-height:1.5;font-size:.92rem;}
+  footer{text-align:center;padding:34px 20px;color:var(--gris-suave);font-size:.9rem;}
+  footer strong{color:var(--verde-bosque);}
+  footer a{color:var(--azul-rio);text-decoration:none;}
+  @media(max-width:600px){
+    .hero h1{font-size:1.8rem;}
+    .dia-body{padding:8px 18px 20px;}
+    .dia-header{padding:18px;}
+    .timeline .hora{min-width:80px;}
+    .grid2{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="badge">Bloque 3 de 3 · Pirineo Aragonés</span>
+  <h1>Valle de Benasque, a los pies del Aneto</h1>
+  <p class="sub">El gran final del viaje, con base en La Terraceta de Linsoles: pueblos de piedra, valles glaciares y los tresmiles más altos del Pirineo en el Parque Natural Posets-Maladeta. Para Carles, Anna y Greta. 🐾</p>
+  <div class="meta">
+    <span>📅 11 – 16 de julio de 2026</span>
+    <span>🏨 La Terraceta de Linsoles</span>
+    <span>🐕 100% pet-friendly</span>
+    <span>🥾 Senderismo suave</span>
+  </div>
+  <div class="nav">
+    <a href="index.html">🏠 Índice del viaje</a>
+    <a href="ruta-pirineo-bloque2.html">← Bloque 2</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="intro-box">
+    <h2>📍 Contexto de la zona</h2>
+    <p><strong>Linsoles</strong> es una pequeña aldea junto a Eriste, a un paso de <strong>Benasque</strong>, capital de un valle glaciar rodeado por los tresmiles más altos del Pirineo (Aneto, Posets, Maladeta). Base perfecta para cerrar el viaje: pueblos de piedra con muchísimo encanto, valles verdes surcados por ríos de deshielo, cascadas y los grandes circos del <strong>Parque Natural Posets-Maladeta</strong>. Todo queda a menos de 25 minutos de la base.</p>
+    <p style="margin-top:10px"><strong>Estrategia diaria en julio:</strong> actividad por la mañana temprano, descanso en las horas de calor (13:00-18:00) y paseo suave o pueblo al atardecer.</p>
+  </section>
+
+  <section class="ok-box">
+    <h2>✅ Nota pet-friendly de la zona</h2>
+    <p>A diferencia del Parque Nacional de Ordesa, aquí estáis en un <strong>Parque Natural</strong> (figura de protección distinta) donde <strong>se permite el acceso de perros atados</strong>. Greta recupera la libertad para acompañaros en casi todas las rutas. Respetad siempre la fauna, el ganado y las indicaciones locales, y llevadla con correa.</p>
+  </section>
+
+  <!-- ============ DÍA 11 ============ -->
+  <article class="dia">
+    <div class="dia-header">
+      <div><span class="num">Día 11</span><h3>Llegada al valle de Benasque y primer paseo</h3></div>
+      <span class="fecha">Sábado 11 de julio</span>
+    </div>
+    <div class="dia-body">
+      <div class="seccion">
+        <h4><span class="emoji">📖</span> Introducción del día</h4>
+        <p class="evocador">Tras el traslado desde Broto y la parada en Aínsa, llegáis a vuestra última casa del viaje, en la tranquila aldea de Linsoles. El paisaje ha cambiado: ahora os rodean cumbres más altas y afiladas, prados de un verde intenso y el rumor del río Ésera.</p>
+        <p>Una tarde para deshacer maletas sin prisa, dejar que Greta reconozca el terreno y estrenar el valle con un paseo suave al atardecer por el cercano y precioso pueblo de Anciles.</p>
+      </div>
+      <div class="seccion timeline">
+        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
+        <ul>
+          <li><span class="hora">16:00</span> Llegada y check-in en La Terraceta de Linsoles</li>
+          <li><span class="hora">17:00</span> Descanso del viaje, agua y aclimatación de Greta</li>
+          <li><span class="hora">18:30</span> Paseo al atardecer por Anciles (≈5 min en coche)</li>
+          <li><span class="hora">20:00</span> Compra de provisiones en Benasque</li>
+          <li><span class="hora">20:45</span> Cena tranquila</li>
+        </ul>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <ul>
+          <li><span class="label">Ruta:</span> Paseo por Anciles, uno de los pueblos más bonitos del valle</li>
+          <li><span class="label">Recorrido:</span> Callejas de piedra, casonas señoriales y entorno rural junto a Eriste</li>
+          <li><span class="label">Firme y desnivel:</span> Empedrado y caminos llanos; mínimo esfuerzo</li>
+          <li><span class="label">Dificultad / distancia:</span> Muy fácil · 1-2 km · 1 h con paradas</li>
+          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> calles tranquilas, fresco de la tarde</li>
+          <li><span class="label">Mejor horario:</span> Última hora de la tarde, con el calor bajando</li>
+        </ul>
+        <p><strong>👀 No te pierdas:</strong> las casonas con escudos y torres de Anciles, un conjunto medieval que parece detenido en el tiempo.</p>
+      </div>
+      <div class="seccion destacado">
+        <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
+        <p>La primera estampa del <strong>macizo de la Maladeta y el Aneto</strong> recortándose al fondo del valle mientras paseáis al atardecer. La promesa de los días de montaña que están por venir.</p>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
+        <ul>
+          <li><span class="label">Lugar:</span> Picnic o comida ligera de traslado (en ruta o a la llegada)</li>
+          <li><span class="label">Cocina:</span> Algo sencillo el día de viaje</li>
+          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span></li>
+          <li><span class="label">Alternativa:</span> Terraza en Benasque a la llegada</li>
+        </ul>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
+        <ul>
+          <li><span class="label">Lugar:</span> Restaurante en Benasque (p. ej. El Fogaril) o terraza de la plaza</li>
+          <li><span class="label">Cocina:</span> Benasquesa tradicional; girella, chireta, ternasco</li>
+          <li><span class="label">Qué pedir:</span> Un plato de cordero local para estrenar el valle</li>
+          <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> reservar y pedir terraza</li>
+          <li><span class="label">Ambiente / hora:</span> Acogedor, de pueblo de montaña · 20:45</li>
+        </ul>
+      </div>
+      <div class="seccion consejo">
+        <h4><span class="emoji">⚠️</span> Consejo del día</h4>
+        <p>Día de traslado = jornada suave. A la llegada, <strong>hidratad a Greta</strong> y dejadla descansar antes del paseo. Comprad provisiones en <strong>Benasque</strong> (último pueblo grande con supermercados, farmacia y veterinaria) y localizad dónde aparcar, porque en julio el centro se llena.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DÍA 12 ============ -->
+  <article class="dia">
+    <div class="dia-header">
+      <div><span class="num">Día 12</span><h3>Benasque y Anciles, pueblos con encanto</h3></div>
+      <span class="fecha">Domingo 12 de julio</span>
+    </div>
+    <div class="dia-body">
+      <div class="seccion">
+        <h4><span class="emoji">📖</span> Introducción del día</h4>
+        <p class="evocador">Hoy os dedicáis a saborear el alma del valle: Benasque, con su casco histórico de calles empedradas, palacios y casas con galerías de madera. Un día de ritmo lento entre piedra noble y montaña, perfecto para empezar a aclimataros a la altura antes de las rutas.</p>
+        <p>Para completar la mañana, un paseo a una cascada cercana donde Greta podrá refrescarse.</p>
+      </div>
+      <div class="seccion timeline">
+        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
+        <ul>
+          <li><span class="hora">9:00</span> Paseo por el casco histórico de Benasque, aún fresco</li>
+          <li><span class="hora">10:30</span> Paseo corto a la Cascada del Ardonés / ribera del Ésera</li>
+          <li><span class="hora">13:00</span> Aperitivo y comida en una terraza de Benasque</li>
+          <li><span class="hora">15:00</span> Regreso a la base: siesta y descanso</li>
+          <li><span class="hora">19:00</span> Paseo suave por Eriste al atardecer</li>
+          <li><span class="hora">20:45</span> Cena</li>
+        </ul>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <ul>
+          <li><span class="label">Ruta:</span> Casco histórico de Benasque + paseo de ribera del Ésera (hacia la Cascada del Ardonés)</li>
+          <li><span class="label">Recorrido:</span> Plaza Mayor, iglesia de Santa María, palacio de los Condes de Ribagorza, Casa Faure; bajada al río y senda llana</li>
+          <li><span class="label">Firme y desnivel:</span> Empedrado y senda fluvial llana</li>
+          <li><span class="label">Dificultad / distancia:</span> Fácil · 3-5 km · 2-2,5 h con paradas</li>
+          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> con correa; agua y sombra junto al río</li>
+          <li><span class="label">Mejor horario:</span> Mañana temprano para el pueblo, ribera a media mañana</li>
+        </ul>
+        <p><strong>👀 No te pierdas:</strong> las fachadas nobles del casco de Benasque y las galerías de madera mirando a las cumbres.</p>
+      </div>
+      <div class="seccion destacado">
+        <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
+        <p>Un café o vermú en una <strong>terraza de la plaza de Benasque</strong>, con Greta a vuestros pies, viendo la vida tranquila del pueblo pasar bajo las montañas. El placer de no tener prisa.</p>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
+        <ul>
+          <li><span class="label">Lugar:</span> Restaurante Ansils (Anciles) o terraza en Benasque</li>
+          <li><span class="label">Cocina:</span> Tradicional benasquesa; recetas de montaña, carnes, setas</li>
+          <li><span class="label">Qué pedir:</span> Girella o un guiso de cordero de la zona</li>
+          <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza</li>
+          <li><span class="label">Alternativa:</span> Picnic junto al río Ésera, a la sombra</li>
+        </ul>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
+        <ul>
+          <li><span class="label">Lugar:</span> Restaurante en Benasque (El Fogaril u otro de la plaza)</li>
+          <li><span class="label">Cocina:</span> Producto de temporada; postres caseros como los crespillos</li>
+          <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza</li>
+          <li><span class="label">Ambiente / hora:</span> Relajado y ambientado · 20:45</li>
+        </ul>
+      </div>
+      <div class="seccion consejo">
+        <h4><span class="emoji">⚠️</span> Consejo del día</h4>
+        <p>En julio, Benasque tiene <strong>mucho ambiente y aparcamiento complicado</strong>: id temprano y usad los parkings de las afueras. Si hace calor, evitad el empedrado en horas centrales (se calienta y puede quemar las almohadillas de Greta) y aprovechad la sombra de la ribera.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DÍA 13 ============ -->
+  <article class="dia">
+    <div class="dia-header">
+      <div><span class="num">Día 13</span><h3>Valle de Estós, senderismo suave junto al río</h3></div>
+      <span class="fecha">Lunes 13 de julio</span>
+    </div>
+    <div class="dia-body">
+      <div class="seccion">
+        <h4><span class="emoji">📖</span> Introducción del día</h4>
+        <p class="evocador">Hoy os internáis en uno de los valles más bellos y accesibles del Pirineo: el Valle de Estós, un corredor glaciar de praderas, bosques y un río cristalino, custodiado por el macizo de Posets. Se camina prácticamente en llano siguiendo el agua, con sombra y pozas para Greta, en pleno Parque Natural donde sí es bienvenida.</p>
+        <p>Naturaleza grandiosa sin necesidad de subir a la alta montaña técnica.</p>
+      </div>
+      <div class="seccion timeline">
+        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
+        <ul>
+          <li><span class="hora">8:30</span> Salida con picnic hacia el aparcamiento de Estós</li>
+          <li><span class="hora">9:00</span> Inicio del paseo por el valle siguiendo el río</li>
+          <li><span class="hora">12:30</span> Vuelta tranquila, con baño de Greta en una poza</li>
+          <li><span class="hora">13:30</span> Picnic o comida al bajar</li>
+          <li><span class="hora">15:00</span> Regreso a la base: descanso</li>
+          <li><span class="hora">20:45</span> Cena</li>
+        </ul>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <ul>
+          <li><span class="label">Ruta:</span> Valle de Estós, tramo llano junto al río (hacia el refugio, tan lejos como queráis)</li>
+          <li><span class="label">Recorrido:</span> Pista y senda entre bosque y praderas, con el río siempre cerca y vistas a Posets</li>
+          <li><span class="label">Firme y desnivel:</span> Pista de tierra, suave y progresivo; sin tramos técnicos</li>
+          <li><span class="label">Dificultad / distancia:</span> Fácil (adaptable) · 4-7 km ida y vuelta · 2,5-3,5 h con paradas</li>
+          <li><span class="label">Aparcamiento:</span> Inicio del valle, cerca del Puente de San Chaime (llega temprano)</li>
+          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> con correa; sombra, agua; ojo al ganado en praderas</li>
+          <li><span class="label">Mejor horario:</span> Mañana (9:00-12:30), antes del calor</li>
+        </ul>
+        <p><strong>👀 No te pierdas:</strong> las pozas y meandros del río Estós, perfectos para que Greta se refresque a la sombra de los pinos.</p>
+      </div>
+      <div class="seccion destacado">
+        <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
+        <p>El momento en que el bosque se abre a una <strong>pradera con el macizo de Posets al fondo</strong>, el segundo pico más alto del Pirineo. Silencio, agua y montaña: el corazón del viaje natural.</p>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
+        <ul>
+          <li><span class="label">Lugar:</span> Picnic en una pradera del Valle de Estós</li>
+          <li><span class="label">Cocina:</span> Producto local; quesos, embutidos de Benasque, fruta</li>
+          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> al aire libre</li>
+          <li><span class="label">Alternativa:</span> Restaurante en Benasque al bajar (terraza)</li>
+        </ul>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
+        <ul>
+          <li><span class="label">Lugar:</span> Restaurante Ansils (Anciles) o en Benasque</li>
+          <li><span class="label">Cocina:</span> Montañesa contundente tras la caminata; carnes a la brasa</li>
+          <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza</li>
+          <li><span class="label">Ambiente / hora:</span> Tranquilo · 20:45</li>
+        </ul>
+      </div>
+      <div class="seccion consejo">
+        <h4><span class="emoji">⚠️</span> Consejo del día</h4>
+        <p>El Valle de Estós es <strong>largo</strong>: no hace falta llegar al refugio, dad la vuelta cuando el cuerpo (o las patitas de Greta) lo pidan. Hay <strong>ganado suelto y mastines</strong> en las praderas altas: correa corta y distancia. Llevad agua aunque haya río y vigilad las almohadillas en pista pedregosa al sol.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DÍA 14 ============ -->
+  <article class="dia">
+    <div class="dia-header">
+      <div><span class="num">Día 14</span><h3>Forau d'Aigualluts y los Llanos del Hospital</h3></div>
+      <span class="fecha">Martes 14 de julio</span>
+    </div>
+    <div class="dia-body">
+      <div class="seccion">
+        <h4><span class="emoji">📖</span> Introducción del día</h4>
+        <p class="evocador">Hoy vivís la jornada más espectacular del valle: subís al fondo, a los pies del Aneto, para descubrir el Forau d'Aigualluts, el sumidero donde el río desaparece bajo tierra para resurgir, kilómetros después, en el valle de Arán. Una pradera alpina rodeada de glaciares y cascadas, en pleno Parque Natural.</p>
+        <p>Es alta montaña "amable": se llega caminando casi en llano desde La Besurta, con Greta a vuestro lado. Paisaje de los que no se olvidan.</p>
+      </div>
+      <div class="seccion timeline">
+        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
+        <ul>
+          <li><span class="hora">8:00</span> Salida temprana hacia los Llanos del Hospital</li>
+          <li><span class="hora">8:30</span> Lanzadera (en julio) de los Llanos del Hospital a La Besurta</li>
+          <li><span class="hora">9:00</span> Caminata de La Besurta al Forau d'Aigualluts y Plan de Aigualluts</li>
+          <li><span class="hora">12:30</span> Regreso a La Besurta y lanzadera de vuelta</li>
+          <li><span class="hora">13:30</span> Comida en los Llanos del Hospital o picnic</li>
+          <li><span class="hora">15:30</span> Regreso a la base: descanso</li>
+          <li><span class="hora">20:45</span> Cena</li>
+        </ul>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <ul>
+          <li><span class="label">Ruta:</span> La Besurta – Forau d'Aigualluts – Plan de Aigualluts (ida y vuelta)</li>
+          <li><span class="label">Recorrido:</span> Senda de montaña entre prados y arroyos, con el Aneto y sus glaciares de fondo; ascenso suave y progresivo</li>
+          <li><span class="label">Firme y desnivel:</span> Senda de tierra y piedra; ~150-200 m de desnivel suave</li>
+          <li><span class="label">Dificultad / distancia:</span> Fácil-moderada · 5-6 km ida y vuelta · 2,5-3 h con paradas</li>
+          <li><span class="label">Apta para Greta:</span> <span class="tag precaucion">⚠️ Con precaución</span> altitud ~2.000-2.200 m, sol y distancia; confirmar que admiten perro en la lanzadera</li>
+          <li><span class="label">Mejor horario:</span> Mañana temprano (sombra, frescor y aparcamiento)</li>
+        </ul>
+        <p><strong>👀 No te pierdas:</strong> la cascada del Forau y el sumidero donde el agua "desaparece" en la roca, un fenómeno geológico único.</p>
+      </div>
+      <div class="seccion destacado">
+        <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
+        <p>El <strong>Plan de Aigualluts</strong>: una pradera verde inmensa atravesada por meandros de agua, con el coloso del <strong>Aneto</strong> y su glaciar dominando el horizonte. El momento más grandioso de todo el viaje.</p>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
+        <ul>
+          <li><span class="label">Lugar:</span> Restaurante del Hospital de Benasque (Llanos del Hospital) o picnic</li>
+          <li><span class="label">Cocina:</span> Montañera reconfortante; sopas, carnes, legumbres</li>
+          <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza exterior</li>
+          <li><span class="label">Alternativa:</span> Picnic en los Llanos del Hospital, en pradera</li>
+        </ul>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
+        <ul>
+          <li><span class="label">Lugar:</span> Cena tranquila en Benasque o cerca de la base</li>
+          <li><span class="label">Cocina:</span> Algo ligero tras el día de montaña</li>
+          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> en terraza / <span class="tag precaucion">⚠️ Consultar</span> interior</li>
+          <li><span class="label">Ambiente / hora:</span> Relajado · 20:45</li>
+        </ul>
+      </div>
+      <div class="seccion consejo">
+        <h4><span class="emoji">⚠️</span> Consejo del día</h4>
+        <p>En julio, <strong>la carretera de los Llanos del Hospital a La Besurta está cerrada al coche particular</strong>: hay que usar la <strong>lanzadera</strong>. <strong>Confirmad antes que Greta puede subir</strong> (al ser Parque Natural suele permitirse, pero comprobadlo). Llevad <strong>agua de sobra, protección solar y algo de abrigo</strong> (arriba refresca) y vigilad a Greta por la altitud y el sol; descansad a la sombra y no forcéis el ritmo.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DÍA 15 ============ -->
+  <article class="dia">
+    <div class="dia-header">
+      <div><span class="num">Día 15</span><h3>Día de descanso: Cerler y el Congosto de Ventamillo</h3></div>
+      <span class="fecha">Miércoles 15 de julio</span>
+    </div>
+    <div class="dia-body">
+      <div class="seccion">
+        <h4><span class="emoji">📖</span> Introducción del día</h4>
+        <p class="evocador">Último día completo en el valle, dedicado a bajar el ritmo y atar cabos. Una mañana suave para visitar Cerler, el pueblo más alto del valle, con sus vistas privilegiadas, y para asomarse al impresionante Congosto de Ventamillo, un desfiladero vertiginoso a las puertas del valle.</p>
+        <p>Tarde de descanso, terraza y preparativos para el regreso. La calma antes de la despedida.</p>
+      </div>
+      <div class="seccion timeline">
+        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
+        <ul>
+          <li><span class="hora">9:30</span> Paseo por el casco de Cerler y sus miradores</li>
+          <li><span class="hora">11:00</span> Parada panorámica en el Congosto de Ventamillo</li>
+          <li><span class="hora">13:00</span> Comida en Benasque o Eriste</li>
+          <li><span class="hora">15:00</span> Tarde libre: descanso, terraza, organizar maletas</li>
+          <li><span class="hora">19:00</span> Último paseo suave por la ribera al atardecer</li>
+          <li><span class="hora">20:45</span> Cena de despedida del valle</li>
+        </ul>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <ul>
+          <li><span class="label">Ruta:</span> Casco de Cerler + mirador del Congosto de Ventamillo</li>
+          <li><span class="label">Recorrido:</span> Callejas empedradas de Cerler con vistas al valle; parada panorámica en el desfiladero del Ésera</li>
+          <li><span class="label">Firme y desnivel:</span> Empedrado con alguna cuesta corta; parada panorámica sin esfuerzo</li>
+          <li><span class="label">Dificultad / distancia:</span> Fácil · 2-3 km repartidos · mañana tranquila</li>
+          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> con correa</li>
+          <li><span class="label">Mejor horario:</span> Mañana, antes del calor</li>
+        </ul>
+        <p><strong>👀 No te pierdas:</strong> las vistas desde Cerler sobre el valle y, si os apetece, la <strong>Cascada de Espigantosa</strong> en el cercano valle de Eriste (paseo corto, consultar acceso en temporada).</p>
+      </div>
+      <div class="seccion destacado">
+        <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
+        <p>El <strong>Congosto de Ventamillo</strong>: paredes verticales de cientos de metros encajonando el río Ésera, una obra maestra de la naturaleza que despide el valle por el sur. Sobrecogedor.</p>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
+        <ul>
+          <li><span class="label">Lugar:</span> Restaurante en Benasque o Eriste (terraza)</li>
+          <li><span class="label">Cocina:</span> Benasquesa; ternasco, setas, postres caseros</li>
+          <li><span class="label">Qué pedir:</span> Un último homenaje con producto local del valle</li>
+          <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza</li>
+          <li><span class="label">Alternativa:</span> Picnic en una pradera con vistas</li>
+        </ul>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
+        <ul>
+          <li><span class="label">Lugar:</span> Restaurante favorito del viaje en Benasque (cena de despedida)</li>
+          <li><span class="label">Cocina:</span> Lo mejor de la cocina de montaña; girella, cordero, crespillos</li>
+          <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza</li>
+          <li><span class="label">Ambiente / hora:</span> Especial, para celebrar el viaje · 20:45</li>
+        </ul>
+      </div>
+      <div class="seccion consejo">
+        <h4><span class="emoji">⚠️</span> Consejo del día</h4>
+        <p>Aprovechad la tarde para <strong>dejar el equipaje casi listo</strong> y revisar el coche de cara al regreso. Si vais a la Cascada de Espigantosa, comprobad el <strong>estado y las restricciones de acceso</strong> del valle de Eriste en julio (puede haber regulación o aparcamiento de pago). Reservad la cena de despedida con antelación.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ DÍA 16 ============ -->
+  <article class="dia">
+    <div class="dia-header">
+      <div><span class="num">Día 16</span><h3>Despedida y regreso a casa</h3></div>
+      <span class="fecha">Jueves 16 de julio</span>
+    </div>
+    <div class="dia-body">
+      <div class="seccion">
+        <h4><span class="emoji">📖</span> Introducción del día</h4>
+        <p class="evocador">Llega el último día. Antes de emprender el regreso, una mañana tranquila y emotiva para despediros del valle: un último paseo junto al Ésera, respirar hondo el aire de montaña y dejar que Greta corretee una vez más por la hierba.</p>
+        <p>Dieciséis días de cascadas, bosques, pueblos de piedra y cumbres quedan grabados para siempre. El viaje termina, pero los recuerdos se van con vosotros.</p>
+      </div>
+      <div class="seccion timeline">
+        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
+        <ul>
+          <li><span class="hora">8:30</span> Desayuno sin prisa</li>
+          <li><span class="hora">9:30</span> Último paseo de despedida junto al río / por Eriste</li>
+          <li><span class="hora">11:00</span> Check-out de La Terraceta de Linsoles</li>
+          <li><span class="hora">11:30</span> Salida hacia casa (con paradas para Greta)</li>
+          <li><span class="hora">14:00</span> Comida en ruta</li>
+        </ul>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <ul>
+          <li><span class="label">Ruta:</span> Paseo de despedida junto al río Ésera o por Eriste/Anciles</li>
+          <li><span class="label">Recorrido:</span> Senda llana de ribera, sin esfuerzo, para cerrar el viaje</li>
+          <li><span class="label">Firme y desnivel:</span> Llano y cómodo</li>
+          <li><span class="label">Dificultad / distancia:</span> Muy fácil · 1-2 km · 45 min-1 h</li>
+          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> paseo tranquilo de despedida</li>
+          <li><span class="label">Mejor horario:</span> Primera hora de la mañana, fresca y luminosa</li>
+        </ul>
+        <p><strong>👀 No te pierdas:</strong> un último vistazo a las cumbres del Posets-Maladeta antes de partir, para grabarlas en la memoria.</p>
+      </div>
+      <div class="seccion destacado">
+        <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
+        <p>El <strong>silencio del valle a primera hora</strong>, con la luz dorada sobre las montañas y Greta correteando feliz por la hierba. El broche emotivo de un viaje inolvidable.</p>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
+        <ul>
+          <li><span class="label">Lugar:</span> Comida en ruta de regreso (Aínsa, Barbastro o donde os pille)</li>
+          <li><span class="label">Cocina:</span> Algo práctico para el viaje; terraza pet-friendly</li>
+          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> en terrazas (consultar)</li>
+          <li><span class="label">Alternativa:</span> Picnic en una área de descanso</li>
+        </ul>
+      </div>
+      <div class="seccion">
+        <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
+        <ul>
+          <li><span class="label">Lugar:</span> Ya en casa o cerca, según la hora de llegada</li>
+          <li><span class="label">Cocina:</span> A vuestro gusto, recordando el viaje</li>
+          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> en casa</li>
+          <li><span class="label">Ambiente / hora:</span> El reencuentro con el hogar</li>
+        </ul>
+      </div>
+      <div class="seccion consejo">
+        <h4><span class="emoji">⚠️</span> Consejo del día</h4>
+        <p>Salid con el <strong>depósito lleno</strong> y haced <strong>paradas cada 2 horas</strong> para que Greta beba, haga sus necesidades y estire las patas; <strong>nunca la dejéis sola en el coche con calor</strong> (la temperatura sube en minutos). Llevad agua fresca a mano y planificad la comida en un sitio con terraza a la sombra.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ FINAL: CONSEJOS GENERALES ============ -->
+  <section class="final">
+    <h2>🐾 Consejos generales para viajar con perro en el Pirineo Aragonés</h2>
+    <ul>
+      <li><strong>Parques: Nacional vs. Natural.</strong> En el Parque Nacional de Ordesa y Monte Perdido los perros están prohibidos; en los Parques Naturales (Posets-Maladeta) y valles no protegidos (Hecho, Bujaruelo) sí pueden ir con correa. Comprueba la figura de protección antes de cada ruta.</li>
+      <li><strong>Calor de julio:</strong> caminad a primera y última hora; descanso a la sombra entre las 13:00 y las 18:00. Nunca dejéis al perro en el coche.</li>
+      <li><strong>Agua siempre:</strong> bol plegable y agua aunque haya río; los perros pequeños se deshidratan rápido.</li>
+      <li><strong>Mastines y ganado:</strong> habituales en pastos altos. Correa corta, calma, distancia y nunca os interpongáis entre el mastín y su rebaño.</li>
+      <li><strong>Almohadillas:</strong> vigilad pistas pedregosas y empedrados al sol; pueden quemar.</li>
+      <li><strong>Baños en ríos:</strong> pozas tranquilas y poco profundas; el agua de deshielo es fría. Secad bien al perro, sobre todo las orejas.</li>
+      <li><strong>Salud:</strong> pipeta/collar antiparasitario al día, revisión de garrapatas tras cada paseo y cartilla veterinaria siempre encima.</li>
+      <li><strong>Lanzaderas y transportes:</strong> en zonas con acceso regulado (Ordesa, La Besurta), confirma de antemano si admiten perros.</li>
+      <li><strong>Restaurantes:</strong> muchos aceptan perro en terraza; pídelo siempre al reservar.</li>
+      <li><strong>Altitud y esfuerzo:</strong> adapta el ritmo al perro; no fuerces distancias ni desniveles.</li>
+    </ul>
+  </section>
+
+  <!-- ============ FINAL: MOCHILA ============ -->
+  <section class="final mochila">
+    <h2>🎒 Qué llevar en la mochila (senderismo suave con mascota en verano)</h2>
+    <div class="grid2">
+      <h3>Para Greta</h3>
+      <ul>
+        <li>Correa (y una de repuesto) + arnés cómodo</li>
+        <li>Bol plegable y agua suficiente</li>
+        <li>Comida/snacks y premios</li>
+        <li>Bolsas para excrementos</li>
+        <li>Toalla pequeña para secarla tras los baños</li>
+      </ul>
+      <ul>
+        <li>Pipeta/antiparasitario y peine para garrapatas</li>
+        <li>Botiquín canino (gasas, suero, pinza de garrapatas)</li>
+        <li>Cartilla veterinaria y teléfono de un veterinario</li>
+        <li>Manta o esterilla ligera para la sombra</li>
+      </ul>
+      <h3>Para Carles y Anna</h3>
+      <ul>
+        <li>Agua abundante y algo de comida/picnic</li>
+        <li>Gorra, gafas de sol y crema solar</li>
+        <li>Cortavientos o forro fino (en altura refresca)</li>
+        <li>Calzado de montaña cómodo</li>
+      </ul>
+      <ul>
+        <li>Botiquín básico, móvil cargado y batería externa</li>
+        <li>Mapa o app de senderos descargada</li>
+        <li>Bastones de senderismo (opcional)</li>
+        <li>Bolsa para residuos (no dejéis rastro)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ MAPA ============ -->
+  <section class="final">
+    <h2>🗺️ Mapa mental de las zonas visitadas</h2>
+    <div class="mapa">     FORAU D'AIGUALLUTS / Aneto (Día 14)
+                  ▲
+        VALLE DE ESTÓS (Día 13)
+                  │
+        LLANOS DEL HOSPITAL
+                  │
+        BENASQUE (Día 12) · ANCILES (Día 11)
+                  │
+   ★ LA TERRACETA DE LINSOLES ──┤  ← BASE (11-16 julio)
+                  │
+        CERLER (Día 15)
+                  │
+      ────────────┴────────────
+      │                        │
+  CONGOSTO DE              (regreso a casa
+  VENTAMILLO (Día 15)       · Día 16)</div>
+    <p style="margin-top:14px;color:var(--gris-suave)"><strong>Eje principal:</strong> el valle del río Ésera (norte-sur). Estós y Llanos del Hospital al norte (10-20 min), Benasque y Anciles al lado (5 min), Cerler y el Congosto al sur (10-20 min). Todo en el <strong>Parque Natural Posets-Maladeta</strong>, pet-friendly con correa. ✅</p>
+  </section>
+
+  <!-- ============ CIERRE ============ -->
+  <section class="cierre">
+    <h2>💛 Mensaje de cierre del viaje</h2>
+    <p>Carles, Anna y Greta: dieciséis días, tres valles y un Pirineo entero guardado en la memoria. Empezasteis entre los bosques umbríos de Hecho, cruzasteis los puentes de piedra y las cascadas del Sobrarbe, y habéis terminado a los pies del Aneto, con los tresmiles reflejándose en el agua.</p>
+    <p>Habéis caminado sin prisa, habéis dejado que el calor marcara el ritmo y que cada poza de río fuera una excusa para parar. Y, sobre todo, lo habéis hecho <strong>los tres juntos</strong>, eligiendo siempre los caminos donde Greta pudiera trotar a vuestro lado.</p>
+    <p>Que os quedéis con el olor a pino al amanecer, el rumor del agua, las terrazas de piedra al atardecer y esa sensación de tiempo detenido que solo regala la montaña. El Pirineo siempre estará aquí, esperando vuestra próxima aventura.</p>
+    <p class="firma">¡Buen regreso a casa! 🐾🏔️💛</p>
+  </section>
+
+</div>
+
+<footer>
+  <p><strong>Bloque 3 de 3</strong> · Ruta Pirineo Aragonés · Valle de Benasque (11-16 julio 2026)</p>
+  <p>Itinerario pensado para Carles, Anna y Greta 🐾 · Ritmo tranquilo · 100% pet-friendly</p>
+  <p style="margin-top:10px"><a href="index.html">🏠 Índice del viaje</a> · <a href="ruta-pirineo-bloque2.html">← Bloque 2</a></p>
+</footer>
+
+</body>
+</html>
