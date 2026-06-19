@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruta Pirineo Aragonés 2026 · Carles, Anna y Greta 🐾</title>
+<style>
+  :root{
+    --verde-bosque:#2f5d3a;--verde-claro:#4a8259;--piedra:#b88c4a;
+    --crema:#f7f3e9;--crema-card:#fffdf7;--texto:#2b2b26;--gris-suave:#6b6b60;
+    --azul-rio:#3a7ca5;--sombra:0 6px 24px rgba(47,93,58,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;color:var(--texto);background:var(--crema);line-height:1.65;}
+  .hero{background:linear-gradient(135deg,var(--verde-bosque) 0%,var(--verde-claro) 60%,var(--azul-rio) 130%);color:#fff;padding:70px 24px 80px;text-align:center;}
+  .hero .badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);padding:6px 16px;border-radius:30px;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;}
+  .hero h1{font-size:2.6rem;font-weight:800;line-height:1.15;margin-bottom:14px;text-shadow:0 2px 12px rgba(0,0,0,.2);}
+  .hero .sub{font-size:1.2rem;opacity:.95;max-width:720px;margin:0 auto;}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px;}
+  .hero .meta span{background:rgba(255,255,255,.15);padding:8px 16px;border-radius:10px;font-size:.95rem;}
+  .wrap{max-width:900px;margin:0 auto;padding:50px 20px 70px;}
+  .intro{text-align:center;color:var(--gris-suave);font-size:1.05rem;max-width:720px;margin:0 auto 44px;}
+  .cards{display:grid;grid-template-columns:1fr;gap:26px;}
+  .card{display:block;text-decoration:none;color:inherit;background:var(--crema-card);border-radius:16px;box-shadow:var(--sombra);overflow:hidden;border:1px solid rgba(184,140,74,.18);transition:transform .15s ease,box-shadow .15s ease;}
+  .card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(47,93,58,.18);}
+  .card.disabled{opacity:.7;pointer-events:none;}
+  .card-top{background:linear-gradient(100deg,var(--verde-bosque),var(--verde-claro));color:#fff;padding:20px 26px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+  .card-top .num{font-size:.78rem;letter-spacing:2px;text-transform:uppercase;opacity:.85;display:block;}
+  .card-top h2{font-size:1.4rem;font-weight:700;}
+  .card-top .fechas{background:rgba(255,255,255,.2);padding:6px 14px;border-radius:20px;font-size:.85rem;white-space:nowrap;}
+  .card-body{padding:20px 26px;}
+  .card-body p{margin-bottom:10px;}
+  .card-body .lugar{font-weight:700;color:var(--verde-bosque);}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+  .chip{font-size:.82rem;background:#eef4ec;color:var(--verde-bosque);padding:3px 11px;border-radius:20px;}
+  .chip.alert{background:#fdeaea;color:#c0392b;}
+  .soon{font-size:.85rem;color:var(--piedra);font-weight:700;}
+  footer{text-align:center;padding:34px 20px;color:var(--gris-suave);font-size:.9rem;}
+  footer strong{color:var(--verde-bosque);}
+  @media(max-width:600px){.hero h1{font-size:1.9rem;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="badge">Pirineo Aragonés · Julio 2026</span>
+  <h1>Ruta de naturaleza por el Pirineo</h1>
+  <p class="sub">Un viaje tranquilo de senderismo suave, pueblos con encanto y desconexión para Carles, Anna y Greta. 🐾 Todo pet-friendly.</p>
+  <div class="meta">
+    <span>📅 1 – ~16 de julio de 2026</span>
+    <span>🐕 100% pet-friendly</span>
+    <span>🥾 Ritmo relajado</span>
+  </div>
+</header>
+
+<div class="wrap">
+  <p class="intro">El viaje se organiza en <strong>tres bloques</strong>, cada uno con su alojamiento base y actividades cercanas para evitar desplazamientos largos. Pincha en cada bloque para ver el itinerario detallado día a día.</p>
+
+  <div class="cards">
+
+    <a class="card" href="ruta-pirineo-bloque1.html">
+      <div class="card-top">
+        <div><span class="num">Bloque 1</span><h2>Valle de Hecho</h2></div>
+        <span class="fechas">1 – 6 julio</span>
+      </div>
+      <div class="card-body">
+        <p class="lugar">🏨 Hotel de Montaña Usón · Jacetania</p>
+        <p>Bosques de la Selva de Oza, la Boca del Infierno, el pueblo de Ansó y los llanos de la Guarrinza. Naturaleza fresca y umbría, ideal para el calor de julio.</p>
+        <div class="chips">
+          <span class="chip">Selva de Oza</span>
+          <span class="chip">Ansó</span>
+          <span class="chip">Guarrinza</span>
+          <span class="chip">Siresa</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="ruta-pirineo-bloque2.html">
+      <div class="card-top">
+        <div><span class="num">Bloque 2</span><h2>Broto y entorno de Ordesa</h2></div>
+        <span class="fechas">6 – 11 julio</span>
+      </div>
+      <div class="card-body">
+        <p class="lugar">🏨 Casa Rincón de Broto · Sobrarbe</p>
+        <p>Cascada de Sorrosal, el Valle de Bujaruelo, Torla y el Valle de Vió. Alternativas pet-friendly al Parque Nacional, donde los perros no pueden entrar.</p>
+        <div class="chips">
+          <span class="chip">Bujaruelo</span>
+          <span class="chip">Torla</span>
+          <span class="chip">Valle de Vió</span>
+          <span class="chip alert">Ordesa ❌ perros</span>
+        </div>
+      </div>
+    </a>
+
+    <div class="card disabled">
+      <div class="card-top">
+        <div><span class="num">Bloque 3</span><h2>Valle de Benasque</h2></div>
+        <span class="fechas">11 – ... julio</span>
+      </div>
+      <div class="card-body">
+        <p class="lugar">🏨 La Terraceta de Linsoles · Ribagorza</p>
+        <p>El valle de Benasque y el Parque Natural Posets-Maladeta, donde los perros sí están permitidos con correa.</p>
+        <p class="soon">⏳ Próximamente</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p><strong>Ruta Pirineo Aragonés 2026</strong> · Carles, Anna y Greta 🐾</p>
+  <p>Senderismo suave · Pueblos con encanto · Descanso y desconexión</p>
+</footer>
+
+</body>
+</html>
