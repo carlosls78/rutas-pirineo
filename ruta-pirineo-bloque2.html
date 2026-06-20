@@ -6,31 +6,14 @@
 <title>Ruta Pirineo Aragonés · Bloque 2 — Broto y Ordesa (6-11 julio 2026)</title>
 <style>
   :root{
-    --verde-bosque:#2f5d3a;
-    --verde-claro:#4a8259;
-    --piedra:#b88c4a;
-    --crema:#f7f3e9;
-    --crema-card:#fffdf7;
-    --texto:#2b2b26;
-    --gris-suave:#6b6b60;
-    --azul-rio:#3a7ca5;
-    --sombra:0 6px 24px rgba(47,93,58,.12);
+    --verde-bosque:#2f5d3a;--verde-claro:#4a8259;--piedra:#b88c4a;
+    --crema:#f7f3e9;--crema-card:#fffdf7;--texto:#2b2b26;--gris-suave:#6b6b60;
+    --azul-rio:#3a7ca5;--sombra:0 6px 24px rgba(47,93,58,.12);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{
-    font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
-    color:var(--texto);background:var(--crema);line-height:1.65;
-  }
-  /* ===== HERO ===== */
-  .hero{
-    background:linear-gradient(135deg,var(--verde-bosque) 0%,var(--verde-claro) 60%,var(--azul-rio) 130%);
-    color:#fff;padding:60px 24px 70px;text-align:center;position:relative;
-  }
-  .hero .badge{
-    display:inline-block;background:rgba(255,255,255,.18);
-    border:1px solid rgba(255,255,255,.4);padding:6px 16px;border-radius:30px;
-    font-size:.85rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;
-  }
+  body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;color:var(--texto);background:var(--crema);line-height:1.65;}
+  .hero{background:linear-gradient(135deg,var(--verde-bosque) 0%,var(--verde-claro) 60%,var(--azul-rio) 130%);color:#fff;padding:60px 24px 70px;text-align:center;position:relative;}
+  .hero .badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);padding:6px 16px;border-radius:30px;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;}
   .hero h1{font-size:2.5rem;font-weight:800;line-height:1.15;margin-bottom:14px;text-shadow:0 2px 12px rgba(0,0,0,.2);}
   .hero .sub{font-size:1.15rem;opacity:.95;max-width:760px;margin:0 auto 24px;}
   .hero .meta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:10px;}
@@ -38,18 +21,15 @@
   .hero .nav{margin-top:22px;}
   .hero .nav a{color:#fff;text-decoration:none;background:rgba(255,255,255,.22);padding:7px 16px;border-radius:8px;margin:0 5px;font-size:.9rem;display:inline-block;}
   .hero .nav a:hover{background:rgba(255,255,255,.35);}
-  /* ===== CONTENEDOR ===== */
   .wrap{max-width:980px;margin:0 auto;padding:40px 20px 80px;}
   .intro-box{background:var(--crema-card);border-left:6px solid var(--piedra);border-radius:12px;padding:24px 28px;box-shadow:var(--sombra);margin-bottom:30px;}
   .intro-box h2{color:var(--verde-bosque);font-size:1.3rem;margin-bottom:10px;}
-  .intro-box p{color:var(--gris-suave);}
+  .intro-box p{color:var(--gris-suave);margin-bottom:10px;}
   .intro-box strong{color:var(--texto);}
-  /* Aviso destacado */
   .aviso{background:#fdeaea;border:1px solid #e7b3b3;border-left:6px solid #c0392b;border-radius:12px;padding:22px 26px;margin-bottom:46px;box-shadow:var(--sombra);}
   .aviso h2{color:#c0392b;font-size:1.2rem;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
-  .aviso p{color:#7a2e2e;}
+  .aviso p{color:#7a2e2e;margin-bottom:10px;}
   .aviso strong{color:#5e1f1f;}
-  /* ===== TARJETA DÍA ===== */
   .dia{background:var(--crema-card);border-radius:16px;box-shadow:var(--sombra);margin-bottom:40px;overflow:hidden;border:1px solid rgba(184,140,74,.18);}
   .dia-header{background:linear-gradient(100deg,var(--verde-bosque),var(--verde-claro));color:#fff;padding:22px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;}
   .dia-header .num{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;opacity:.85;display:block;}
@@ -60,7 +40,7 @@
   .seccion:last-child{border-bottom:none;}
   .seccion h4{font-size:1.08rem;color:var(--verde-bosque);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
   .seccion .emoji{font-size:1.25rem;}
-  .seccion p{color:var(--texto);margin-bottom:8px;}
+  .seccion p{color:var(--texto);margin-bottom:10px;}
   .seccion ul{list-style:none;margin-top:6px;}
   .seccion ul li{padding:4px 0 4px 22px;position:relative;color:var(--texto);}
   .seccion ul li::before{content:"›";position:absolute;left:6px;color:var(--piedra);font-weight:bold;}
@@ -68,11 +48,18 @@
   .destacado{background:linear-gradient(90deg,rgba(184,140,74,.12),transparent);border-radius:10px;padding:14px 16px;}
   .consejo{background:#fff7e6;border:1px solid #f0d9a8;border-radius:10px;padding:14px 16px;}
   .consejo h4{color:#a9761c;}
-  .timeline{background:#eef4ec;border-radius:10px;padding:14px 18px;}
-  .timeline h4{color:var(--azul-rio);}
-  .timeline ul li{padding:5px 0 5px 0;border-bottom:1px dotted rgba(0,0,0,.08);}
-  .timeline ul li::before{content:"";}
-  .timeline .hora{display:inline-block;min-width:96px;font-weight:700;color:var(--verde-bosque);}
+  .consejo p{margin-bottom:8px;}
+  .subtitulo{font-weight:700;color:var(--verde-bosque);margin-top:6px;margin-bottom:4px;}
+  .tabla{width:100%;border-collapse:collapse;margin-top:8px;font-size:.95rem;}
+  .tabla th,.tabla td{text-align:left;padding:8px 12px;border-bottom:1px solid rgba(184,140,74,.25);vertical-align:top;}
+  .tabla th{background:#eef4ec;color:var(--verde-bosque);}
+  .tabla tr:last-child td{border-bottom:none;}
+  .tabla .hora-col{font-weight:700;color:var(--verde-bosque);white-space:nowrap;width:130px;}
+  .ficha td:first-child{font-weight:600;color:var(--gris-suave);width:38%;}
+  .opcion{background:#fbf7ee;border:1px solid rgba(184,140,74,.25);border-radius:10px;padding:14px 16px;margin-bottom:12px;}
+  .opcion:last-child{margin-bottom:0;}
+  .opcion h5{color:var(--piedra);font-size:1rem;margin-bottom:6px;}
+  .opcion p{margin-bottom:6px;}
   .tag{display:inline-block;font-size:.82rem;font-weight:600;padding:2px 10px;border-radius:20px;margin-left:4px;}
   .si{background:#dff3e3;color:#1f7a38;}
   .precaucion{background:#fff1d6;color:#b3760a;}
@@ -93,7 +80,8 @@
     .hero h1{font-size:1.8rem;}
     .dia-body{padding:8px 18px 20px;}
     .dia-header{padding:18px;}
-    .timeline .hora{min-width:80px;}
+    .tabla .hora-col{width:90px;}
+    .ficha td:first-child{width:45%;}
   }
 </style>
 </head>
@@ -120,402 +108,567 @@
 
   <section class="intro-box">
     <h2>📍 Contexto de la zona</h2>
-    <p><strong>Broto</strong> es la capital tradicional del valle del río Ara —el último gran río pirenaico sin embalses— y la puerta sur de Ordesa. Desde aquí se llega en pocos minutos a pueblos de piedra y pizarra de postal (Torla, Oto, Sarvisé), a cascadas que caen dentro del propio pueblo y a valles vírgenes como Bujaruelo. Es una base céntrica que permite <strong>desplazamientos cortos</strong> y mantener el ritmo tranquilo del viaje.</p>
-    <p style="margin-top:10px"><strong>Estrategia diaria en julio:</strong> actividad por la mañana temprano, descanso en las horas de calor (13:00-18:00) y paseo suave o pueblo al atardecer.</p>
+    <p>Broto es la capital tradicional del valle del río Ara —el último gran río pirenaico sin embalses— y la puerta sur de Ordesa. Desde aquí se llega en pocos minutos a pueblos de piedra y pizarra de postal (Torla, Oto, Sarvisé), a cascadas que caen dentro del propio pueblo y a valles vírgenes como Bujaruelo. Es una base céntrica que permite <strong>desplazamientos cortos</strong> y mantener el ritmo tranquilo del viaje.</p>
+    <p><strong>Estrategia diaria en julio:</strong> actividad por la mañana temprano, descanso en las horas de calor (13:00-18:00) y paseo suave o pueblo al atardecer.</p>
   </section>
 
   <section class="aviso">
     <h2>⚠️ Aviso clave — Perros en el Parque Nacional de Ordesa</h2>
     <p>El <strong>Parque Nacional de Ordesa y Monte Perdido prohíbe el acceso a perros</strong> en todos sus sectores (Ordesa, Añisclo, Escuaín y Pineta), <strong>incluso atados o en brazos</strong>, durante todo el año. Además, en julio el valle de Ordesa solo es accesible en <strong>autobús lanzadera desde Torla</strong> (no se puede subir en coche particular), y <strong>los perros tampoco pueden viajar en la lanzadera</strong>.</p>
-    <p style="margin-top:10px">Conclusión: con Greta <strong>no se entra al Parque Nacional</strong>. Por eso este bloque está diseñado con alternativas pet-friendly espectaculares (Bujaruelo, Sorrosal, Torla, Valle de Vió). Si quisierais ver Ordesa por dentro, la única opción sería dejar a Greta en una <strong>guardería canina</strong> de la zona (Torla/Broto) y turnaros.</p>
+    <p>Conclusión: con Greta <strong>no se entra al Parque Nacional</strong>. Por eso este bloque está diseñado con alternativas pet-friendly espectaculares (Bujaruelo, Sorrosal, Torla, Valle de Vió). Si quisierais ver Ordesa por dentro, la única opción sería dejar a Greta en una <strong>guardería canina</strong> de la zona (Torla/Broto) y turnaros.</p>
   </section>
+
 
   <!-- ============ DÍA 6 ============ -->
   <article class="dia">
     <div class="dia-header">
-      <div><span class="num">Día 6</span><h3>Traslado a Broto y cascada en el pueblo</h3></div>
+      <div><span class="num">Día 6</span><h3>El agua que cae en el pueblo</h3></div>
       <span class="fecha">Lunes 6 de julio</span>
     </div>
     <div class="dia-body">
       <div class="seccion">
         <h4><span class="emoji">📖</span> Introducción del día</h4>
-        <p class="evocador">Hoy cerráis el capítulo del Valle de Hecho y os trasladáis hacia el corazón del Sobrarbe. El trayecto, sin prisas, atraviesa Jaca, el embalse de Búbal y Biescas, con el paisaje volviéndose cada vez más vertical. Al llegar a Broto os espera una sorpresa: una cascada espectacular cae dentro del propio pueblo, a un paso de la casa.</p>
-        <p>Una jornada de transición suave, para deshacer maletas, reconocer el terreno y dejar que Greta estrene su nuevo territorio sin esfuerzo.</p>
+        <p class="evocador">Tras la mañana de despedida en el Valle de Hecho, el coche enfila hacia el este por carreteras que van ganando altura y dramatismo: Jaca, el embalse de Búbal, Biescas, y de repente el Sobrarbe se abre ante vosotros con sus montañas más afiladas. La llegada a Broto tiene premio inmediato: una cascada espectacular cae literalmente dentro del pueblo, a un paso de la casa.</p>
+        <p class="evocador">Hoy es jornada de transición, sin exigencias: deshacer maletas, dejar que Greta marque su nuevo territorio y reservar la energía para un paseo corto al atardecer hasta el salto de agua. Mañana empieza lo grande.</p>
       </div>
-      <div class="seccion timeline">
-        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
-        <ul>
-          <li><span class="hora">9:30</span> Salida tranquila del Valle de Hecho tras desayunar</li>
-          <li><span class="hora">10:00</span> Repostaje y últimas compras en Jaca de camino</li>
-          <li><span class="hora">12:00</span> Llegada a Broto, check-in en Casa Rincón de Broto</li>
-          <li><span class="hora">13:30</span> Comida ligera y descanso del viaje</li>
-          <li><span class="hora">18:30</span> Paseo a la Cascada de Sorrosal, ya al fresco</li>
-          <li><span class="hora">20:30</span> Cena en Broto</li>
-        </ul>
+
+      <div class="seccion">
+        <h4><span class="emoji">⏰</span> Horario orientativo del día</h4>
+        <table class="tabla">
+          <tr><th class="hora-col">Hora</th><th>Actividad</th></tr>
+          <tr><td class="hora-col">9:30 h</td><td>Salida tranquila del Valle de Hecho tras desayunar</td></tr>
+          <tr><td class="hora-col">10:00 h</td><td>Repostaje y últimas compras en Jaca de camino</td></tr>
+          <tr><td class="hora-col">12:00 h</td><td>Llegada a Broto, check-in en Casa Rincón de Broto</td></tr>
+          <tr><td class="hora-col">13:30 h</td><td>Comida ligera y descanso del viaje</td></tr>
+          <tr><td class="hora-col">18:30 h</td><td>Paseo a la Cascada de Sorrosal, ya al fresco</td></tr>
+          <tr><td class="hora-col">20:30 h</td><td>Cena en Broto</td></tr>
+        </table>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <p><strong>Cascada de Sorrosal — Broto</strong></p>
+        <p class="subtitulo">Contexto geográfico y natural</p>
+        <p>El barranco de Sorrosal desemboca justo en el casco de Broto (905 m) tras precipitarse en una cascada de más de 100 metros repartida en varios saltos. El entorno es un buen ejemplo de la geología caliza del Sobrarbe: el agua ha labrado la roca durante milenios formando estrechos y oquedades. La parte baja, junto al pueblo, es accesible para todos; la parte alta tiene una vía ferrata para montañeros (no es vuestro caso). Es un escenario fresco y húmedo, con vegetación de ribera, ideal para una primera toma de contacto suave.</p>
+        <p class="subtitulo">Descripción detallada del recorrido</p>
+        <p><strong>Tramo 1 — Del pueblo al pie del salto:</strong> desde la plaza de Broto, un sendero señalizado sube en pocos minutos hasta la base de la cascada, donde el agua cae con fuerza entre paredes de roca.</p>
+        <p><strong>Tramo 2 — Pasarelas y miradores:</strong> unas pasarelas y escaleras permiten asomarse a los saltos intermedios y a los antiguos canales de las centrales hidráulicas. Subid lo que os apetezca y volved por el mismo sitio.</p>
+        <table class="tabla ficha">
+          <tr><td>Punto de inicio</td><td>Plaza de Broto</td></tr>
+          <tr><td>Cómo llegar</td><td>A pie desde el centro de Broto (la casa está a un paso)</td></tr>
+          <tr><td>Distancia</td><td>1-2 km ida y vuelta</td></tr>
+          <tr><td>Desnivel</td><td>+60/-60 m (escaleras y pasarelas)</td></tr>
+          <tr><td>Tiempo estimado</td><td>45 min - 1 h con paradas</td></tr>
+          <tr><td>Dificultad</td><td>⭐ Muy fácil (la parte baja)</td></tr>
+          <tr><td>Apta para Greta</td><td><span class="tag si">✅ Sí</span> sendero corto; correa en pasarelas y escaleras (roca húmeda)</td></tr>
+          <tr><td>Mejor horario</td><td>Última hora de la tarde, con el calor bajando</td></tr>
+        </table>
+        <p class="subtitulo">Qué llevar</p>
         <ul>
-          <li><span class="label">Ruta:</span> Cascada de Sorrosal, en el casco de Broto</li>
-          <li><span class="label">Recorrido:</span> Desde la plaza, sendero corto que sube hasta el pie del salto; pasarelas y miradores sobre el barranco</li>
-          <li><span class="label">Firme y desnivel:</span> Senda y escaleras, breve subida; muy asumible</li>
-          <li><span class="label">Dificultad / distancia:</span> Muy fácil · 1-2 km ida y vuelta · 45 min-1 h</li>
-          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> sendero corto, frescor del agua; correa en las pasarelas</li>
-          <li><span class="label">Mejor horario:</span> Última hora de la tarde, con el calor bajando</li>
+          <li>Agua para Greta y bolsas</li>
+          <li>Calzado con buen agarre (la roca junto al agua resbala)</li>
+          <li>Cámara: el salto y el pueblo hacen una foto preciosa</li>
         </ul>
-        <p><strong>👀 No te pierdas:</strong> los restos de antiguas centrales hidráulicas y el rumor del agua resonando en el barranco al borde del pueblo.</p>
       </div>
+
       <div class="seccion destacado">
         <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
-        <p>El primer encuentro con la <strong>Cascada de Sorrosal</strong>: un salto de agua potente cayendo entre paredes de roca a escasos metros de las casas. Que un pueblo tenga semejante espectáculo en su centro resume el carácter de esta zona.</p>
+        <p>El primer encuentro con la Cascada de Sorrosal: un salto de agua potente cayendo entre paredes de roca a escasos metros de las casas, con el rumor llenándolo todo. Que un pueblo tenga semejante espectáculo natural en su propio centro resume el carácter generoso de esta zona del Pirineo.</p>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
-        <ul>
-          <li><span class="label">Lugar:</span> Comida ligera en Broto (terraza en la plaza) o picnic de traslado</li>
-          <li><span class="label">Cocina:</span> Algo sencillo el día de viaje; bocadillo de jamón o ensalada</li>
-          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> en terraza</li>
-          <li><span class="label">Alternativa:</span> Picnic con vistas al valle a la llegada</li>
-        </ul>
+        <div class="opcion">
+          <h5>Opción A — Terraza en la plaza de Broto</h5>
+          <p><span class="label">Contexto:</span> el día de traslado pide algo sencillo y sin complicaciones en una terraza del pueblo.</p>
+          <p><span class="label">Cocina:</span> platos de montaña y raciones; ensaladas, embutido, tortilla, bocadillos.</p>
+          <p><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> en terraza · <span class="label">Precio:</span> 15-25 € por persona</p>
+        </div>
+        <div class="opcion">
+          <h5>Opción B — Picnic de traslado</h5>
+          <p>Si llegáis con hambre y ganas de instalaros, un picnic con lo que traigáis del Valle de Hecho (queso, embutido, fruta) con vistas al valle.</p>
+        </div>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
         <ul>
-          <li><span class="label">Lugar:</span> Restaurante Alto Aragón o La Posada (Broto)</li>
-          <li><span class="label">Cocina:</span> Aragonesa de montaña; ternasco, migas, trucha del Ara</li>
-          <li><span class="label">Qué pedir:</span> Ternasco asado o un guiso de la casa</li>
+          <li><span class="label">Lugar:</span> Restaurante en Broto (p. ej. La Posada de Broto o un asador del pueblo)</li>
+          <li><span class="label">Cocina:</span> aragonesa de montaña; ternasco, migas, trucha del Ara</li>
+          <li><span class="label">Qué pedir:</span> ternasco asado o un guiso de la casa para estrenar el Sobrarbe</li>
           <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> reservar y pedir terraza</li>
-          <li><span class="label">Ambiente / hora:</span> Tranquilo y familiar · 20:30</li>
+          <li><span class="label">Ambiente / hora:</span> tranquilo y familiar · 20:30 h</li>
         </ul>
       </div>
+
       <div class="seccion consejo">
         <h4><span class="emoji">⚠️</span> Consejo del día</h4>
-        <p>Día de traslado = jornada suave. Repostad y comprad provisiones en <strong>Jaca o Sabiñánigo</strong> de camino (las tiendas pequeñas cierran a mediodía). A la llegada, dejad que Greta beba y descanse antes del paseo. Aprovechad para localizar la <strong>veterinaria</strong> y, si pensáis ver Ordesa, preguntar por <strong>guardería canina</strong> en Torla/Broto.</p>
+        <p><strong>Sobre el traslado:</strong> repostad y comprad provisiones en Jaca o Sabiñánigo de camino; las tiendas de los pueblos pequeños cierran a mediodía. El trayecto Hecho-Broto dura ~1h40-2h.</p>
+        <p><strong>Sobre Greta:</strong> tras el coche, dadle agua y un rato de calma antes del paseo. Localizad la veterinaria más cercana y, si pensáis ver Ordesa, preguntad ya por guardería canina en Torla/Broto.</p>
+        <p><strong>Sobre la cascada:</strong> id al atardecer, con menos calor y mejor luz; la roca junto al agua está siempre húmeda y resbala.</p>
       </div>
     </div>
   </article>
 
+
   <!-- ============ DÍA 7 ============ -->
   <article class="dia">
     <div class="dia-header">
-      <div><span class="num">Día 7</span><h3>Valle de Bujaruelo, la gran alternativa pet-friendly</h3></div>
+      <div><span class="num">Día 7</span><h3>Bujaruelo, el paraíso de al lado</h3></div>
       <span class="fecha">Martes 7 de julio</span>
     </div>
     <div class="dia-body">
       <div class="seccion">
         <h4><span class="emoji">📖</span> Introducción del día</h4>
-        <p class="evocador">Hoy descubrís el secreto mejor guardado de la zona: el Valle de Bujaruelo, justo al lado de Ordesa pero fuera del Parque Nacional, donde Greta sí es bienvenida. Un valle amplio y luminoso por el que discurre el río Ara cristalino, presidido por un precioso puente medieval de piedra junto a una ermita y un viejo refugio.</p>
-        <p>Praderas, pozas turquesa y montañas de fondo: el escenario perfecto para una mañana de naturaleza en familia.</p>
+        <p class="evocador">A un paso de Ordesa, pero fuera de sus fronteras y de sus prohibiciones, se esconde uno de los valles más hermosos del Pirineo: Bujaruelo. Aquí el río Ara baja joven y cristalino entre praderas inmensas, y un puente medieval de piedra, una ermita y un viejo refugio forman una estampa que parece sacada de un cuento. Lo mejor de todo: Greta es bienvenida.</p>
+        <p class="evocador">Será un día de naturaleza amplia y luminosa, de pozas turquesa y montañas al fondo, caminando casi en llano junto al agua. La gran alternativa pet-friendly al Parque Nacional, y posiblemente uno de los días que más recordéis del viaje.</p>
       </div>
-      <div class="seccion timeline">
-        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
-        <ul>
-          <li><span class="hora">8:30</span> Salida de Broto con picnic preparado</li>
-          <li><span class="hora">9:00</span> Llegada al Puente de los Navarros y pista hacia Bujaruelo</li>
-          <li><span class="hora">9:30</span> Aparcamiento de San Nicolás de Bujaruelo y paseo junto al Ara</li>
-          <li><span class="hora">13:00</span> Picnic o comida en el mesón del puente</li>
-          <li><span class="hora">15:00</span> Regreso a Broto: siesta y descanso</li>
-          <li><span class="hora">20:30</span> Cena</li>
-        </ul>
+
+      <div class="seccion">
+        <h4><span class="emoji">⏰</span> Horario orientativo del día</h4>
+        <table class="tabla">
+          <tr><th class="hora-col">Hora</th><th>Actividad</th></tr>
+          <tr><td class="hora-col">8:00 h</td><td>Desayuno y picnic preparado</td></tr>
+          <tr><td class="hora-col">8:30 h</td><td>Salida hacia el Puente de los Navarros</td></tr>
+          <tr><td class="hora-col">9:00 h</td><td>Pista de tierra hacia Bujaruelo (despacio, ~30 min)</td></tr>
+          <tr><td class="hora-col">9:45 h</td><td>San Nicolás de Bujaruelo: puente medieval y paseo junto al Ara</td></tr>
+          <tr><td class="hora-col">13:00 h</td><td>Picnic o comida en el mesón del puente</td></tr>
+          <tr><td class="hora-col">15:00 h</td><td>Regreso a Broto: siesta y descanso</td></tr>
+          <tr><td class="hora-col">20:30 h</td><td>Cena</td></tr>
+        </table>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <p><strong>San Nicolás de Bujaruelo y paseo junto al río Ara</strong></p>
+        <p class="subtitulo">Contexto geográfico y natural</p>
+        <p>El valle de Bujaruelo se sitúa en la cabecera del río Ara, en una zona periférica de protección del Parque Nacional pero fuera de su perímetro estricto, lo que permite el acceso de perros con correa. El conjunto de San Nicolás de Bujaruelo (~1.340 m) conserva un <strong>puente medieval de un solo ojo</strong>, una ermita románica y un antiguo hospital de peregrinos, hoy refugio. El río Ara, el último gran río pirenaico sin regular, baja aquí transparente y forma pozas y rápidos entre praderas de pasto. Es zona de ganadería de verano (caballos y vacas) y de paso de excursionistas hacia los altos valles.</p>
+        <p class="subtitulo">Descripción detallada del recorrido</p>
+        <p><strong>Tramo 1 — El puente y el conjunto histórico:</strong> desde el aparcamiento, cruzad el puente medieval y visitad el entorno de la ermita y el refugio. Vistas inmejorables del río encajonado bajo el arco de piedra.</p>
+        <p><strong>Tramo 2 — Senda llana junto al Ara:</strong> remontad el valle siguiendo el río aguas arriba por las praderas, tan lejos como queráis. El terreno es abierto, llano y luminoso, con las cumbres cerrando el horizonte.</p>
+        <p><strong>Regreso:</strong> por el mismo camino, eligiendo una poza tranquila para que Greta se refresque.</p>
+        <table class="tabla ficha">
+          <tr><td>Punto de inicio</td><td>Aparcamiento de San Nicolás de Bujaruelo</td></tr>
+          <tr><td>Cómo llegar</td><td>Broto → Torla → Puente de los Navarros (~15 min) y pista de tierra de ~7 km (~30 min despacio). En julio, control de aforo y aparcamiento de pago</td></tr>
+          <tr><td>Distancia</td><td>3-6 km (a vuestra elección)</td></tr>
+          <tr><td>Desnivel</td><td>Suave (casi llano)</td></tr>
+          <tr><td>Tiempo estimado</td><td>2-3 h con paradas</td></tr>
+          <tr><td>Dificultad</td><td>⭐ Fácil</td></tr>
+          <tr><td>Apta para Greta</td><td><span class="tag si">✅ Sí</span> fuera del Parque Nacional; correa por ganado y otros perros</td></tr>
+          <tr><td>Mejor horario</td><td>Mañana (9:45-12:30), antes del calor y de la afluencia</td></tr>
+        </table>
+        <p class="subtitulo">Qué llevar</p>
         <ul>
-          <li><span class="label">Ruta:</span> San Nicolás de Bujaruelo y paseo junto al río Ara</li>
-          <li><span class="label">Recorrido:</span> Puente medieval, ermita y refugio; senda llana siguiendo el río aguas arriba entre praderas</li>
-          <li><span class="label">Firme y desnivel:</span> Pista y senda de tierra, prácticamente llano</li>
-          <li><span class="label">Dificultad / distancia:</span> Fácil · 3-6 km (a elección) · 2-3 h con paradas</li>
-          <li><span class="label">Aparcamiento:</span> Explanada de Bujaruelo (en julio puede tener tarifa y llenarse: id temprano)</li>
-          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> fuera del Parque Nacional; correa por ganado y otros perros</li>
-          <li><span class="label">Mejor horario:</span> Mañana (9:00-12:30), antes del calor</li>
+          <li>Agua y picnic (arriba apenas hay servicios)</li>
+          <li>Toalla para Greta tras el baño en el Ara</li>
+          <li>Gorra, gafas y crema solar (praderas abiertas)</li>
+          <li>Dinero para el aparcamiento (control de aforo en temporada)</li>
         </ul>
-        <p><strong>👀 No te pierdas:</strong> las pozas de agua turquesa del Ara, tranquilas y poco profundas en algunos tramos, ideales para que Greta se refresque.</p>
       </div>
+
       <div class="seccion destacado">
         <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
-        <p>Cruzar el <strong>puente medieval de Bujaruelo</strong> con el río rugiendo debajo y las cumbres al fondo. Un lugar de paso de peregrinos y pastores durante siglos, hoy un remanso de paz con uno de los paisajes más fotogénicos del Pirineo.</p>
+        <p>Cruzar el puente medieval de Bujaruelo con el río Ara rugiendo debajo y las cumbres recortándose al fondo. Un lugar de paso de peregrinos y pastores durante siglos, hoy un remanso de paz donde el agua turquesa, la piedra antigua y el verde de las praderas componen una de las estampas más bellas del Pirineo.</p>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
-        <ul>
-          <li><span class="label">Lugar:</span> Mesón de San Nicolás de Bujaruelo (junto al puente)</li>
-          <li><span class="label">Cocina:</span> Montañera y contundente; migas, huevos con setas, carnes a la brasa</li>
-          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> en terraza exterior (⚠️ consultar interior)</li>
-          <li><span class="label">Alternativa:</span> Picnic en las praderas junto al río, a la sombra</li>
-        </ul>
+        <div class="opcion">
+          <h5>Opción A — Mesón de San Nicolás de Bujaruelo</h5>
+          <p><span class="label">Contexto:</span> junto al puente, en el conjunto del antiguo hospital de peregrinos, este mesón-refugio sirve cocina de montaña contundente en un entorno único.</p>
+          <p><span class="label">Platos recomendados:</span> migas a la pastora, huevos con setas o con jamón, carnes a la brasa y un buen postre casero.</p>
+          <p><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> en terraza exterior · <span class="label">Precio:</span> 18-28 € por persona</p>
+        </div>
+        <div class="opcion">
+          <h5>Opción B — Picnic en las praderas del Ara</h5>
+          <p>A la sombra de un grupo de árboles junto al río: embutido y queso del Sobrarbe, ensalada, fruta y mucha agua. El mejor comedor posible.</p>
+        </div>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
         <ul>
-          <li><span class="label">Lugar:</span> Restaurante en Broto (Alto Aragón / Sorrosal)</li>
-          <li><span class="label">Cocina:</span> Aragonesa de temporada; postres caseros como los crespillos</li>
+          <li><span class="label">Lugar:</span> Restaurante en Broto</li>
+          <li><span class="label">Cocina:</span> aragonesa de temporada; carnes, setas, postres caseros (probad el empanadico o los crespillos)</li>
           <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza</li>
-          <li><span class="label">Ambiente / hora:</span> Relajado, de pueblo · 20:30</li>
+          <li><span class="label">Ambiente / hora:</span> relajado, de pueblo · 20:30 h</li>
         </ul>
       </div>
+
       <div class="seccion consejo">
         <h4><span class="emoji">⚠️</span> Consejo del día</h4>
-        <p>La <strong>pista de Bujaruelo es de tierra, estrecha y con baches</strong>: se conduce despacio (20-30 min desde el Puente de los Navarros) y en julio suele haber <strong>control de aforo y pago de aparcamiento</strong>. Llegad pronto para asegurar plaza y evitar el calor. Greta con correa: hay ganado suelto y excursionistas con perro.</p>
+        <p><strong>Sobre la pista de Bujaruelo:</strong> es de tierra, estrecha y con baches; se conduce despacio (~30 min desde el Puente de los Navarros). En julio hay control de aforo y pago de aparcamiento: llegad temprano para asegurar plaza.</p>
+        <p><strong>Sobre Greta:</strong> correa puesta — hay ganado suelto y muchos excursionistas con perro. Tras el baño en el Ara (agua fría de deshielo), secadle bien las orejas.</p>
+        <p><strong>Sobre el sol:</strong> las praderas son abiertas y sin sombra; gorra, crema y agua abundante.</p>
       </div>
     </div>
   </article>
 
+
   <!-- ============ DÍA 8 ============ -->
   <article class="dia">
     <div class="dia-header">
-      <div><span class="num">Día 8</span><h3>Torla y el río Ara, la puerta de Ordesa</h3></div>
+      <div><span class="num">Día 8</span><h3>A las puertas del gigante</h3></div>
       <span class="fecha">Miércoles 8 de julio</span>
     </div>
     <div class="dia-body">
       <div class="seccion">
         <h4><span class="emoji">📖</span> Introducción del día</h4>
-        <p class="evocador">Hoy visitáis Torla, el pueblo-puerta de Ordesa y uno de los más bellos del Pirineo, con sus casas de piedra y tejados de losa apretadas bajo la imponente mole del Mondarruego. Como el Parque Nacional queda vetado para Greta, lo disfrutaréis "desde fuera": callejeando por Torla, contemplando el valle desde sus miradores y paseando junto al río Ara.</p>
-        <p>Un día de pueblo con encanto y paisaje grandioso, sin renunciar a ir los tres juntos.</p>
+        <p class="evocador">Torla es el pueblo-puerta de Ordesa, y aunque el Parque Nacional quede vetado para Greta, asomarse a su umbral es un espectáculo en sí mismo. Sus casas de piedra y tejados de losa se apiñan bajo la mole imponente del Mondarruego, y desde sus miradores se abre la gran entrada del valle de Ordesa entre montañas colosales.</p>
+        <p class="evocador">Hoy disfrutaréis del gigante "desde fuera": callejeando por uno de los pueblos más bonitos del Pirineo, contemplando el valle desde sus balcones naturales y paseando junto al río Ara. Un día de pueblo con encanto y paisaje grandioso, sin renunciar a ir los tres juntos.</p>
       </div>
-      <div class="seccion timeline">
-        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
-        <ul>
-          <li><span class="hora">9:00</span> Llegada a Torla (≈10 min desde Broto) y paseo por el casco</li>
-          <li><span class="hora">10:30</span> Mirador del valle de Ordesa desde Torla</li>
-          <li><span class="hora">11:30</span> Senda fluvial junto al río Ara</li>
-          <li><span class="hora">13:30</span> Comida en Torla</li>
-          <li><span class="hora">15:00</span> Regreso a Broto: descanso</li>
-          <li><span class="hora">20:00</span> Cena</li>
-        </ul>
+
+      <div class="seccion">
+        <h4><span class="emoji">⏰</span> Horario orientativo del día</h4>
+        <table class="tabla">
+          <tr><th class="hora-col">Hora</th><th>Actividad</th></tr>
+          <tr><td class="hora-col">9:00 h</td><td>Llegada a Torla (~10 min desde Broto) y paseo por el casco</td></tr>
+          <tr><td class="hora-col">10:30 h</td><td>Mirador del valle de Ordesa desde Torla</td></tr>
+          <tr><td class="hora-col">11:30 h</td><td>Senda fluvial junto al río Ara</td></tr>
+          <tr><td class="hora-col">13:30 h</td><td>Comida en Torla</td></tr>
+          <tr><td class="hora-col">15:00 h</td><td>Regreso a Broto: descanso</td></tr>
+          <tr><td class="hora-col">20:00 h</td><td>Cena</td></tr>
+        </table>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <p><strong>Casco histórico de Torla + senda fluvial del río Ara</strong></p>
+        <p class="subtitulo">Contexto geográfico y natural</p>
+        <p>Torla-Ordesa (1.030 m) es la localidad de acceso al sector de Ordesa del Parque Nacional. Su casco histórico, declarado conjunto de interés, conserva calles empedradas en cuesta, casonas de piedra con tejados de losa y la iglesia de San Salvador, todo dominado por la silueta del Mondarruego (2.848 m). El río Ara pasa al pie del pueblo, y una senda fluvial llana permite caminar junto a él hacia el Puente de los Navarros, fuera del perímetro del Parque Nacional y, por tanto, apta para Greta.</p>
+        <p class="subtitulo">Descripción detallada del recorrido</p>
+        <p><strong>Tramo 1 — El casco de Torla:</strong> subid y bajad por las callejas empedradas, descubriendo rincones, fuentes y la iglesia. Mucho encanto en poco espacio.</p>
+        <p><strong>Tramo 2 — Miradores del valle:</strong> desde los bordes del pueblo se contempla la gran entrada del valle de Ordesa y el Mondarruego. Una de las panorámicas más icónicas del Pirineo aragonés.</p>
+        <p><strong>Tramo 3 — Senda fluvial del Ara:</strong> bajad al río y caminad por la orilla, llana y fresca, en dirección al Puente de la Glera / Puente de los Navarros. Sombra y agua para Greta.</p>
+        <table class="tabla ficha">
+          <tr><td>Punto de inicio</td><td>Parking de Torla</td></tr>
+          <tr><td>Cómo llegar</td><td>Desde Broto, ~10 min en coche. Aparcad en los parkings de Torla (el casco es peatonal en gran parte)</td></tr>
+          <tr><td>Distancia</td><td>3-5 km (pueblo + senda fluvial)</td></tr>
+          <tr><td>Desnivel</td><td>Cuestas cortas en el pueblo; senda del río llana</td></tr>
+          <tr><td>Tiempo estimado</td><td>2-2,5 h con paradas</td></tr>
+          <tr><td>Dificultad</td><td>⭐ Fácil</td></tr>
+          <tr><td>Apta para Greta</td><td><span class="tag si">✅ Sí</span> todo fuera del Parque Nacional · <span class="tag no">❌ No</span> el valle de Ordesa (lanzadera y parque)</td></tr>
+          <tr><td>Mejor horario</td><td>Mañana temprano para el pueblo; río a media mañana</td></tr>
+        </table>
+        <p class="subtitulo">Qué llevar</p>
         <ul>
-          <li><span class="label">Ruta:</span> Casco histórico de Torla + senda fluvial junto al río Ara (hacia el Puente de la Glera / Puente de los Navarros)</li>
-          <li><span class="label">Recorrido:</span> Calles empedradas, iglesia y miradores; bajada al río y paseo llano siguiendo la orilla</li>
-          <li><span class="label">Firme y desnivel:</span> Empedrado en el pueblo; senda de tierra llana junto al río</li>
-          <li><span class="label">Dificultad / distancia:</span> Fácil · 3-5 km · 2-2,5 h con paradas</li>
-          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> todo fuera del Parque Nacional</li>
-          <li><span class="label">Mejor horario:</span> Mañana temprano para el pueblo, río a media mañana</li>
+          <li>Agua para Greta y bolsas</li>
+          <li>Calzado cómodo para empedrado en cuesta</li>
+          <li>Cámara para la panorámica de Ordesa</li>
+          <li>Gorra y crema solar</li>
         </ul>
-        <p><strong>👀 No te pierdas:</strong> la estampa de Torla con el Valle de Ordesa y el Mondarruego al fondo, una de las vistas más icónicas del Pirineo aragonés.</p>
       </div>
+
       <div class="seccion destacado">
         <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
-        <p>El <strong>mirador de Torla</strong> a primera hora, con el pueblo de piedra en primer plano y la gran entrada del Valle de Ordesa abriéndose entre montañas. Aunque no entréis al parque, esta panorámica os regala su grandeza.</p>
+        <p>El mirador de Torla a primera hora, con el pueblo de piedra en primer plano y la gran entrada del valle de Ordesa abriéndose entre montañas, coronada por el Mondarruego. Aunque no podáis entrar al parque con Greta, esta panorámica os regala toda su grandeza y se queda grabada.</p>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
-        <ul>
-          <li><span class="label">Lugar:</span> Restaurante El Duende o El Taillón (Torla)</li>
-          <li><span class="label">Cocina:</span> Tradicional pirenaica; ternasco, civet de jabalí, sopas de montaña</li>
-          <li><span class="label">Qué pedir:</span> Carnes a la brasa o guisos de caza de temporada</li>
-          <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza</li>
-          <li><span class="label">Alternativa:</span> Picnic en la zona del río Ara, junto a Torla</li>
-        </ul>
+        <div class="opcion">
+          <h5>Opción A — Restaurante El Duende (Torla)</h5>
+          <p><span class="label">Contexto:</span> una de las mesas con más fama de Torla, en una casa de piedra del casco antiguo, especializada en cocina tradicional pirenaica bien ejecutada.</p>
+          <p><span class="label">Platos recomendados:</span> ternasco a la brasa, civet de jabalí o de ciervo, setas de temporada y postres caseros.</p>
+          <p><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza · <span class="label">Precio:</span> 25-35 € por persona · <span class="label">Reserva:</span> recomendable en julio</p>
+        </div>
+        <div class="opcion">
+          <h5>Opción B — Picnic junto al río Ara</h5>
+          <p>En la zona fluvial al pie de Torla: embutido y queso del Sobrarbe, fruta y agua, con Greta refrescándose en el río.</p>
+        </div>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
         <ul>
           <li><span class="label">Lugar:</span> Restaurante en Broto o terraza de la plaza</li>
-          <li><span class="label">Cocina:</span> Cocina casera ligera tras el día</li>
+          <li><span class="label">Cocina:</span> casera ligera tras el día</li>
           <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> en terraza / <span class="tag precaucion">⚠️ Consultar</span> interior</li>
-          <li><span class="label">Ambiente / hora:</span> Tranquilo, sin desplazarse · 20:00</li>
+          <li><span class="label">Ambiente / hora:</span> tranquilo, sin desplazarse · 20:00 h</li>
         </ul>
       </div>
+
       <div class="seccion consejo">
         <h4><span class="emoji">⚠️</span> Consejo del día</h4>
-        <p>En julio el <strong>acceso en coche a la Pradera de Ordesa está cerrado</strong>: solo se entra en lanzadera desde Torla, y <strong>ni Greta puede subir ni los perros entran al parque</strong>. No intentéis acercaros con ella. Si os tienta ver Ordesa, valorad dejarla en <strong>guardería canina</strong> otro día. Aparcad en los parkings de Torla (el pueblo es peatonal en gran parte).</p>
+        <p><strong>Sobre Ordesa y los perros:</strong> en julio el acceso en coche a la Pradera de Ordesa está cerrado; solo se entra en lanzadera desde Torla, y ni Greta puede subir ni los perros entran al parque. No intentéis acercaros con ella.</p>
+        <p><strong>Sobre la alternativa:</strong> si os tienta mucho ver Ordesa, valorad dejar a Greta en una guardería canina otro día y turnaros o ir juntos en la lanzadera; reservad con antelación.</p>
+        <p><strong>Sobre el aparcamiento:</strong> Torla es peatonal en su mayor parte; usad los parkings habilitados a la entrada.</p>
       </div>
     </div>
   </article>
 
+
   <!-- ============ DÍA 9 ============ -->
   <article class="dia">
     <div class="dia-header">
-      <div><span class="num">Día 9</span><h3>Día de descanso: pueblos del valle del Ara</h3></div>
+      <div><span class="num">Día 9</span><h3>El día lento del Ara</h3></div>
       <span class="fecha">Jueves 9 de julio</span>
     </div>
     <div class="dia-body">
       <div class="seccion">
         <h4><span class="emoji">📖</span> Introducción del día</h4>
-        <p class="evocador">A mitad del bloque toca volver a bajar el ritmo. Hoy nada de madrugones ni rutas largas: un día para saborear los pueblecitos de piedra del valle —Oto y Sarvisé— a un paso de Broto, y para que Greta disfrute del río Ara en sus pozas más tranquilas.</p>
-        <p>Mañana lenta, vermú en una terraza y tarde de hamaca. El arte de no hacer nada con el Pirineo de telón de fondo.</p>
+        <p class="evocador">A mitad del bloque, el viaje pide volver a respirar hondo. Hoy no hay rutas ni madrugones: solo los pueblecitos de piedra que rodean Broto —Oto, Sarvisé— a un paso, y el río Ara con sus pozas más tranquilas, donde Greta podrá darse el mejor baño del viaje.</p>
+        <p class="evocador">Mañana lenta, vermú en una terraza, siesta larga y tarde de hamaca. El arte de no hacer nada, con el Sobrarbe de telón de fondo y sin más obligación que dejar pasar las horas.</p>
       </div>
-      <div class="seccion timeline">
-        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
-        <ul>
-          <li><span class="hora">9:30</span> Desayuno sin prisa</li>
-          <li><span class="hora">10:30</span> Paseo a Oto (≈5 min) y vuelta por la ribera del Ara</li>
-          <li><span class="hora">12:00</span> Rato de río: poza tranquila para Greta</li>
-          <li><span class="hora">13:30</span> Comida en Sarvisé o picnic</li>
-          <li><span class="hora">15:00</span> Tarde libre: lectura, siesta, descanso</li>
-          <li><span class="hora">19:30</span> Paseo suave por Broto al fresco</li>
-          <li><span class="hora">21:00</span> Cena</li>
-        </ul>
+
+      <div class="seccion">
+        <h4><span class="emoji">⏰</span> Horario orientativo del día</h4>
+        <table class="tabla">
+          <tr><th class="hora-col">Hora</th><th>Actividad</th></tr>
+          <tr><td class="hora-col">9:30 h</td><td>Desayuno sin prisa</td></tr>
+          <tr><td class="hora-col">10:30 h</td><td>Paseo a Oto (~5 min) y vuelta por la ribera del Ara</td></tr>
+          <tr><td class="hora-col">12:00 h</td><td>Rato de río: poza tranquila para Greta</td></tr>
+          <tr><td class="hora-col">13:30 h</td><td>Comida en Sarvisé o picnic</td></tr>
+          <tr><td class="hora-col">15:00 h</td><td>Tarde libre: lectura, siesta, descanso</td></tr>
+          <tr><td class="hora-col">19:30 h</td><td>Paseo suave por Broto al fresco</td></tr>
+          <tr><td class="hora-col">21:00 h</td><td>Cena</td></tr>
+        </table>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <p><strong>Paseo entre Broto, Oto y la ribera del Ara</strong></p>
+        <p class="subtitulo">Contexto geográfico y natural</p>
+        <p>El fondo del valle de Broto reúne un puñado de pueblos de piedra de gran encanto a muy poca distancia entre sí: Oto, con sus casonas y su torre medieval; Sarvisé, ya hacia el sur; y la propia Broto. El río Ara, transparente y de aguas frías, forma a su paso remansos y pozas entre choperas y prados, perfectos para un día de descanso. Es un paisaje humanizado y amable, de huertos, caminos y puentes, ideal para pasear sin esfuerzo.</p>
+        <p class="subtitulo">Descripción detallada del recorrido</p>
+        <p><strong>Tramo 1 — De Broto a Oto:</strong> un camino llano y corto enlaza ambos pueblos siguiendo la vega del Ara; en Oto, fijaos en la torre y las casonas.</p>
+        <p><strong>Tramo 2 — Ribera y pozas:</strong> bajad al río y buscad un remanso tranquilo y poco profundo para que Greta se refresque mientras leéis a la sombra.</p>
+        <table class="tabla ficha">
+          <tr><td>Punto de inicio</td><td>Broto (centro)</td></tr>
+          <tr><td>Cómo llegar</td><td>A pie a Oto (~5 min en coche o paseo llano); Sarvisé a ~5 min en coche</td></tr>
+          <tr><td>Distancia</td><td>2-4 km (totalmente flexible)</td></tr>
+          <tr><td>Desnivel</td><td>Llano</td></tr>
+          <tr><td>Tiempo estimado</td><td>A vuestro aire</td></tr>
+          <tr><td>Dificultad</td><td>⭐ Muy fácil</td></tr>
+          <tr><td>Apta para Greta</td><td><span class="tag si">✅ Sí</span> pozas seguras para refrescarse; correa en los pueblos</td></tr>
+          <tr><td>Mejor horario</td><td>Mañana temprano o tarde-noche</td></tr>
+        </table>
+        <p class="subtitulo">Qué llevar</p>
         <ul>
-          <li><span class="label">Ruta:</span> Paseo entre Broto, Oto y la ribera del Ara</li>
-          <li><span class="label">Recorrido:</span> Sendas y caminos llanos entre los pueblos de piedra, buscando las pozas del río</li>
-          <li><span class="label">Firme y desnivel:</span> Llano, tierra y asfalto tranquilo</li>
-          <li><span class="label">Dificultad / distancia:</span> Muy fácil · 2-4 km · a vuestro aire</li>
-          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> pozas seguras para refrescarse</li>
-          <li><span class="label">Mejor horario:</span> Mañana temprano o tarde-noche</li>
+          <li>Toalla para Greta y esterilla o manta</li>
+          <li>Libro, agua y algo de picar</li>
+          <li>Calzado que se pueda mojar</li>
+          <li>Sombrero y crema solar</li>
         </ul>
-        <p><strong>👀 Plan alternativo:</strong> día de cero esfuerzo en la terraza de la casa o de un bar de Broto, viendo pasar el valle.</p>
       </div>
+
       <div class="seccion destacado">
         <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
-        <p>Una <strong>poza tranquila del río Ara</strong> donde Greta chapotea mientras vosotros leéis a la sombra. El agua transparente del último gran río salvaje del Pirineo, sin más plan que dejar pasar las horas.</p>
+        <p>Una poza tranquila del río Ara donde Greta chapotea feliz mientras vosotros leéis a la sombra de las choperas. El agua transparente del último gran río salvaje del Pirineo, sin más plan que dejar pasar las horas. El descanso que da fuerzas para los días que quedan.</p>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
-        <ul>
-          <li><span class="label">Lugar:</span> Casa Frauca (Sarvisé) — restaurante con prestigio en el valle</li>
-          <li><span class="label">Cocina:</span> Sobrarbesa de producto; ternasco, setas, postres caseros</li>
-          <li><span class="label">Qué pedir:</span> Menú de la casa con carnes de la zona</li>
-          <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza</li>
-          <li><span class="label">Alternativa:</span> Picnic junto al río o en una pradera de Oto</li>
-        </ul>
+        <div class="opcion">
+          <h5>Opción A — Casa Frauca (Sarvisé)</h5>
+          <p><span class="label">Contexto:</span> restaurante con prestigio en el valle, en una casa tradicional de Sarvisé, referencia de la cocina sobrarbesa de producto.</p>
+          <p><span class="label">Platos recomendados:</span> ternasco, setas de temporada, platos de cuchara y postres caseros como los crespillos o el empanadico.</p>
+          <p><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza · <span class="label">Precio:</span> 25-35 € por persona · <span class="label">Reserva:</span> recomendable</p>
+        </div>
+        <div class="opcion">
+          <h5>Opción B — Picnic junto al río o en Oto</h5>
+          <p>Embutidos, quesos y fruta del Sobrarbe a la sombra de una pradera o junto a una poza del Ara.</p>
+        </div>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
         <ul>
           <li><span class="label">Lugar:</span> Cena en Broto (restaurante del día anterior o terraza)</li>
-          <li><span class="label">Cocina:</span> Algo ligero y reconfortante</li>
+          <li><span class="label">Cocina:</span> algo ligero y reconfortante</li>
           <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> en terraza / <span class="tag precaucion">⚠️ Consultar</span> interior</li>
-          <li><span class="label">Ambiente / hora:</span> Sin prisas · 21:00</li>
+          <li><span class="label">Ambiente / hora:</span> sin prisas · 21:00 h</li>
         </ul>
       </div>
+
       <div class="seccion consejo">
         <h4><span class="emoji">⚠️</span> Consejo del día</h4>
-        <p>Evitad el sol entre las 13:00 y las 18:00. Comprobad que la <strong>poza esté tranquila y poco profunda</strong> antes de que Greta se bañe (el Ara baja frío en julio) y <strong>secadla bien</strong>, sobre todo las orejas, para evitar otitis (frecuente en caniches). Reservad las cenas que queden y planificad la excursión panorámica de mañana.</p>
+        <p><strong>Sobre los baños:</strong> comprobad que la poza esté tranquila y poco profunda antes de que Greta se bañe (el Ara baja frío en julio) y secadle bien las orejas para evitar otitis.</p>
+        <p><strong>Sobre el calor:</strong> evitad el sol entre las 13:00 y las 18:00; el día está pensado precisamente para descansar a la sombra.</p>
+        <p><strong>Sobre la organización:</strong> aprovechad para reservar las cenas que queden y planificar la excursión panorámica de mañana al Valle de Vió.</p>
       </div>
     </div>
   </article>
 
+
   <!-- ============ DÍA 10 ============ -->
   <article class="dia">
     <div class="dia-header">
-      <div><span class="num">Día 10</span><h3>Valle de Vió: pueblos colgados y miradores del cañón</h3></div>
+      <div><span class="num">Día 10</span><h3>Los pueblos colgados del cañón</h3></div>
       <span class="fecha">Viernes 10 de julio</span>
     </div>
     <div class="dia-body">
       <div class="seccion">
         <h4><span class="emoji">📖</span> Introducción del día</h4>
-        <p class="evocador">Hoy os adentráis por una carretera de montaña hacia el Valle de Vió, un rincón remoto de pueblos diminutos colgados sobre los precipicios del Cañón de Añisclo. Buerba, Vió, Nerín y Fanlo parecen suspendidos en el tiempo, con vistas de vértigo y, con suerte, el vuelo de buitres y quebrantahuesos.</p>
-        <p>Una jornada de paisaje grandioso y pueblos auténticos, con paseos cortos y miradores que quitan el aliento, todo fuera del Parque Nacional y apto para Greta.</p>
+        <p class="evocador">Hoy una carretera de montaña os lleva a un Pirineo remoto y casi secreto: el Valle de Vió, donde un puñado de pueblos diminutos —Buerba, Vió, Nerín, Fanlo— se aferran a las laderas sobre los precipicios del Cañón de Añisclo. Parecen suspendidos en el tiempo, con vistas de vértigo y el cielo surcado por buitres y, con suerte, quebrantahuesos.</p>
+        <p class="evocador">Será una jornada de paisaje grandioso y pueblos auténticos, con paseos cortos y miradores que quitan el aliento. Todo fuera del Parque Nacional y apto para Greta: la cara más salvaje y solitaria del Sobrarbe.</p>
       </div>
-      <div class="seccion timeline">
-        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
-        <ul>
-          <li><span class="hora">8:30</span> Salida de Broto hacia el Valle de Vió (carretera de curvas, ≈40-50 min)</li>
-          <li><span class="hora">9:30</span> Paseo por Nerín o Fanlo y miradores del cañón</li>
-          <li><span class="hora">11:30</span> Paseo corto por Vió y Buerba</li>
-          <li><span class="hora">13:30</span> Comida (picnic con vistas o restaurante en Sarvisé al bajar)</li>
-          <li><span class="hora">15:30</span> Regreso a Broto: descanso</li>
-          <li><span class="hora">20:30</span> Cena</li>
-        </ul>
+
+      <div class="seccion">
+        <h4><span class="emoji">⏰</span> Horario orientativo del día</h4>
+        <table class="tabla">
+          <tr><th class="hora-col">Hora</th><th>Actividad</th></tr>
+          <tr><td class="hora-col">8:30 h</td><td>Salida de Broto hacia el Valle de Vió (~40-50 min)</td></tr>
+          <tr><td class="hora-col">9:30 h</td><td>Paseo por Nerín o Fanlo y miradores del cañón</td></tr>
+          <tr><td class="hora-col">11:30 h</td><td>Paseo corto por Vió y Buerba</td></tr>
+          <tr><td class="hora-col">13:30 h</td><td>Comida (picnic con vistas o restaurante al bajar)</td></tr>
+          <tr><td class="hora-col">15:30 h</td><td>Regreso a Broto: descanso</td></tr>
+          <tr><td class="hora-col">20:30 h</td><td>Cena</td></tr>
+        </table>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <p><strong>Pueblos del Valle de Vió y miradores del Cañón de Añisclo</strong></p>
+        <p class="subtitulo">Contexto geográfico y natural</p>
+        <p>El Valle de Vió se asoma al sector de Añisclo del Parque Nacional desde su borde sur, en la comarca del Sobrarbe. Sus pueblos —Buerba, Vió, Nerín (1.270 m) y Fanlo— son núcleos de alta montaña, de arquitectura de piedra y pizarra, algunos casi deshabitados, rodeados de pastos y de un silencio absoluto. Las vistas hacia el Cañón de Añisclo y la Sierra de las Cutas son espectaculares. Es una de las mejores zonas del Pirineo para observar el <strong>quebrantahuesos</strong> y los buitres leonados. Importante: las sendas que descienden al interior del Cañón de Añisclo son Parque Nacional y no admiten perros; la actividad se queda en pueblos y miradores.</p>
+        <p class="subtitulo">Descripción detallada del recorrido</p>
+        <p><strong>Tramo 1 — Nerín y sus miradores:</strong> paseo por el pueblo y a los miradores naturales del borde de la sierra, con el cañón a vuestros pies.</p>
+        <p><strong>Tramo 2 — Fanlo, Vió y Buerba:</strong> recorrido en coche con paradas cortas para pasear por estos núcleos de piedra y empaparse de su atmósfera detenida.</p>
+        <table class="tabla ficha">
+          <tr><td>Punto de inicio</td><td>Nerín / Fanlo (Valle de Vió)</td></tr>
+          <tr><td>Cómo llegar</td><td>Desde Broto, carretera de montaña estrecha y revirada (~40-50 min)</td></tr>
+          <tr><td>Distancia</td><td>2-4 km repartidos (paseos por los pueblos)</td></tr>
+          <tr><td>Desnivel</td><td>Suave; algún repecho corto entre callejas</td></tr>
+          <tr><td>Tiempo estimado</td><td>Mañana completa con coche</td></tr>
+          <tr><td>Dificultad</td><td>⭐ Fácil</td></tr>
+          <tr><td>Apta para Greta</td><td><span class="tag si">✅ Sí</span> en pueblos y miradores · <span class="tag no">❌ No</span> sendas que entran al Cañón de Añisclo (Parque Nacional)</td></tr>
+          <tr><td>Mejor horario</td><td>Mañana (luz suave y menos calor)</td></tr>
+        </table>
+        <p class="subtitulo">Qué llevar</p>
         <ul>
-          <li><span class="label">Ruta:</span> Pueblos del Valle de Vió (Nerín, Fanlo, Vió, Buerba) y miradores sobre el Cañón de Añisclo</li>
-          <li><span class="label">Recorrido:</span> Paseos cortos por los cascos de piedra y a los miradores naturales del borde de la sierra</li>
-          <li><span class="label">Firme y desnivel:</span> Caminos y sendas suaves; algún repecho corto entre callejas</li>
-          <li><span class="label">Dificultad / distancia:</span> Fácil · 2-4 km repartidos · mañana completa con coche</li>
-          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> en pueblos y miradores · <span class="tag no">❌ No</span> las sendas que entran al Cañón de Añisclo (Parque Nacional)</li>
-          <li><span class="label">Mejor horario:</span> Mañana (paisaje con luz suave y menos calor)</li>
+          <li>Agua y comida (los servicios en estos pueblos son mínimos e irregulares)</li>
+          <li>Prismáticos para buitres y quebrantahuesos</li>
+          <li>Gorra, gafas y crema solar</li>
+          <li>Paciencia al volante: carretera estrecha y de curvas</li>
         </ul>
-        <p><strong>👀 No te pierdas:</strong> las vistas desde el entorno de Nerín hacia el cañón y la Sierra de las Cutas; estad atentos al cielo, es zona de quebrantahuesos.</p>
-        <p><strong>🥾 Opción para los más activos:</strong> desde Sobrepuerto se puede caminar al evocador pueblo abandonado de Ainielle (el de <em>La lluvia amarilla</em>), ruta moderada de medio día — solo si os apetece algo más largo; mejor muy temprano y con sombra para Greta.</p>
       </div>
+
       <div class="seccion destacado">
         <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
-        <p>Asomarse a un <strong>mirador del Valle de Vió</strong> y ver los precipicios del Cañón de Añisclo abriéndose a vuestros pies, con pueblecitos de piedra aferrados a la ladera. La sensación de estar en un Pirineo profundo, casi secreto, lejos de las multitudes.</p>
+        <p>Asomarse a un mirador del Valle de Vió y ver los precipicios del Cañón de Añisclo abriéndose a vuestros pies, con pueblecitos de piedra aferrados a la ladera y un buitre planeando a la altura de los ojos. La sensación de estar en un Pirineo profundo, casi secreto, lejos de las multitudes.</p>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
-        <ul>
-          <li><span class="label">Lugar:</span> Picnic con vistas en el Valle de Vió o, al bajar, Casa Frauca (Sarvisé)</li>
-          <li><span class="label">Cocina:</span> Producto de la tierra; quesos, embutidos, ternasco</li>
-          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> picnic / <span class="tag precaucion">⚠️ Consultar</span> restaurante (terraza)</li>
-          <li><span class="label">Alternativa:</span> Bar en Fanlo o Nerín (consultar apertura en temporada)</li>
-        </ul>
+        <div class="opcion">
+          <h5>Opción A — Picnic con vistas en el Valle de Vió</h5>
+          <p><span class="label">Contexto:</span> no hay restaurante que iguale estas vistas. Buscad un mirador o una pradera con sombra y comed frente al cañón.</p>
+          <p><span class="label">Qué:</span> quesos, embutidos y fruta del Sobrarbe, mucha agua · <span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> al aire libre</p>
+        </div>
+        <div class="opcion">
+          <h5>Opción B — Casa Frauca (Sarvisé), al bajar</h5>
+          <p><span class="label">Cocina:</span> sobrarbesa de producto; ternasco, setas, postres caseros.</p>
+          <p><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza · <span class="label">Precio:</span> 25-35 € por persona</p>
+        </div>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
         <ul>
           <li><span class="label">Lugar:</span> Restaurante en Broto</li>
-          <li><span class="label">Cocina:</span> Carnes a la brasa, sopas de montaña</li>
+          <li><span class="label">Cocina:</span> carnes a la brasa, sopas de montaña</li>
           <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza</li>
-          <li><span class="label">Ambiente / hora:</span> Tranquilo · 20:30</li>
+          <li><span class="label">Ambiente / hora:</span> tranquilo · 20:30 h</li>
         </ul>
       </div>
+
       <div class="seccion consejo">
         <h4><span class="emoji">⚠️</span> Consejo del día</h4>
-        <p>La carretera al Valle de Vió es <strong>estrecha y muy revirada</strong>: conducid con calma (mejor si Greta no va con el estómago lleno, para evitar mareos). Llevad <strong>agua y comida</strong>, porque los servicios en estos pueblos son mínimos. Recordad: las sendas que descienden al <strong>Cañón de Añisclo son Parque Nacional y no admiten perros</strong>; quedaos en pueblos y miradores.</p>
+        <p><strong>Sobre la carretera:</strong> la subida al Valle de Vió es estrecha y muy revirada; conducid con calma y, si Greta se marea, que no vaya con el estómago lleno.</p>
+        <p><strong>Sobre Añisclo:</strong> las sendas que bajan al cañón son Parque Nacional y no admiten perros. Quedaos en pueblos y miradores, que ya son espectaculares.</p>
+        <p><strong>Sobre los servicios:</strong> llevad todo lo necesario (agua, comida, combustible); arriba apenas hay tiendas ni bares y abren de forma irregular.</p>
       </div>
     </div>
   </article>
 
+
   <!-- ============ DÍA 11 ============ -->
   <article class="dia">
     <div class="dia-header">
-      <div><span class="num">Día 11</span><h3>Despedida del valle y traslado</h3></div>
+      <div><span class="num">Día 11</span><h3>Adiós al Sobrarbe</h3></div>
       <span class="fecha">Sábado 11 de julio</span>
     </div>
     <div class="dia-body">
       <div class="seccion">
         <h4><span class="emoji">📖</span> Introducción del día</h4>
-        <p class="evocador">Último día en el Sobrarbe antes de poner rumbo al valle de Benasque. Una mañana tranquila para despediros del río Ara, dar un último paseo por Broto y recoger sin agobios. El traslado hacia el siguiente alojamiento atraviesa Aínsa —cuyo casco medieval bien merece una parada— antes de internarse en la Ribagorza.</p>
-        <p>Un cierre sereno de un bloque lleno de cascadas, puentes de piedra y pueblos con alma.</p>
+        <p class="evocador">Último día en el Sobrarbe antes de poner rumbo al valle de Benasque, el tramo final del viaje. Una mañana tranquila para despediros del río Ara y de Broto, recoger sin agobios y emprender el traslado. El camino atraviesa Aínsa, cuyo casco medieval —uno de los más bellos del Pirineo— bien merece una parada antes de internarse en la Ribagorza.</p>
+        <p class="evocador">Un cierre sereno de un bloque lleno de cascadas, puentes de piedra y pueblos con alma, con la promesa de los grandes tresmiles esperando al otro lado.</p>
       </div>
-      <div class="seccion timeline">
-        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
-        <ul>
-          <li><span class="hora">9:00</span> Desayuno y último paseo por Broto / el río</li>
-          <li><span class="hora">10:30</span> Recoger y check-out de Casa Rincón de Broto</li>
-          <li><span class="hora">11:30</span> Salida hacia el valle de Benasque</li>
-          <li><span class="hora">12:30</span> Parada y paseo por el casco medieval de Aínsa</li>
-          <li><span class="hora">14:00</span> Comida en Aínsa</li>
-          <li><span class="hora">16:00</span> Continuación y llegada a La Terraceta de Linsoles</li>
-        </ul>
+
+      <div class="seccion">
+        <h4><span class="emoji">⏰</span> Horario orientativo del día</h4>
+        <table class="tabla">
+          <tr><th class="hora-col">Hora</th><th>Actividad</th></tr>
+          <tr><td class="hora-col">9:00 h</td><td>Desayuno y último paseo por Broto / el río</td></tr>
+          <tr><td class="hora-col">10:30 h</td><td>Recoger y check-out de Casa Rincón de Broto</td></tr>
+          <tr><td class="hora-col">11:30 h</td><td>Salida hacia el valle de Benasque</td></tr>
+          <tr><td class="hora-col">12:30 h</td><td>Parada y paseo por el casco medieval de Aínsa</td></tr>
+          <tr><td class="hora-col">14:00 h</td><td>Comida en Aínsa</td></tr>
+          <tr><td class="hora-col">16:00 h</td><td>Continuación y llegada a La Terraceta de Linsoles</td></tr>
+        </table>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <p><strong>Paseo de despedida por Broto + casco medieval de Aínsa</strong></p>
+        <p class="subtitulo">Contexto geográfico y natural</p>
+        <p>Aínsa (589 m), capital histórica del Sobrarbe, es uno de los conjuntos medievales mejor conservados del Pirineo: su Plaza Mayor porticada, las murallas, la iglesia románica de Santa María y el castillo dominan un promontorio sobre la confluencia de los ríos Ara y Cinca. Es parada obligada en el traslado hacia la Ribagorza y un lugar perfecto para estirar las piernas (y las patas de Greta) a media mañana.</p>
+        <p class="subtitulo">Descripción detallada del recorrido</p>
+        <p><strong>Tramo 1 — Despedida de Broto:</strong> una última vuelta llana por la ribera del Ara, para cerrar el capítulo del Sobrarbe.</p>
+        <p><strong>Tramo 2 — Casco medieval de Aínsa:</strong> paseo por la Plaza Mayor porticada, las callejas de piedra y el entorno de la muralla y el castillo, con vistas al Pirineo.</p>
+        <table class="tabla ficha">
+          <tr><td>Punto de inicio</td><td>Broto (ribera) y, de camino, casco alto de Aínsa</td></tr>
+          <tr><td>Cómo llegar</td><td>Broto → Aínsa ~50 min; Aínsa → Benasque (vía Campo y Castejón de Sos) ~1h15. Total Broto-Benasque ~2 h</td></tr>
+          <tr><td>Distancia</td><td>2-3 km repartidos (paradas cortas)</td></tr>
+          <tr><td>Desnivel</td><td>Llano y empedrado; muy cómodo</td></tr>
+          <tr><td>Tiempo estimado</td><td>Paseos cortos entre traslados</td></tr>
+          <tr><td>Dificultad</td><td>⭐ Muy fácil</td></tr>
+          <tr><td>Apta para Greta</td><td><span class="tag si">✅ Sí</span> calles y miradores; al fresco de la mañana</td></tr>
+          <tr><td>Mejor horario</td><td>Mañana, antes del calor y del grueso del traslado</td></tr>
+        </table>
+        <p class="subtitulo">Qué llevar</p>
         <ul>
-          <li><span class="label">Ruta:</span> Paseo de despedida por Broto + casco medieval de Aínsa (parada de camino)</li>
-          <li><span class="label">Recorrido:</span> Última vuelta por el río Ara en Broto; en Aínsa, Plaza Mayor, murallas y callejas medievales</li>
-          <li><span class="label">Firme y desnivel:</span> Llano y empedrado; muy cómodo</li>
-          <li><span class="label">Dificultad / distancia:</span> Muy fácil · 2-3 km repartidos · paradas cortas</li>
-          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> calles y miradores; al fresco de la mañana</li>
-          <li><span class="label">Mejor horario:</span> Mañana, antes del calor y del traslado</li>
+          <li>Agua fría y snacks para Greta durante el traslado</li>
+          <li>Bolsas y todo el equipaje organizado</li>
+          <li>Depósito lleno (repostad en Aínsa o Campo)</li>
         </ul>
-        <p><strong>👀 No te pierdas:</strong> la Plaza Mayor porticada de Aínsa, una de las más bonitas del Pirineo, perfecta para un café en terraza con Greta.</p>
       </div>
+
       <div class="seccion destacado">
         <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
-        <p>El paseo por la <strong>Plaza Mayor medieval de Aínsa</strong>, con sus soportales de piedra y las vistas al Pirineo desde la muralla: una despedida con sabor histórico antes de empezar el último tramo del viaje.</p>
+        <p>El paseo por la Plaza Mayor medieval de Aínsa, con sus soportales de piedra y las vistas al Pirineo desde la muralla: una despedida con sabor histórico antes de empezar el último tramo del viaje, rumbo a los gigantes de Benasque.</p>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
-        <ul>
-          <li><span class="label">Lugar:</span> Restaurante o terraza en el casco medieval de Aínsa</li>
-          <li><span class="label">Cocina:</span> Sobrarbesa; ternasco, embutidos, quesos de la comarca</li>
-          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> en las terrazas de la plaza / <span class="tag precaucion">⚠️ Consultar</span> interior</li>
-          <li><span class="label">Alternativa:</span> Picnic en una zona de descanso de camino a Benasque</li>
-        </ul>
+        <div class="opcion">
+          <h5>Opción A — Terraza en el casco medieval de Aínsa</h5>
+          <p><span class="label">Contexto:</span> comer en la Plaza Mayor porticada o en una de las terrazas del casco alto, con ambiente medieval.</p>
+          <p><span class="label">Cocina:</span> sobrarbesa; ternasco, embutidos y quesos de la comarca, ensaladas.</p>
+          <p><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> en las terrazas de la plaza · <span class="label">Precio:</span> 20-30 € por persona</p>
+        </div>
+        <div class="opcion">
+          <h5>Opción B — Picnic de camino</h5>
+          <p>En una zona de descanso de la carretera a Benasque, para no demorar la llegada al nuevo alojamiento.</p>
+        </div>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
         <ul>
-          <li><span class="label">Lugar:</span> Ya en el nuevo alojamiento (La Terraceta de Linsoles) o en Benasque/Eriste</li>
-          <li><span class="label">Cocina:</span> Algo sencillo tras el traslado</li>
-          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> consultar en el destino</li>
-          <li><span class="label">Ambiente / hora:</span> Relajado y temprano · 20:30</li>
+          <li><span class="label">Lugar:</span> ya en el nuevo alojamiento (La Terraceta de Linsoles) o en Benasque/Eriste</li>
+          <li><span class="label">Cocina:</span> algo sencillo tras el traslado</li>
+          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> (consultar en el destino)</li>
+          <li><span class="label">Ambiente / hora:</span> relajado y temprano · 20:30 h</li>
         </ul>
       </div>
+
       <div class="seccion consejo">
         <h4><span class="emoji">⚠️</span> Consejo del día</h4>
-        <p>Día de traslado: <strong>dejad las maletas casi listas la noche anterior</strong> y salid con el depósito lleno. El trayecto Broto–Benasque dura unas <strong>2 horas</strong> (vía Aínsa, Campo y Castejón de Sos); haced una <strong>parada para que Greta beba y estire las patas</strong>. Aínsa es la parada ideal a media mañana, cuando aún se pasea con gusto.</p>
+        <p><strong>Sobre el traslado:</strong> dejad las maletas casi listas la noche anterior y salid con el depósito lleno. El trayecto Broto-Benasque dura unas 2 horas (vía Aínsa, Campo y Castejón de Sos).</p>
+        <p><strong>Sobre Greta:</strong> haced una parada para que beba y estire las patas; Aínsa es la parada ideal a media mañana. Nunca la dejéis sola en el coche con calor.</p>
+        <p><strong>Sobre el siguiente bloque:</strong> el valle de Benasque está en el Parque Natural Posets-Maladeta, donde los perros sí están permitidos con correa. ¡Greta recupera la libertad!</p>
       </div>
     </div>
   </article>
@@ -525,12 +678,12 @@
     <h2>🐾 Consejos específicos para Greta en la zona de Broto/Ordesa</h2>
     <ul>
       <li><strong>Parque Nacional vetado:</strong> Ordesa, Añisclo, Escuaín y Pineta no admiten perros (ni atados ni en brazos), y en julio Ordesa solo se accede en lanzadera, donde tampoco viajan perros. Planificad siempre fuera de los límites del parque.</li>
-      <li><strong>Dónde SÍ puede ir:</strong> Bujaruelo, Cascada de Sorrosal, Torla y su río, los pueblos del valle del Ara (Oto, Sarvisé, Linás de Broto), el Valle de Vió y los miradores. Todo pet-friendly.</li>
+      <li><strong>Dónde SÍ puede ir:</strong> Bujaruelo, Cascada de Sorrosal, Torla y su río, los pueblos del valle del Ara (Oto, Sarvisé), el Valle de Vió y los miradores. Todo pet-friendly.</li>
       <li><strong>Opción "ver Ordesa":</strong> hay guarderías caninas en la zona de Torla/Broto donde dejar a Greta unas horas. Reservad con antelación.</li>
-      <li><strong>Calor de julio:</strong> caniche toy = poca tolerancia al sol. Salidas a primera y última hora; bol plegable y agua siempre; aprovechad las pozas del Ara y la sombra de ribera.</li>
+      <li><strong>Calor de julio:</strong> salidas a primera y última hora; bol plegable y agua siempre; aprovechad las pozas del Ara y la sombra de ribera.</li>
       <li><strong>Mastines y ganado:</strong> en Bujaruelo y los valles altos hay rebaños con perros guardianes. Correa corta, calma y distancia.</li>
-      <li><strong>Garrapatas y baños:</strong> revisad a Greta tras cada paseo y secadle bien las orejas tras los baños para evitar otitis.</li>
-      <li><strong>Carreteras de curvas:</strong> Bujaruelo (pista) y Valle de Vió son revirados; conducid despacio y evitad que coma justo antes para que no se maree.</li>
+      <li><strong>Garrapatas y baños:</strong> revisadla tras cada paseo y secadle bien las orejas tras los baños (otitis).</li>
+      <li><strong>Carreteras de curvas:</strong> Bujaruelo (pista) y Valle de Vió son revirados; conducid despacio y evitad que coma justo antes.</li>
     </ul>
   </section>
 
@@ -567,7 +720,7 @@
       <li>Lavar y secar calzado, botas y la toalla de Greta usados en el río y en Bujaruelo.</li>
       <li>Comprar producto local del Sobrarbe (quesos, embutidos, ternasco) si queréis llevároslo.</li>
       <li>Repasar la mochila de Greta: comida, premios, bolsas, toalla, pipeta y cartilla veterinaria.</li>
-      <li><strong>Buena noticia para el Bloque 3:</strong> el valle de Benasque está en el Parque Natural Posets-Maladeta, donde los perros SÍ están permitidos con correa (al contrario que en el Parque Nacional de Ordesa). Mucha más libertad para caminar juntos.</li>
+      <li><strong>Buena noticia para el Bloque 3:</strong> el valle de Benasque está en el Parque Natural Posets-Maladeta, donde los perros SÍ están permitidos con correa. Mucha más libertad para caminar juntos.</li>
     </ul>
   </section>
 
