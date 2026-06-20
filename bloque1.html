@@ -1,0 +1,2384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloque 1 — Valle de Hecho · Pirineo Aragonés 2026</title>
+    <style>
+        /* ===== RESET Y BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --verde-pirineo: #2d5a27;
+            --verde-claro: #4a7c59;
+            --verde-musgo: #6b8f61;
+            --ocre-piedra: #c4956a;
+            --ocre-claro: #e8c99a;
+            --crema: #f5f0e8;
+            --blanco-nieve: #fafaf8;
+            --gris-roca: #4a4a4a;
+            --gris-claro: #8a8a8a;
+            --negro-pizarra: #1a1a1a;
+            --dorado: #c9a84c;
+            --color-bloque: #2d5a27;
+            --color-bloque-claro: #4a7c59;
+            --color-bloque-grad: linear-gradient(135deg, #1a3a1a 0%, #2d5a27 50%, #4a7c59 100%);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: var(--blanco-nieve);
+            color: var(--negro-pizarra);
+            overflow-x: hidden;
+        }
+
+        /* ===== TOPBAR ===== */
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(26, 58, 26, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 0 24px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .topbar-back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-family: Arial, sans-serif;
+            transition: color 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .topbar-back:hover { color: white; }
+
+        .topbar-sep {
+            width: 1px;
+            height: 20px;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .topbar-title {
+            color: white;
+            font-size: 0.9rem;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .topbar-nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-family: Arial, sans-serif;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.2s;
+        }
+
+        .topbar-nav-btn:hover {
+            color: white;
+            border-color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .topbar-nav-btn.next {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            background: var(--color-bloque-grad);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px 60px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(74,127,165,0.1) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(45,90,39,0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-mountains {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            opacity: 0.1;
+        }
+
+        .hero-bloque-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: rgba(255,255,255,0.85);
+            padding: 7px 18px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            font-family: Arial, sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-num {
+            font-size: clamp(5rem, 15vw, 10rem);
+            color: rgba(255,255,255,0.06);
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 1;
+            pointer-events: none;
+            font-family: Arial, sans-serif;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: white;
+            font-weight: normal;
+            line-height: 1.1;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+        }
+
+        .hero-title span {
+            color: var(--dorado);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(0.95rem, 2vw, 1.2rem);
+            color: rgba(255,255,255,0.65);
+            font-style: italic;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-chip {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.85);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-family: Arial, sans-serif;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-aloj {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 16px;
+            padding: 16px 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 40px;
+        }
+
+        .hero-aloj-emoji { font-size: 1.5rem; }
+
+        .hero-aloj-info { text-align: left; }
+
+        .hero-aloj-nombre {
+            color: white;
+            font-size: 1rem;
+            font-weight: normal;
+            margin-bottom: 3px;
+        }
+
+        .hero-aloj-valle {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.8rem;
+            font-family: Arial, sans-serif;
+        }
+
+        .hero-scroll {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.35);
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+
+        .scroll-arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(45deg);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: rotate(45deg) translateY(0); }
+            50% { transform: rotate(45deg) translateY(5px); }
+        }
+
+        /* ===== AVISO IMPORTANTE ===== */
+        .aviso-box {
+            background: #fff8e1;
+            border-left: 4px solid var(--dorado);
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            margin: 0 0 32px 0;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .aviso-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+
+        .aviso-title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--negro-pizarra);
+            margin-bottom: 6px;
+            font-family: Arial, sans-serif;
+        }
+
+        .aviso-text {
+            font-size: 0.82rem;
+            color: var(--gris-roca);
+            line-height: 1.6;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ===== ÍNDICE DE DÍAS ===== */
+        .indice {
+            background: var(--crema);
+            padding: 60px 24px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .container-wide {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--verde-musgo);
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .section-title {
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            color: var(--gris-roca);
+            font-weight: normal;
+            margin-bottom: 32px;
+        }
+
+        .section-title span {
+            color: var(--color-bloque);
+            font-style: italic;
+        }
+
+        .indice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+        }
+
+        .indice-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: white;
+            border-radius: 14px;
+            padding: 16px 18px;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .indice-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(45,90,39,0.12);
+            border-color: rgba(45,90,39,0.2);
+        }
+
+        .indice-num {
+            width: 40px;
+            height: 40px;
+            background: var(--color-bloque-grad);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.85rem;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .indice-info { flex: 1; }
+
+        .indice-fecha {
+            font-size: 0.7rem;
+            color: var(--gris-claro);
+            font-family: Arial, sans-serif;
+            margin-bottom: 2px;
+        }
+
+        .indice-nombre {
+            font-size: 0.88rem;
+            color: var(--negro-pizarra);
+            line-height: 1.3;
+        }
+
+        .indice-icono { font-size: 1.2rem; }
+
+        /* ===== DÍAS ===== */
+        .dias-section {
+            padding: 60px 24px;
+            background: var(--blanco-nieve);
+        }
+
+        .dia-block {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            scroll-margin-top: 80px;
+        }
+
+        .dia-block:last-child { margin-bottom: 0; }
+
+        /* Header del día */
+        .dia-header {
+            background: var(--color-bloque-grad);
+            border-radius: 20px;
+            padding: 32px 36px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dia-header::before {
+            content: attr(data-num);
+            position: absolute;
+            right: -10px;
+            top: -20px;
+            font-size: 8rem;
+            font-weight: bold;
+            color: rgba(255,255,255,0.05);
+            font-family: Arial, sans-serif;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .dia-bloque-label {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            font-family: Arial, sans-serif;
+            margin-bottom: 8px;
+        }
+
+        .dia-numero-fecha {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .dia-numero {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .dia-fecha-txt {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.45);
+            font-family: Arial, sans-serif;
+        }
+
+        .dia-titulo {
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            color: white;
+            font-weight: normal;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Secciones del día */
+        .dia-secciones {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .seccion {
+            background: white;
+            border-radius: 16px;
+            padding: 28px 32px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .seccion-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .seccion-emoji {
+            font-size: 1.4rem;
+        }
+
+        .seccion-titulo {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gris-claro);
+            font-family: Arial, sans-serif;
+        }
+
+        /* Introducción */
+        .intro-texto {
+            font-size: 1.05rem;
+            color: var(--gris-roca);
+            line-height: 1.85;
+            font-style: italic;
+        }
+
+        /* Subsección con título */
+        .sub-titulo {
+            font-size: 1.05rem;
+            color: var(--negro-pizarra);
+            margin: 20px 0 10px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .sub-titulo:first-child {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .sub-texto {
+            font-size: 0.9rem;
+            color: var(--gris-roca);
+            line-height: 1.75;
+            font-family: Arial, sans-serif;
+            margin-bottom: 12px;
+        }
+
+        .sub-texto:last-child { margin-bottom: 0; }
+
+        /* Datos técnicos actividad */
+        .actividad-datos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--crema);
+            border-radius: 12px;
+        }
+
+        .dato-item {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .dato-label {
+            font-size: 0.68rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gris-claro);
+            font-family: Arial, sans-serif;
+        }
+
+        .dato-valor {
+            font-size: 0.88rem;
+            color: var(--negro-pizarra);
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .dato-valor.verde { color: var(--verde-pirineo); }
+        .dato-valor.naranja { color: #e67e22; }
+
+        /* Horario */
+        .horario-tabla {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .horario-tabla tr {
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .horario-tabla tr:last-child { border-bottom: none; }
+
+        .horario-tabla td {
+            padding: 10px 8px;
+            vertical-align: top;
+            line-height: 1.4;
+        }
+
+        .horario-tabla td:first-child {
+            color: var(--color-bloque);
+            font-weight: bold;
+            white-space: nowrap;
+            width: 90px;
+            font-size: 0.82rem;
+        }
+
+        .horario-tabla td:last-child {
+            color: var(--gris-roca);
+        }
+
+        /* Lista de items */
+        .items-lista {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .items-lista li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: var(--gris-roca);
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        .items-lista li::before {
+            content: '→';
+            color: var(--color-bloque);
+            flex-shrink: 0;
+            font-weight: bold;
+            margin-top: 1px;
+        }
+
+        /* Tags */
+        .tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-family: Arial, sans-serif;
+        }
+
+        .tag-verde { background: #e8f5e9; color: #2d5a27; border: 1px solid #c8e6c9; }
+        .tag-amarillo { background: #fffde7; color: #f57f17; border: 1px solid #fff176; }
+        .tag-rojo { background: #fce4ec; color: #c2185b; border: 1px solid #f8bbd0; }
+        .tag-azul { background: #e3f2fd; color: #1565c0; border: 1px solid #bbdefb; }
+        .tag-naranja { background: #fff3e0; color: #e65100; border: 1px solid #ffe0b2; }
+        .tag-gris { background: #f5f5f5; color: #616161; border: 1px solid #e0e0e0; }
+
+        /* Momento destacado */
+        .momento-box {
+            background: linear-gradient(135deg, #f0f7f0 0%, #e8f5e9 100%);
+            border-left: 4px solid var(--color-bloque);
+            border-radius: 0 14px 14px 0;
+            padding: 22px 24px;
+        }
+
+        .momento-texto {
+            font-size: 1rem;
+            color: var(--gris-roca);
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* Restaurante card */
+        .restaurante-card {
+            background: var(--crema);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 16px;
+        }
+
+        .restaurante-card:last-child { margin-bottom: 0; }
+
+        .rest-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .rest-nombre {
+            font-size: 1rem;
+            color: var(--negro-pizarra);
+            font-weight: normal;
+        }
+
+        .rest-nombre em {
+            font-size: 0.78rem;
+            color: var(--gris-claro);
+            font-style: normal;
+            font-family: Arial, sans-serif;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .rest-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-family: Arial, sans-serif;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .badge-si { background: #e8f5e9; color: #2d5a27; border: 1px solid #c8e6c9; }
+        .badge-consultar { background: #fff3e0; color: #e65100; border: 1px solid #ffe0b2; }
+        .badge-no { background: #fce4ec; color: #c2185b; border: 1px solid #f8bbd0; }
+
+        .rest-desc {
+            font-size: 0.85rem;
+            color: var(--gris-roca);
+            line-height: 1.65;
+            font-family: Arial, sans-serif;
+        }
+
+        .rest-platos {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .rest-platos-title {
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gris-claro);
+            font-family: Arial, sans-serif;
+            margin-bottom: 6px;
+        }
+
+        .rest-precio {
+            margin-top: 8px;
+            font-size: 0.78rem;
+            color: var(--gris-claro);
+            font-family: Arial, sans-serif;
+        }
+
+        /* Consejo del día */
+        .consejo-box {
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            border-radius: 14px;
+            padding: 22px 24px;
+        }
+
+        .consejo-titulo {
+            font-size: 0.88rem;
+            font-weight: bold;
+            color: #f57f17;
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .consejo-texto {
+            font-size: 0.88rem;
+            color: var(--gris-roca);
+            line-height: 1.7;
+            font-family: Arial, sans-serif;
+        }
+
+        .consejo-texto + .consejo-texto {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255,224,130,0.5);
+        }
+
+        /* Separador días */
+        .dia-sep {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .sep-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(45,90,39,0.2), transparent);
+        }
+
+        .sep-icon { color: var(--verde-musgo); font-size: 1rem; opacity: 0.5; }
+
+        /* ===== SECCIONES FINALES ===== */
+        .final-section {
+            padding: 60px 24px;
+        }
+
+        .final-section.bg-crema { background: var(--crema); }
+        .final-section.bg-white { background: white; }
+        .final-section.bg-dark {
+            background: linear-gradient(135deg, #1a3a1a 0%, #2d5a27 100%);
+            color: white;
+        }
+
+        /* Consejos Greta */
+        .greta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .greta-card {
+            background: white;
+            border-radius: 14px;
+            padding: 22px;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .greta-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .greta-icon { font-size: 1.4rem; }
+
+        .greta-card-title {
+            font-size: 0.88rem;
+            font-weight: bold;
+            color: var(--negro-pizarra);
+            font-family: Arial, sans-serif;
+        }
+
+        .greta-card-text {
+            font-size: 0.82rem;
+            color: var(--gris-roca);
+            line-height: 1.65;
+            font-family: Arial, sans-serif;
+        }
+
+        .greta-card-lista {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .greta-card-lista li {
+            font-size: 0.82rem;
+            color: var(--gris-roca);
+            font-family: Arial, sans-serif;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+            padding-left: 14px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .greta-card-lista li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-bloque);
+        }
+
+        .greta-card-lista li:last-child { border-bottom: none; }
+
+        /* Mapa mental */
+        .mapa-box {
+            background: var(--negro-pizarra);
+            border-radius: 16px;
+            padding: 28px 32px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.82rem;
+            color: #a8d8a8;
+            line-height: 1.8;
+            overflow-x: auto;
+            margin-bottom: 24px;
+        }
+
+        .mapa-box .highlight { color: #90caf9; }
+        .mapa-box .highlight2 { color: var(--dorado); }
+        .mapa-box .muted { color: #666; }
+
+        /* Tabla resumen */
+        .tabla-resumen {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+        }
+
+        .tabla-resumen th {
+            background: var(--color-bloque);
+            color: white;
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 0.72rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .tabla-resumen th:first-child { border-radius: 8px 0 0 0; }
+        .tabla-resumen th:last-child { border-radius: 0 8px 0 0; }
+
+        .tabla-resumen td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            color: var(--gris-roca);
+            vertical-align: middle;
+        }
+
+        .tabla-resumen tr:hover td { background: var(--crema); }
+        .tabla-resumen tr:last-child td { border-bottom: none; }
+
+        /* Checklist */
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .checklist-group {
+            background: white;
+            border-radius: 14px;
+            padding: 20px 22px;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .checklist-group-title {
+            font-size: 0.82rem;
+            font-weight: bold;
+            color: var(--negro-pizarra);
+            font-family: Arial, sans-serif;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 7px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+            font-size: 0.82rem;
+            color: var(--gris-roca);
+            font-family: Arial, sans-serif;
+            line-height: 1.4;
+        }
+
+        .checklist-item:last-child { border-bottom: none; }
+
+        .check-box {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ccc;
+            border-radius: 3px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ===== NAVEGACIÓN INFERIOR ===== */
+        .nav-inferior {
+            background: var(--negro-pizarra);
+            padding: 40px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-inf-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 24px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .nav-inf-back {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.7);
+        }
+
+        .nav-inf-back:hover {
+            background: rgba(255,255,255,0.12);
+            color: white;
+        }
+
+        .nav-inf-next {
+            background: var(--azul-btn, #4a7fa5);
+            color: white;
+            border: none;
+        }
+
+        .nav-inf-next:hover {
+            background: var(--azul-btn-hover, #2d5f80);
+            transform: translateX(4px);
+        }
+
+        .nav-inf-center {
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .topbar { padding: 0 16px; }
+            .topbar-title { display: none; }
+            .seccion { padding: 20px 18px; }
+            .dia-header { padding: 24px 22px; }
+            .actividad-datos { grid-template-columns: repeat(2, 1fr); }
+            .horario-tabla td:first-child { width: 70px; font-size: 0.75rem; }
+            .nav-inferior { flex-direction: column; align-items: stretch; }
+            .nav-inf-btn { justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 80px 16px 50px; }
+            .hero-aloj { flex-direction: column; text-align: center; }
+            .hero-aloj-info { text-align: center; }
+            .indice-grid { grid-template-columns: 1fr; }
+            .actividad-datos { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* ===== FADE IN ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <!-- ===== TOPBAR ===== -->
+    <nav class="topbar">
+        <div class="topbar-left">
+            <a href="index.html" class="topbar-back">← Inicio</a>
+            <div class="topbar-sep"></div>
+            <span class="topbar-title">Bloque 01 · Valle de Hecho</span>
+        </div>
+        <div class="topbar-right">
+            <a href="bloque2.html" class="topbar-nav-btn next">Bloque 02 →</a>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <svg class="hero-mountains" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
+            <path d="M0,300 L0,200 L100,120 L180,170 L280,80 L360,130 L450,50 L530,110 L620,30 L700,90 L780,40 L860,100 L940,20 L1020,80 L1100,50 L1200,90 L1200,300Z" fill="white"/>
+            <path d="M0,300 L0,240 L120,190 L200,220 L300,170 L400,210 L500,160 L600,200 L700,155 L800,195 L900,160 L1000,200 L1100,165 L1200,195 L1200,300Z" fill="white" opacity="0.4"/>
+        </svg>
+
+        <div class="hero-bloque-badge">🌲 Bloque 01 de 03</div>
+        <div class="hero-num">01</div>
+
+        <h1 class="hero-title">
+            Valle de<br><span>Hecho</span>
+        </h1>
+        <p class="hero-subtitle">Pirineo Occidental Aragonés · Parque Natural de los Valles Occidentales</p>
+
+        <div class="hero-meta">
+            <div class="hero-chip">📅 1 — 6 de julio de 2026</div>
+            <div class="hero-chip">🌙 5 noches</div>
+            <div class="hero-chip">🥾 6 jornadas</div>
+            <div class="hero-chip">📍 1.100 m altitud</div>
+        </div>
+
+        <div class="hero-aloj">
+            <div class="hero-aloj-emoji">🏨</div>
+            <div class="hero-aloj-info">
+                <div class="hero-aloj-nombre">Hotel de Montaña Uson</div>
+                <div class="hero-aloj-valle">Valle de Hecho · Huesca · Aragón</div>
+            </div>
+        </div>
+
+        <div class="hero-scroll" onclick="document.getElementById('indice').scrollIntoView()">
+            <span>Ver itinerario</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- ===== AVISO CONTEXTO ===== -->
+    <div style="max-width:900px; margin: 40px auto 0; padding: 0 24px;">
+        <div class="aviso-box">
+            <div class="aviso-icon">🏔️</div>
+            <div>
+                <div class="aviso-title">Contexto del Valle de Hecho</div>
+                <div class="aviso-text">El Hotel de Montaña Uson se encuentra en el valle de Hecho, en el corazón del Pirineo occidental aragonés, a unos 1.100 metros de altitud. Este valle forma parte del Parque Natural de los Valles Occidentales, uno de los espacios naturales más salvajes y menos masificados del Pirineo. El río Aragón Subordán lo atraviesa, los hayedos y abetales cubren sus laderas y los picos superan los 2.500 metros. Julio es mes de alta temporada, con temperaturas agradables en altura pero cálidas en las horas centrales (25-32°C en el fondo del valle). Las mañanas y tardes son perfectas para la actividad.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ÍNDICE ===== -->
+    <section class="indice" id="indice">
+        <div class="container">
+            <p class="section-label">Itinerario completo</p>
+            <h2 class="section-title">Los <span>6 días</span> del bloque</h2>
+            <div class="indice-grid">
+                <a href="#dia1" class="indice-item">
+                    <div class="indice-num">1</div>
+                    <div class="indice-info">
+                        <div class="indice-fecha">Miércoles 1 de julio</div>
+                        <div class="indice-nombre">Llegada y primer aliento de montaña</div>
+                    </div>
+                    <div class="indice-icono">🚗</div>
+                </a>
+                <a href="#dia2" class="indice-item">
+                    <div class="indice-num">2</div>
+                    <div class="indice-info">
+                        <div class="indice-fecha">Jueves 2 de julio</div>
+                        <div class="indice-nombre">El bosque que no olvidas</div>
+                    </div>
+                    <div class="indice-icono">🌲</div>
+                </a>
+                <a href="#dia3" class="indice-item">
+                    <div class="indice-num">3</div>
+                    <div class="indice-info">
+                        <div class="indice-fecha">Viernes 3 de julio</div>
+                        <div class="indice-nombre">Piedra, silencio y queso milenario</div>
+                    </div>
+                    <div class="indice-icono">🧀</div>
+                </a>
+                <a href="#dia4" class="indice-item">
+                    <div class="indice-num">4</div>
+                    <div class="indice-info">
+                        <div class="indice-fecha">Sábado 4 de julio</div>
+                        <div class="indice-nombre">Agua, cascadas y frescor</div>
+                    </div>
+                    <div class="indice-icono">💧</div>
+                </a>
+                <a href="#dia5" class="indice-item">
+                    <div class="indice-num">5</div>
+                    <div class="indice-info">
+                        <div class="indice-fecha">Domingo 5 de julio</div>
+                        <div class="indice-nombre">Descanso activo y arte entre montañas</div>
+                    </div>
+                    <div class="indice-icono">🎨</div>
+                </a>
+                <a href="#dia6" class="indice-item">
+                    <div class="indice-num">6</div>
+                    <div class="indice-info">
+                        <div class="indice-fecha">Lunes 6 de julio</div>
+                        <div class="indice-nombre">El valle más alto · Aguas Tuertas</div>
+                    </div>
+                    <div class="indice-icono">🏔️</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DÍAS ===== -->
+    <section class="dias-section">
+
+        <!-- DÍA 1 -->
+        <div class="dia-block fade-in" id="dia1">
+            <div class="dia-header" data-num="1">
+                <div class="dia-bloque-label">Bloque 01 · Valle de Hecho</div>
+                <div class="dia-numero-fecha">
+                    <span class="dia-numero">Día 1</span>
+                    <span class="dia-fecha-txt">Miércoles, 1 de julio de 2026</span>
+                </div>
+                <h2 class="dia-titulo">Llegada y primer aliento de montaña</h2>
+            </div>
+
+            <div class="dia-secciones">
+
+                <!-- Introducción -->
+                <div class="seccion">
+                    <div class="seccion-header">
+                        <span class="seccion-emoji">📖</span>
+                        <span class="seccion-titulo">Introducción del día</span>
+                    </div>
+                    <p class="intro-texto">Hay algo que ocurre en el cuerpo cuando el paisaje cambia de golpe. La autopista queda atrás, los campos de cereal de la Hoya de Huesca se transforman en colinas, las colinas en barrancos, los barrancos en valles cada vez más estrechos y verdes, y de repente el aire que entra por la ventanilla huele distinto: a pino, a hierba mojada, a piedra caliza. El Valle de Hecho aparece como una revelación entre curvas. Hoy no es un día de hacer cosas: es un día de llegar, de instalarse, de dejar que el cuerpo comprenda que ha cambiado de mundo. La montaña tiene su propio ritmo y el primer día es para sintonizarse con él. Greta será la primera en entenderlo: en cuanto abráis la puerta del coche y pise la hierba fresca del valle, su nariz empezará a trabajar a toda velocidad.</p>
+                </div>
+
+                <!-- Cómo llegar -->
+                <div class="seccion">
+                    <div class="seccion-header">
+                        <span class="seccion-emoji">🚗</span>
+                        <span class="seccion-titulo">Cómo llegar al Hotel Uson</span>
+                    </div>
+                    <h3 class="sub-titulo">Ruta recomendada desde Barcelona o desde el este</h3>
+                    <p class="sub-texto">AP-2 / A-2 hasta Zaragoza → N-330 / A-23 hacia Huesca y Jaca → En Jaca tomar la A-132 dirección Hecho/Ansó → Desvío en Puente la Reina de Jaca por la HU-2101 en dirección al Valle de Hecho → La carretera sube por la Foz de Biniés (un desfiladero espectacular con paredes de roca caliza vertical) → Llegada a Hecho y desde allí al hotel.</p>
+
+                    <h3 class="sub-titulo">Parada recomendada: Jaca</h3>
+                    <p class="sub-texto">Jaca es la capital del Pirineo aragonés occidental y merece una parada de 1-2 horas si llegáis con tiempo. La Ciudadela de Jaca (fortaleza pentagonal del siglo XVI, la mejor conservada de España) y la Catedral Románica de San Pedro (siglo XI, joya del románico español) se pueden visitar superficialmente en un paseo. Greta puede pasear por los jardines de la ciudadela.</p>
+
+                    <h3 class="sub-titulo">La Foz de Biniés</h3>
+                    <p class="sub-texto">La Foz de Biniés es un cañón espectacular que la carretera HU-2101 atraviesa durante varios kilómetros. Las paredes de roca superan los 200 metros de altura y el río Aragón Subordán discurre en el fondo. Conducid despacio, hay miradores naturales en el arcén donde merece la pena parar 5 minutos. Es la puerta de entrada al valle y ya anticipa la escala de lo que está por venir.</p>
+
+                    <h3 class="sub-titulo">Horario orientativo del día</h3>
+                    <table class="horario-tabla">
+                        <tr><td>Mañana</td><td>Viaje hasta el hotel (variable según origen)</td></tr>
+                        <tr><td>13:00 h</td><td>Llegada al hotel, check-in</td></tr>
+                        <tr><td>14:00 h</td><td>Comida en el hotel</td></tr>
+                        <tr><td>15:30 h</td><td>Descanso, instalación, primera exploración del jardín con Greta</td></tr>
+                        <tr><td>18:30 h</td><td>Paseo por Hecho pueblo</td></tr>
+                        <tr><td>21:00 h</td><td>Cena</td></tr>
+                    </table>
+                </div>
+
+                <!-- Actividad principal -->
+                <div class="seccion">
+                    <div class="seccion-header">
+                        <span class="seccion-emoji">🥾</span>
+                        <span class="seccion-titulo">Actividad principal</span>
+                    </div>
+                    <h3 class="sub-titulo">Paseo por el pueblo de Hecho y orillas del Aragón Subordán</h3>
+
+                    <p class="sub-texto">El pueblo de Hecho (también escrito Echo en su grafía tradicional) es uno de los municipios más singulares del Pirineo aragonés. Fue capital del antiguo Condado de Aragón en la Alta Edad Media, antes de que Aragón se consolidara como reino, lo que le otorga una relevancia histórica extraordinaria. Sus casonas del siglo XVII y XVIII están construidas en piedra arenisca local, con grandes portalones adintelados decorados con escudos nobiliarios esculpidos, balcones de madera y tejados de losa. El pueblo conserva vivo el cheso, un dialecto aragonés propio del Valle de Hecho, uno de los pocos romances pirenaicos que aún se habla con cierta vitalidad.</p>
+
+                    <h3 class="sub-titulo">Qué ver en el pueblo</h3>
+                    <ul class="items-lista">
+                        <li><strong>Plaza Mayor y casonas blasonadas:</strong> El corazón del pueblo, rodeado de edificios del XVII con soportales. El ambiente a las 19:00 h en verano es de lo más auténtico del Pirineo.</li>
+                        <li><strong>Iglesia de San Martín:</strong> La torre románica del siglo XII es visible desde toda la plaza. El interior tiene una pila bautismal románica extraordinaria.</li>
+                        <li><strong>Casa Mazo:</strong> Una de las casonas mejor conservadas del pueblo, con escudo nobiliario tallado en el dintel y fecha de 1683.</li>
+                        <li><strong>El lavadero de piedra:</strong> Junto al río, el antiguo lavadero comunal del pueblo es un ejemplo perfecto de arquitectura popular pirenaica del siglo XIX.</li>
+                        <li><strong>Paseo fluvial:</strong> 1,5 km de camino de ribera entre el pueblo y los primeros prados del valle, ideal para el paseo de tarde.</li>
+                    </ul>
+
+                    <div class="actividad-datos">
+                        <div class="dato-item">
+                            <span class="dato-label">Distancia</span>
+                            <span class="dato-valor">3-4 km</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Desnivel</span>
+                            <span class="dato-valor">Prácticamente nulo</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Dificultad</span>
+                            <span class="dato-valor verde">⭐ Muy fácil</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Apta para Greta</span>
+                            <span class="dato-valor verde">✅ Sí</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Mejor horario</span>
+                            <span class="dato-valor">18:30 — 20:00 h</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Momento destacado -->
+                <div class="seccion">
+                    <div class="seccion-header">
+                        <span class="seccion-emoji">🌅</span>
+                        <span class="seccion-titulo">Momento destacado del día</span>
+                    </div>
+                    <div class="momento-box">
+                        <p class="momento-texto">La Plaza Mayor de Hecho a las 19:30 h. En ese momento exacto, el sol rasante de julio ilumina las fachadas de piedra ocre de las casonas y las convierte en oro. Los niños juegan en la plaza, los vecinos mayores toman el fresco en los bancos de piedra, algún peregrino del Camino de Santiago Transpirenaico descansa con la mochila a los pies. Si os sentáis en la terraza del bar de la plaza con una cerveza fría o un zumo y dejáis que Greta se eche a vuestros pies, habrá comenzado el viaje de verdad. Fotografiad las sombras largas sobre los adoquines. Grabad el sonido de las campanas si suenan.</p>
+                    </div>
+                </div>
+
+                <!-- Comida -->
+                <div class="seccion">
+                    <div class="seccion-header">
+                        <span class="seccion-emoji">🍽️</span>
+                        <span class="seccion-titulo">Comida</span>
+                    </div>
+
+                    <div class="restaurante-card">
+                        <div class="rest-header">
+                            <div class="rest-nombre">Restaurante del Hotel de Montaña Uson
+                                <em>Opción A — Recomendada para el día de llegada</em>
+                            </div>
+                            <span class="rest-badge badge-si">🐾 Admite perros ✅</span>
+                        </div>
+                        <p class="rest-desc">El hotel tiene cocina propia con productos de temporada y del entorno. El menú del día en verano suele incluir dos platos y postre. Es la opción más cómoda para el día de llegada, sin necesidad de desplazamientos. Consultar al check-in si Greta puede estar en la zona de terraza cubierta.</p>
+                        <div class="rest-platos">
+                            <div class="rest-platos-title">Platos recomendados</div>
+                            <ul class="items-lista">
+                                <li>Sopa de montaña al estilo aragonés (con fideos, verduras y huevo) o ensalada de temporada con queso fresco del Pirineo</li>
+                                <li>Trucha del Pirineo a la plancha con patatas o ternasco de Aragón al horno (cordero joven aragonés con IGP)</li>
+                                <li>Tarta de queso casera o fruta de temporada</li>
+                            </ul>
+                            <p class="rest-precio">💶 Precio orientativo menú: 15-20€ por persona</p>
+                        </div>
+                    </div>
+
+                    <div class="restaurante-card">
+                        <div class="rest-header">
+                            <div class="rest-nombre">Restaurante La Cocina Aragonesa — Jaca
+                                <em>Opción B — Si coméis en Jaca a mediodía</em>
+                            </div>
+                            <span class="rest-badge badge-consultar">🐾 Consultar ⚠️</span>
+                        </div>
+                        <p class="rest-desc">Cocina aragonesa clásica en un local histórico de Jaca, referencia de la ciudad desde hace décadas. Tienen terraza exterior en verano.</p>
+                        <div class="rest-platos">
+                            <div class="rest-platos-title">Platos recomendados</div>
+                            <ul class="items-lista">
+                                <li>Migas a la pastora con chorizo y uva</li>
+                                <li>Recao de Binéfar</li>
+                                <li>Ternasco al chilindrón</li>
+                            </ul>
+                            <p class="rest-precio">💶 Precio orientativo: 20-28€ por persona</p>
+                        </div>
+                    </div>
+
+                    <div class="aviso-box" style="margin-top:16px;">
+                        <div class="aviso-icon">🧺</div>
+                        <div>
+                            <div class="aviso-title">Alternativa picnic</div>
+                            <div class="aviso-text">Si el viaje se alarga, parad en el área de descanso de la Foz de Biniés (zona con mesas y sombra junto al río) con provisiones compradas en Jaca. Bocadillo de lomo con queso del Pirineo, fruta y agua fresca.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cena -->
+                <div class="seccion">
+                    <div class="seccion-header">
+                        <span class="seccion-emoji">🌙</span>
+                        <span class="seccion-titulo">Cena</span>
+                    </div>
+
+                    <div class="restaurante-card">
+                        <div class="rest-header">
+                            <div class="rest-nombre">Bar-Restaurante Gaby — Hecho
+                                <em>Calle principal de Hecho · 5 min en coche del hotel</em>
+                            </div>
+                            <span class="rest-badge badge-si">🐾 Admite perros ✅</span>
+                        </div>
+                        <p class="rest-desc">El Bar Gaby es uno de esos locales de pueblo que llevan décadas siendo el centro de la vida social local. Sin pretensiones, sin decoración de diseño, sin carta en inglés: cocina casera aragonesa ejecutada con rigor y buenos productos. Los lugareños comen aquí, lo cual es siempre la mejor recomendación posible. Terraza exterior amplia con mesas de madera, ambiente completamente local.</p>
+                        <div class="rest-platos">
+                            <div class="rest-platos-title">Platos recomendados</div>
+                            <ul class="items-lista">
+                                <li><strong>Recao de Binéfar:</strong> Guiso tradicional aragonés de alubias blancas con arroz, acelgas y verduras de temporada</li>
+                                <li><strong>Costillas al chilindrón:</strong> La salsa más representativa de la cocina aragonesa, con tomate, pimiento rojo y verde, ajo y cebolla</li>
+                                <li><strong>Truchas con jamón serrano:</strong> La trucha asalariada del Aragón Subordán servida a la navarra</li>
+                                <li><strong>Postre:</strong> Melocotón en almíbar casero o cuajada de leche de oveja con miel local</li>
+                            </ul>
+                            <p class="rest-precio">💶 Precio orientativo: 15-20€ por persona · Hora recomendada: 21:00-21:30 h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plus noche -->
+                <div class="seccion">
+                    <div class="seccion-header">
+                        <span class="seccion-emoji">⭐</span>
+                        <span class="seccion-titulo">Plus — La noche del día 1</span>
+                    </div>
+                    <div class="momento-box">
+                        <p class="momento-texto">El Valle de Hecho tiene una contaminación lumínica prácticamente nula. En una noche de julio despejada, al volver de cenar, parad el coche en algún punto del camino entre el pueblo y el hotel y apaad las luces. La Vía Láctea en julio sobre el Pirineo es uno de los espectáculos naturales más impresionantes que existe en Europa. Llevad una manta para tumbarse en el capó o en la hierba 10 minutos. Greta mirará hacia arriba confundida. Vosotros no diréis nada.</p>
+                    </div>
+                </div>
+
+                <!-- Consejo -->
+                <div class="consejo-box">
+                    <div class="consejo-titulo">⚠️ Consejos del día</div>
+                    <p class="consejo-texto"><strong>Sobre el trayecto de acceso:</strong> La carretera HU-2101 desde Puente la Reina de Jaca hasta Hecho tiene 28 km con numerosas curvas y algunos tramos estrechos. En julio hay tráfico de caravanas. Calculad al menos 1 hora y 15 minutos desde Jaca sin apurar.</p>
+                    <p class="consejo-texto"><strong>Sobre Greta en el coche:</strong> Si venís de larga distancia, parad cada 1,5-2 horas para que Greta haga sus necesidades y beba agua. No la dejéis en el coche ni un momento con las ventanillas cerradas en julio.</p>
+                    <p class="consejo-texto"><strong>Sobre el check-in:</strong> Avisad al hotel con antelación si llegáis antes de las 14:00 h para ver si pueden guardar el equipaje mientras coméis o dais un paseo.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dia-sep"><div class="sep-line"></div><div class="sep-icon">🌲</div><div class="sep-line"></div></div>
+
+        <!-- DÍA 2 -->
+        <div class="dia-block fade-in" id="dia2">
+            <div class="dia-header" data-num="2">
+                <div class="dia-bloque-label">Bloque 01 · Valle de Hecho</div>
+                <div class="dia-numero-fecha">
+                    <span class="dia-numero">Día 2</span>
+                    <span class="dia-fecha-txt">Jueves, 2 de julio de 2026</span>
+                </div>
+                <h2 class="dia-titulo">El bosque que no olvidas</h2>
+            </div>
+
+            <div class="dia-secciones">
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">📖</span><span class="seccion-titulo">Introducción del día</span></div>
+                    <p class="intro-texto">Hay bosques en el Pirineo que funcionan como catedrales: te obligan a bajar la voz, a andar despacio, a mirar hacia arriba. El hayedo y abetar de la Selva de Oza es uno de ellos. Los hayas centenarias crean una bóveda vegetal que filtra la luz del amanecer en haces dorados y oblicuos, el suelo está tapizado de musgo verde brillante, y el río suena siempre, cerca o lejos, como un bajo continuo. Madrugar hoy vale la pena: a las 8:00 de la mañana, cuando el bosque aún guarda la frescura de la noche y la niebla baja todavía por las laderas, la Selva de Oza es uno de los lugares más mágicos del Pirineo. Greta lo sabrá en cuanto ponga una pata en la hojarasca.</p>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🕐</span><span class="seccion-titulo">Horario orientativo</span></div>
+                    <table class="horario-tabla">
+                        <tr><td>7:00 h</td><td>Despertador. Desayuno rápido en el hotel</td></tr>
+                        <tr><td>7:30 h</td><td>Salida hacia la Selva de Oza</td></tr>
+                        <tr><td>8:00 h</td><td>Inicio de la ruta</td></tr>
+                        <tr><td>11:00 h</td><td>Final de la ruta, vuelta al aparcamiento</td></tr>
+                        <tr><td>11:30 h</td><td>Regreso al hotel</td></tr>
+                        <tr><td>12:00 h</td><td>Ducha y descanso</td></tr>
+                        <tr><td>14:00 h</td><td>Comida</td></tr>
+                        <tr><td>15:30 h</td><td>Siesta y descanso. Lectura en terraza</td></tr>
+                        <tr><td>21:00 h</td><td>Cena</td></tr>
+                    </table>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🥾</span><span class="seccion-titulo">Actividad principal</span></div>
+                    <h3 class="sub-titulo">Ruta por la Selva de Oza y el Circo de Oza</h3>
+                    <p class="sub-texto">La Selva de Oza es uno de los bosques mixtos más extensos y mejor conservados del Pirineo aragonés occidental. Está compuesta principalmente de hayas (Fagus sylvatica) y abetos (Abies alba), con algunos ejemplares centenarios de más de 30 metros de altura. El sotobosque es extraordinariamente rico: helechos, oxalis, múgos, orquídeas silvestres. El bosque forma parte del Parque Natural de los Valles Occidentales, hábitat del oso pardo pirenaico (rarísimo), el quebrantahuesos, el urogallo cantábrico y el sarrio.</p>
+
+                    <h3 class="sub-titulo">Descripción detallada de la ruta</h3>
+                    <ul class="items-lista">
+                        <li><strong>Tramo 1 — Aparcamiento al primer meandro (2 km):</strong> El camino (PR-HU 3) arranca en dirección norte siguiendo la orilla derecha del Aragón Subordán. Los primeros 500 m entre choperas y prados. A partir del km 1, el hayedo cierra por encima. Suelo de raíces de haya y musgo.</li>
+                        <li><strong>Tramo 2 — El bosque interior (2 km):</strong> El tramo más espectacular. Las hayas alcanzan su mayor porte. El camino se estrecha y hay pequeños afluentes con pasarelas de madera. Greta disfrutará enormemente.</li>
+                        <li><strong>Tramo 3 — Apertura al Circo de Oza (km 4+):</strong> El hayedo se abre y aparece el Circo de Oza: un anfiteatro glaciar donde los prados alpinos sustituyen al bosque. Las paredes rocosas superan los 2.000 m (Mesa de los Tres Reyes al fondo, 2.444 m).</li>
+                    </ul>
+
+                    <div class="actividad-datos">
+                        <div class="dato-item">
+                            <span class="dato-label">Punto de inicio</span>
+                            <span class="dato-valor">Aparcamiento Selva de Oza</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Distancia</span>
+                            <span class="dato-valor">8 km ida y vuelta</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Desnivel</span>
+                            <span class="dato-valor">+180 m / -180 m</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Tiempo estimado</span>
+                            <span class="dato-valor">2,5 - 3 horas</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Dificultad</span>
+                            <span class="dato-valor verde">⭐⭐ Fácil-Moderado</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Apta para Greta</span>
+                            <span class="dato-valor verde">✅ Sí</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Mejor horario</span>
+                            <span class="dato-valor">Salida 7:30 h</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Señalización</span>
+                            <span class="dato-valor">PR-HU 3</span>
+                        </div>
+                    </div>
+
+                    <h3 class="sub-titulo">Qué llevar</h3>
+                    <ul class="items-lista">
+                        <li>Agua: mínimo 1,5 litros por persona + 500 ml para Greta</li>
+                        <li>Bocadillo o fruta para una pausa en el circo</li>
+                        <li>Botines o zapatillas de trail (hay raíces y algún paso húmedo)</li>
+                        <li>Crema solar (el circo es un espacio abierto sin sombra)</li>
+                        <li>Toalla pequeña para secar a Greta después del río</li>
+                    </ul>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🌅</span><span class="seccion-titulo">Momento destacado del día</span></div>
+                    <div class="momento-box">
+                        <p class="momento-texto">El instante en que el hayedo se abre al Circo de Oza. Llevad cuatro kilómetros de penumbra de bosque, de sonidos amortiguados, de luz filtrada. Y de repente el árbol que tenéis delante se acaba y el mundo explota en verde y azul y blanco: prados brillantes, cielo limpio de julio, paredes rocosas que suben hasta las nubes. Greta se lanzará a galope por la hierba antes de que vosotros hayáis podido reaccionar. Es uno de esos momentos que justifican todos los kilómetros hasta llegar aquí.</p>
+                    </div>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🍽️</span><span class="seccion-titulo">Comida</span></div>
+                    <div class="restaurante-card">
+                        <div class="rest-header">
+                            <div class="rest-nombre">Borda Ixeia — Hecho
+                                <em>Opción A — Recomendada</em>
+                            </div>
+                            <span class="rest-badge badge-si">🐾 Admite perros ✅</span>
+                        </div>
+                        <p class="rest-desc">Una borda es una construcción tradicional pirenaica de piedra, originalmente usada como refugio ganadero de altura. La Borda Ixeia es una de estas construcciones rehabilitada como restaurante, manteniendo la arquitectura original: muros de piedra gruesa, techos de madera, ambiente cálido y rústico. Trabajan con productores locales del Valle de Hecho. Terraza exterior con vistas al valle.</p>
+                        <div class="rest-platos">
+                            <div class="rest-platos-title">Platos recomendados</div>
+                            <ul class="items-lista">
+                                <li>Tabla de embutidos del Pirineo con queso curado de cabra del valle y pan tostado</li>
+                                <li>Chuleta de ternera del Pirineo a las brasas con patatas al horno y pimientos asados</li>
+                                <li>Pimientos del cristal asados con aceite de oliva virgen extra del Bajo Aragón y ajo confitado</li>
+                                <li>Cuajada de oveja con miel de flores silvestres del Pirineo</li>
+                            </ul>
+                            <p class="rest-precio">💶 Precio orientativo: 25-35€ por persona · Reserva recomendable en julio</p>
+                        </div>
+                    </div>
+                    <div class="aviso-box" style="margin-top:12px;">
+                        <div class="aviso-icon">🧺</div>
+                        <div>
+                            <div class="aviso-title">Alternativa picnic en la Selva de Oza</div>
+                            <div class="aviso-text">El área recreativa junto al aparcamiento de Oza tiene mesas de madera con vistas al río. Bocadillos de lomo con queso de oveja, tomates aliñados, fruta de temporada (cerezas). Preparad el día anterior en el hotel.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🌙</span><span class="seccion-titulo">Cena</span></div>
+                    <div class="restaurante-card">
+                        <div class="rest-header">
+                            <div class="rest-nombre">Hotel de Montaña Uson — Cena en casa</div>
+                            <span class="rest-badge badge-si">🐾 Admite perros ✅</span>
+                        </div>
+                        <p class="rest-desc">Después de madrugar y hacer una ruta de casi 3 horas, la tarde en el hotel es sagrada. La cena en el propio hotel es el final perfecto para este tipo de día. Pedid mesa en la terraza si el tiempo acompaña y disfrutad de las últimas luces sobre las cimas.</p>
+                        <div class="rest-platos">
+                            <div class="rest-platos-title">Platos recomendados</div>
+                            <ul class="items-lista">
+                                <li>Crema de hongos del Pirineo con aceite de trufa negra</li>
+                                <li>Cordero a la brasa con hierbas del Pirineo y patatas confitadas</li>
+                                <li>Tarta de queso de oveja con mermelada de arándanos silvestres</li>
+                            </ul>
+                            <p class="rest-precio">Hora recomendada: 21:00-21:30 h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="consejo-box">
+                    <div class="consejo-titulo">⚠️ Consejos del día</div>
+                    <p class="consejo-texto"><strong>Sobre el aparcamiento de la Selva de Oza:</strong> En julio y agosto, el aparcamiento tiene un sistema de gestión de aforo los fines de semana. Entre semana (jueves), llegar a las 8:00 h garantiza plaza cómoda. Los fines de semana se llena antes de las 9:30 h.</p>
+                    <p class="consejo-texto"><strong>Sobre el calor en el circo:</strong> El hayedo mantiene temperaturas 8-12°C inferiores al exterior. Pero el circo final es un espacio abierto y el sol de julio pega fuerte. Crema solar SPF 50+ antes de llegar al circo.</p>
+                    <p class="consejo-texto"><strong>Sobre las raíces:</strong> El sendero tiene muchas raíces de haya que con la humedad se vuelven resbaladizas. Pisad con cuidado en los tramos de bajada. Botines con suela de agarre, no deportivas de calle.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dia-sep"><div class="sep-line"></div><div class="sep-icon">🧀</div><div class="sep-line"></div></div>
+
+        <!-- DÍA 3 -->
+        <div class="dia-block fade-in" id="dia3">
+            <div class="dia-header" data-num="3">
+                <div class="dia-bloque-label">Bloque 01 · Valle de Hecho</div>
+                <div class="dia-numero-fecha">
+                    <span class="dia-numero">Día 3</span>
+                    <span class="dia-fecha-txt">Viernes, 3 de julio de 2026</span>
+                </div>
+                <h2 class="dia-titulo">Piedra, silencio y queso milenario</h2>
+            </div>
+            <div class="dia-secciones">
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">📖</span><span class="seccion-titulo">Introducción del día</span></div>
+                    <p class="intro-texto">Cruzar al Valle del Roncal desde el Valle de Hecho es uno de esos pequeños viajes dentro del viaje que cambian la perspectiva. La carretera sube por el Puerto de Zuriza entre pinos y abetos, alcanza los 1.400 metros de altitud con vistas sobre dos valles a la vez, y desciende hacia Navarra por un paisaje que parece diseñado para que el viajero pare el coche cada cinco minutos. El Roncal es un mundo aparte: pueblos de piedra oscura casi negra, iglesias románicas en cada recodo, el río Esca discurriendo entre hayas y un queso con denominación de origen que los roncaleses defienden con orgullo casi tribal.</p>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🕐</span><span class="seccion-titulo">Horario orientativo</span></div>
+                    <table class="horario-tabla">
+                        <tr><td>8:00 h</td><td>Desayuno en el hotel</td></tr>
+                        <tr><td>8:45 h</td><td>Salida hacia el Valle del Roncal</td></tr>
+                        <tr><td>9:30 h</td><td>Llegada a Isaba</td></tr>
+                        <tr><td>9:30 h</td><td>Ruta por los prados del Belagua</td></tr>
+                        <tr><td>11:30 h</td><td>Visita al pueblo de Isaba, compras en queserías</td></tr>
+                        <tr><td>13:00 h</td><td>Excursión al Collado de Belagua (en coche, 15 min)</td></tr>
+                        <tr><td>14:00 h</td><td>Comida en Isaba</td></tr>
+                        <tr><td>16:00 h</td><td>Regreso al Valle de Hecho</td></tr>
+                        <tr><td>21:00 h</td><td>Cena</td></tr>
+                    </table>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🥾</span><span class="seccion-titulo">Actividad principal</span></div>
+                    <h3 class="sub-titulo">Ruta de los Prados del Belagua — Isaba, Navarra</h3>
+                    <p class="sub-texto">El Valle del Roncal es el valle más oriental de Navarra, separado de Aragón por la Sierra de Alano. Sus siete pueblos (Roncal, Burgui, Garde, Vidángoz, Urzainqui, Uztárroz e Isaba) forman una mancomunidad con tradición ganadera milenaria. Aquí se crió el Queso Roncal, el único queso navarro con Denominación de Origen Protegida (DOP), elaborado exclusivamente con leche cruda de oveja latxa y rasa aragonesa.</p>
+
+                    <p class="sub-texto">El camino parte hacia el norte del pueblo de Isaba siguiendo el río Belagua. Los primeros dos kilómetros discurren por prados de fondo de valle con hayas dispersas, perfectamente llanos. En julio es habitual ver vacas pirenaicas y ovejas latxas. A partir del km 2, el camino sube suavemente por la ladera con vistas sobre el pueblo y el valle.</p>
+
+                    <div class="actividad-datos">
+                        <div class="dato-item">
+                            <span class="dato-label">Punto de inicio</span>
+                            <span class="dato-valor">Isaba — Aparcamiento municipal</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Distancia</span>
+                            <span class="dato-valor">6 km circulares</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Desnivel</span>
+                            <span class="dato-valor">+180 m / -180 m</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Tiempo estimado</span>
+                            <span class="dato-valor">2 - 2,5 horas</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Dificultad</span>
+                            <span class="dato-valor verde">⭐⭐ Fácil-Moderado</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Apta para Greta</span>
+                            <span class="dato-valor verde">✅ Sí — correa por el ganado</span>
+                        </div>
+                    </div>
+
+                    <h3 class="sub-titulo">Visita al pueblo de Isaba (11:30-13:00 h)</h3>
+                    <ul class="items-lista">
+                        <li><strong>Iglesia de San Cipriano:</strong> Gótico tardío del siglo XVI con elementos renacentistas. El retablo del altar mayor es notable.</li>
+                        <li><strong>Museo Etnológico del Roncal:</strong> Introduce a la vida tradicional del valle: trashumancia, ganadería ovina, elaboración del queso.</li>
+                        <li><strong>Queserías artesanales:</strong> Hay al menos dos establecimientos donde comprar Queso Roncal DOP directamente a los productores. Precio significativamente más barato que fuera.</li>
+                        <li><strong>Collado de Belagua:</strong> La NA-137 sube desde Isaba hacia Francia. En 15 min se gana 400 m de altitud con vistas al Anie (2.507 m) y la Mesa de los Tres Reyes.</li>
+                    </ul>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🌅</span><span class="seccion-titulo">Momento destacado del día</span></div>
+                    <div class="momento-box">
+                        <p class="momento-texto">El Collado de Belagua a las 13:00 h. Desde el mirador del collado, con el sol de julio en el cénit, los prados alpinos brillan con un verde casi irreal. Al fondo, los picos de Anie (2.507 m) y Mesa de los Tres Reyes (2.444 m, punto de encuentro de Aragón, Navarra y Francia). Greta correrá por los prados del collado como si le hubieran dicho que es suyo. Llevad un trozo de queso Roncal recién comprado y comedlo allí, con las vistas. Habrá pocas comidas mejores en vuestra vida.</p>
+                    </div>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🍽️</span><span class="seccion-titulo">Comida</span></div>
+                    <div class="restaurante-card">
+                        <div class="rest-header">
+                            <div class="rest-nombre">Restaurante Txiki-Polit — Isaba
+                                <em>Calle Mayor de Isaba · Terraza exterior</em>
+                            </div>
+                            <span class="rest-badge badge-si">🐾 Admite perros ✅</span>
+                        </div>
+                        <p class="rest-desc">El Txiki-Polit (que en euskera significa "pequeño y bonito") es la referencia gastronómica de Isaba, un local que combina la taberna de pueblo con una cocina que respeta el producto local con honestidad.</p>
+                        <div class="rest-platos">
+                            <div class="rest-platos-title">Platos recomendados</div>
+                            <ul class="items-lista">
+                                <li><strong>Imprescindible:</strong> Tabla de Queso Roncal DOP en tres curaciones (tierno, semicurado y curado) con membrillo artesanal</li>
+                                <li><strong>Pochas de Navarra:</strong> Alubias frescas blancas estofadas con verduras y chorizo del valle</li>
+                                <li><strong>Chuletillas de cordero navarro al sarmiento:</strong> Pedir "al punto" para que queden jugosas</li>
+                                <li><strong>Cuajada de leche de oveja latxa:</strong> La cuajada auténtica elaborada con cuajo animal</li>
+                            </ul>
+                            <p class="rest-precio">💶 Precio orientativo: 25-30€ por persona · Reserva recomendable en julio</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🌙</span><span class="seccion-titulo">Cena</span></div>
+                    <div class="restaurante-card">
+                        <div class="rest-header">
+                            <div class="rest-nombre">Hostal Irigoyen o bar del pueblo — Hecho
+                                <em>Cena ligera al volver</em>
+                            </div>
+                            <span class="rest-badge badge-consultar">🐾 Consultar ⚠️</span>
+                        </div>
+                        <p class="rest-desc">Después de un día de excursión y una comida contundente, la cena puede ser ligera. Alternativa: si habéis comprado queso Roncal y embutidos en Isaba, una cena en la terraza del hotel con la tabla de productos locales, pan tostado y una copa de vino puede ser perfecta.</p>
+                        <div class="rest-platos">
+                            <div class="rest-platos-title">Sugerencia de cena ligera</div>
+                            <ul class="items-lista">
+                                <li>Tabla de ibéricos con pan con tomate y aceite del Bajo Aragón</li>
+                                <li>Sopa fría de verduras o gazpacho</li>
+                                <li>Postre de temporada</li>
+                            </ul>
+                            <p class="rest-precio">Hora recomendada: 20:30-21:00 h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="consejo-box">
+                    <div class="consejo-titulo">⚠️ Consejos del día</div>
+                    <p class="consejo-texto"><strong>Sobre la ruta de acceso al Roncal:</strong> Desde el Valle de Hecho hay dos opciones para llegar a Isaba. La más espectacular es subir por la HU-2101 hasta Zuriza y luego tomar la pista del Puerto de Belagua hacia Navarra (12 km de pista apta para turismos con precaución). La más cómoda es volver a Puente la Reina de Jaca. Consultad en el hotel cuál es mejor en julio 2026.</p>
+                    <p class="consejo-texto"><strong>Sobre el queso:</strong> El queso Roncal necesita conservación en frío. Llevad la nevera portátil con hielo para transportarlo. Una pieza de queso Roncal curado aguanta perfectamente 2-3 semanas en frigorífico.</p>
+                    <p class="consejo-texto"><strong>Sobre Greta y los mastines del Roncal:</strong> Los mastines del Pirineo que guardan los rebaños son habituales. Son perros enormes (90-120 kg) y muy territoriales. Si veis uno, coged a Greta en brazos INMEDIATAMENTE, no corráis, y rodeád el rebaño con calma.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dia-sep"><div class="sep-line"></div><div class="sep-icon">💧</div><div class="sep-line"></div></div>
+
+        <!-- DÍA 4 -->
+        <div class="dia-block fade-in" id="dia4">
+            <div class="dia-header" data-num="4">
+                <div class="dia-bloque-label">Bloque 01 · Valle de Hecho</div>
+                <div class="dia-numero-fecha">
+                    <span class="dia-numero">Día 4</span>
+                    <span class="dia-fecha-txt">Sábado, 4 de julio de 2026</span>
+                </div>
+                <h2 class="dia-titulo">Agua, cascadas y frescor</h2>
+            </div>
+            <div class="dia-secciones">
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">📖</span><span class="seccion-titulo">Introducción del día</span></div>
+                    <p class="intro-texto">El sábado en el Pirineo tiene su propia energía: más gente en los caminos, más coches en las pistas, más ruido en los pueblos. La estrategia es simple y eficaz: levantarse antes que el resto del mundo. A las 8:00 de la mañana, las pozas del río Veral en la zona de Zuriza son vuestras. El agua turquesa entre paredes de roca caliza, la luz del sol entrando lateral entre los árboles, Greta metiéndose en el río hasta el pecho con cara de incredulidad feliz. Para cuando lleguen los grupos y las familias, vosotros ya estaréis de vuelta en el pueblo de Ansó.</p>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🕐</span><span class="seccion-titulo">Horario orientativo</span></div>
+                    <table class="horario-tabla">
+                        <tr><td>6:45 h</td><td>Despertador (sí, temprano, pero vale la pena)</td></tr>
+                        <tr><td>7:15 h</td><td>Desayuno rápido. Preparar mochila y picnic</td></tr>
+                        <tr><td>7:30 h</td><td>Salida hacia Zuriza</td></tr>
+                        <tr><td>8:00 h</td><td>Llegada al área de Zuriza. Inicio de ruta</td></tr>
+                        <tr><td>10:30 h</td><td>Baño en las pozas. Descanso y picnic si se desea</td></tr>
+                        <tr><td>11:30 h</td><td>Regreso al coche</td></tr>
+                        <tr><td>12:00 h</td><td>Llegada al pueblo de Ansó</td></tr>
+                        <tr><td>12:00 h</td><td>Visita a Ansó pueblo</td></tr>
+                        <tr><td>14:00 h</td><td>Comida en Ansó</td></tr>
+                        <tr><td>16:00 h</td><td>Regreso al hotel</td></tr>
+                        <tr><td>21:00 h</td><td>Cena</td></tr>
+                    </table>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🥾</span><span class="seccion-titulo">Actividad principal</span></div>
+                    <h3 class="sub-titulo">Ruta de las Pozas del Río Veral — Zona de Zuriza, Valle de Ansó</h3>
+                    <p class="sub-texto">El Valle de Ansó es el valle más occidental del Pirineo aragonés, paralelo al de Hecho y separado de él por la Sierra de Alano. El río Veral, en la zona de Zuriza (1.228 m), discurre entre paredes de caliza que ha ido modelando a lo largo de milenios, creando un sistema de pozas naturales de agua absolutamente cristalina de color turquesa-verde. Hay cuatro o cinco pozas de distinto tamaño y profundidad. La temperatura del agua en julio ronda los 14-16°C: muy fría pero perfectamente soportable para baños cortos.</p>
+
+                    <h3 class="sub-titulo">Las pozas principales (km 1,5 a 3,5)</h3>
+                    <p class="sub-texto">La primera y más accesible tiene unos 15 metros de diámetro, agua de color turquesa intenso (el color se debe a las sales de calcio del lecho calizo) y una pequeña playa de grava. La cascada del fondo (km 3,5) es el punto más espectacular: un salto de 8 metros que cae sobre una poza profunda y azul.</p>
+
+                    <div class="actividad-datos">
+                        <div class="dato-item">
+                            <span class="dato-label">Punto de inicio</span>
+                            <span class="dato-valor">Área de Zuriza (HU-2101)</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Distancia desde hotel</span>
+                            <span class="dato-valor">22 km · 35 min</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Distancia ruta</span>
+                            <span class="dato-valor">7 km ida y vuelta</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Desnivel</span>
+                            <span class="dato-valor">+100 m / -100 m</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Dificultad</span>
+                            <span class="dato-valor verde">⭐ Fácil</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Apta para Greta</span>
+                            <span class="dato-valor verde">✅ Paraíso canino</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Llegada crítica</span>
+                            <span class="dato-valor naranja">Antes de las 8:00 h</span>
+                        </div>
+                    </div>
+
+                    <h3 class="sub-titulo">Visita al pueblo de Ansó (12:00-14:00 h)</h3>
+                    <p class="sub-texto">Ansó es uno de los pueblos más bonitos de España (incluido en la Asociación de los Pueblos más Bonitos de España). Su casco histórico es una lección de arquitectura popular pirenaica aragonesa.</p>
+                    <ul class="items-lista">
+                        <li><strong>Iglesia de San Pedro (s. XVI):</strong> Gótico tardío con torre campanario dominante</li>
+                        <li><strong>Museo del Traje Ansotano:</strong> El traje tradicional de Ansó es uno de los más elaborados del Pirineo, con bordados en negro y granate</li>
+                        <li><strong>Portal de San Adrián:</strong> Arco medieval de acceso al casco histórico</li>
+                        <li><strong>Tiendas locales:</strong> Miel, conservas, embutidos y artesanía de madera pirenaica</li>
+                    </ul>
+
+                    <h3 class="sub-titulo">Qué llevar hoy</h3>
+                    <ul class="items-lista">
+                        <li>Bañador y toalla (las pozas lo justifican)</li>
+                        <li>Sandalias de agua o zapatillas que se puedan mojar</li>
+                        <li>Toalla específica para Greta</li>
+                        <li>Protección solar</li>
+                    </ul>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🌅</span><span class="seccion-titulo">Momento destacado del día</span></div>
+                    <div class="momento-box">
+                        <p class="momento-texto">La primera poza a las 8:15 de la mañana, con nadie más. El agua de color turquesa refleja las hayas de las orillas. El único sonido es el del río. Greta entra en el agua con cautela, da dos zancadas, sale disparada de vuelta a la orilla sacudiéndose y os mira como pidiendo explicaciones. Vosotros os miráis y sonreís. No hace falta decir nada. Este es el Pirineo.</p>
+                    </div>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🍽️</span><span class="seccion-titulo">Comida</span></div>
+                    <div class="restaurante-card">
+                        <div class="rest-header">
+                            <div class="rest-nombre">Restaurante Kimboa — Ansó</div>
+                            <span class="rest-badge badge-si">🐾 Admite perros ✅</span>
+                        </div>
+                        <p class="rest-desc">El Kimboa es el restaurante de referencia de Ansó, con una propuesta de cocina de mercado basada en productores locales del valle. Su terraza en el casco histórico del pueblo, con vistas a las fachadas de piedra, es uno de los mejores sitios para comer en el Pirineo aragonés occidental.</p>
+                        <div class="rest-platos">
+                            <div class="rest-platos-title">Platos recomendados</div>
+                            <ul class="items-lista">
+                                <li>Revuelto de setas y trufilla negra del Pirineo con pan tostado</li>
+                                <li>Ensalada de tomates de huerta de Ansó con bonito del Cantábrico</li>
+                                <li>Migas de pastor al estilo ansotano (pan, chorizo, chistorra, tocino, uva y huevo frito)</li>
+                                <li>Helado artesanal de leche de oveja con coulis de arándanos silvestres</li>
+                            </ul>
+                            <p class="rest-precio">💶 Precio orientativo: 28-35€ por persona · Reserva imprescindible en sábado de julio</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🌙</span><span class="seccion-titulo">Cena</span></div>
+                    <div class="restaurante-card">
+                        <div class="rest-header">
+                            <div class="rest-nombre">Restaurante Hotel Los Arcos o Hotel Uson — Vuelta a casa</div>
+                            <span class="rest-badge badge-si">🐾 Admite perros ✅</span>
+                        </div>
+                        <p class="rest-desc">El sábado es el día de más actividad. Una cena tranquila en el hotel o local conocido cercano es la mejor opción. Cama antes de las 23:00 h.</p>
+                        <div class="rest-platos">
+                            <div class="rest-platos-title">Platos recomendados</div>
+                            <ul class="items-lista">
+                                <li>Sopa de ajo castellana-aragonesa con huevo poché y jamón serrano</li>
+                                <li>Truchas del Pirineo con almendras tostadas y mantequilla</li>
+                                <li>Tarta de queso casera con mermelada de arándanos</li>
+                            </ul>
+                            <p class="rest-precio">Hora recomendada: 21:00 h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="consejo-box">
+                    <div class="consejo-titulo">⚠️ Consejos del día</div>
+                    <p class="consejo-texto"><strong>Siendo sábado 4 de julio:</strong> El Valle de Ansó y Zuriza estarán concurridos. Llegad al aparcamiento ANTES de las 8:00 h sin excepción. En julio se llena antes de las 10:00 h los fines de semana.</p>
+                    <p class="consejo-texto"><strong>Sobre Greta y el agua fría:</strong> Después del chapuzón en el río, secadla completamente con la toalla antes de que le dé el viento. La combinación de agua fría de montaña más el aire acondicionado puede ser perjudicial.</p>
+                    <p class="consejo-texto"><strong>Para las sandalias de río:</strong> Las piedras del lecho del Veral están cubiertas de algas resbaladizas. Sandalias tipo Teva con suela de agarre. Las chanclas de playa son un riesgo de tobillo.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dia-sep"><div class="sep-line"></div><div class="sep-icon">🎨</div><div class="sep-line"></div></div>
+
+        <!-- DÍA 5 -->
+        <div class="dia-block fade-in" id="dia5">
+            <div class="dia-header" data-num="5">
+                <div class="dia-bloque-label">Bloque 01 · Valle de Hecho</div>
+                <div class="dia-numero-fecha">
+                    <span class="dia-numero">Día 5</span>
+                    <span class="dia-fecha-txt">Domingo, 5 de julio de 2026</span>
+                </div>
+                <h2 class="dia-titulo">Descanso activo y arte entre montañas</h2>
+            </div>
+            <div class="dia-secciones">
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">📖</span><span class="seccion-titulo">Introducción del día</span></div>
+                    <p class="intro-texto">No todos los días de un viaje de montaña tienen que ser de ruta. El domingo es el día de dejarse llevar por el ritmo del valle: desayuno sin prisa, mercado local si lo hay, lectura en el jardín del hotel, paseo por Hecho por las calles que quedaron sin ver. Y por la tarde, cuando el sol empieza a bajar, una visita al Museo de Arte Contemporáneo al Aire Libre de Hecho, una de las sorpresas más inesperadas y hermosas del Pirineo aragonés. Un día que parece poco en el papel y resulta ser de los que más se recuerdan.</p>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🕐</span><span class="seccion-titulo">Horario orientativo</span></div>
+                    <table class="horario-tabla">
+                        <tr><td>8:30 h</td><td>Desayuno largo y sin prisa en el hotel</td></tr>
+                        <tr><td>9:30 h</td><td>Paseo matutino por los alrededores del hotel</td></tr>
+                        <tr><td>10:30 h</td><td>Salida al pueblo de Hecho</td></tr>
+                        <tr><td>10:30 h</td><td>Visita al Museo de Arte Contemporáneo + Camino de la Hoya (parte 1)</td></tr>
+                        <tr><td>12:00 h</td><td>Paseo libre por Hecho: calles, tiendas, café en la plaza</td></tr>
+                        <tr><td>14:00 h</td><td>Comida en Casa Blasquico</td></tr>
+                        <tr><td>16:00 h</td><td>Regreso al hotel. Siesta larga</td></tr>
+                        <tr><td>18:00 h</td><td>Continuación del recorrido escultórico con la luz de tarde</td></tr>
+                        <tr><td>21:00 h</td><td>Cena especial de domingo en el hotel</td></tr>
+                    </table>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🥾</span><span class="seccion-titulo">Actividad principal</span></div>
+                    <h3 class="sub-titulo">Museo de Arte Contemporáneo al Aire Libre de Hecho</h3>
+                    <p class="sub-texto">El Museo de Arte Contemporáneo al Aire Libre de Hecho es una de las experiencias culturales más sorprendentes del Pirineo. Su origen hay que buscarlo en los años 70 del siglo XX, cuando el escultor aragonés Pedro Tramullas organizó los Simposios Internacionales de Escultura de Hecho (1975-1984), que reunieron durante nueve ediciones a artistas de todo el mundo para crear obra in situ en el entorno natural del valle.</p>
+                    <p class="sub-texto">El resultado es una colección permanente de más de 20 esculturas monumentales en piedra, bronce, madera y acero, diseminadas por el entorno del pueblo: en prados, junto al río, en laderas, integradas en el paisaje de forma completamente orgánica. Artistas de Japón, Francia, Argentina, Alemania, Polonia y España. El museo es gratuito y de acceso libre durante todo el año.</p>
+
+                    <h3 class="sub-titulo">Esculturas destacadas</h3>
+                    <ul class="items-lista">
+                        <li><strong>"Homenaje al Pirineo" (Néstor Basterrechea, 1975):</strong> Primera obra del primer simposio. Acero corten que desde la distancia parece una roca más del paisaje.</li>
+                        <li><strong>Obra en granito de artista japonés (1977):</strong> Trabajado con herramientas tradicionales japonesas, la textura contrasta con la suavidad del prado.</li>
+                        <li><strong>Figura en bronce junto al río:</strong> Instalada en la orilla del Aragón Subordán, mira hacia la corriente. En función del caudal, parte de la base puede estar sumergida.</li>
+                    </ul>
+
+                    <h3 class="sub-titulo">El Camino de la Hoya</h3>
+                    <p class="sub-texto">Conecta el pueblo de Hecho con los prados de la Hoya de Hecho, una pequeña depresión natural por encima del núcleo urbano con vistas sobre el valle y los picos circundantes. En 30-40 minutos se alcanza la cota superior con panorámica especialmente hermosa al atardecer.</p>
+
+                    <div class="actividad-datos">
+                        <div class="dato-item">
+                            <span class="dato-label">Distancia total</span>
+                            <span class="dato-valor">4-5 km</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Desnivel</span>
+                            <span class="dato-valor">+100 m</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Dificultad</span>
+                            <span class="dato-valor verde">⭐ Fácil</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Apta para Greta</span>
+                            <span class="dato-valor verde">✅ Sí — todo exterior</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Mejor horario</span>
+                            <span class="dato-valor">10:30-12:00 h o 18:00-20:00 h</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Precio museo</span>
+                            <span class="dato-valor verde">Gratuito · Acceso libre</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🌅</span><span class="seccion-titulo">Momento destacado del día</span></div>
+                    <div class="momento-box">
+                        <p class="momento-texto">Una escultura de bronce o piedra en el prado de Hecho, con las cimas del Parque Natural de los Valles Occidentales al fondo, a las 19:00 h. La luz de julio a esa hora es horizontal, cálida, casi naranja. Las sombras largas de las esculturas se proyectan sobre la hierba como relojes de sol. Greta se sienta junto a una escultura —inconscientemente, os lo juro, harán eso los perros— y la imagen es perfecta: el arte humano más abstracto, la naturaleza más antigua, y un pequeño ser peludo que no entiende nada y aun así lo hace más hermoso.</p>
+                    </div>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🍽️</span><span class="seccion-titulo">Comida</span></div>
+                    <div class="restaurante-card">
+                        <div class="rest-header">
+                            <div class="rest-nombre">Casa Blasquico — Hecho
+                                <em>Referencia gastronómica histórica del Valle de Hecho</em>
+                            </div>
+                            <span class="rest-badge badge-consultar">🐾 Consultar ⚠️</span>
+                        </div>
+                        <p class="rest-desc">Casa Blasquico es la referencia gastronómica histórica del Valle de Hecho. Lleva décadas siendo el restaurante al que van los que saben, los que buscan la cocina chesa auténtica. El local mantiene la arquitectura interior de una casona tradicional aragonesa: vigas de madera, suelo de piedra, chimenea. Tienen terraza exterior en verano: llamar con antelación para confirmar si Greta puede estar en ella.</p>
+                        <div class="rest-platos">
+                            <div class="rest-platos-title">Platos recomendados</div>
+                            <ul class="items-lista">
+                                <li>Longaniza de Hecho a la brasa con huevo frito de granja y pan con aceite del Bajo Aragón</li>
+                                <li>Setas silvestres salteadas con ajo y perejil</li>
+                                <li>Cazuela de ternasco de Aragón IGP al horno con hierbas del Pirineo</li>
+                                <li>Arroz con leche al horno, con costra caramelizada — el postre más representativo de la cocina aragonesa</li>
+                            </ul>
+                            <p class="rest-precio">💶 Precio orientativo: 30-40€ por persona · Reserva imprescindible (llamar el sábado)</p>
+                        </div>
+                    </div>
+                    <div class="aviso-box" style="margin-top:12px;">
+                        <div class="aviso-icon">🛒</div>
+                        <div>
+                            <div class="aviso-title">Mercado dominical de productores</div>
+                            <div class="aviso-text">En algunas semanas de julio, Hecho organiza un mercado de productores locales el domingo en la plaza mayor (10:00-14:00 h). Preguntad en el hotel si ese domingo 5 de julio hay mercado. Queso, miel, embutido, conservas y artesanía local.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🌙</span><span class="seccion-titulo">Cena</span></div>
+                    <div class="restaurante-card">
+                        <div class="rest-header">
+                            <div class="rest-nombre">Hotel de Montaña Uson — Cena especial de domingo</div>
+                            <span class="rest-badge badge-si">🐾 Admite perros ✅</span>
+                        </div>
+                        <p class="rest-desc">El domingo por la noche el Hotel Uson suele tener algo especial en la cocina. Es una buena noche para pedir la botella de vino que habéis estado reservando, para sobremesar sin culpa, para hablar de los mejores momentos de los primeros cinco días.</p>
+                        <div class="rest-platos">
+                            <div class="rest-platos-title">Platos recomendados</div>
+                            <ul class="items-lista">
+                                <li>Pimientos del piquillo rellenos de bacalao con alioli de ajo negro</li>
+                                <li>Crema fría de tomate y pimiento rojo asado con almendra tostada</li>
+                                <li>Secreto ibérico a baja temperatura con reducción de Somontano y puré de patata ahumada</li>
+                                <li>Coulant de chocolate negro con helado de vainilla y sal</li>
+                            </ul>
+                            <p class="rest-precio">Vino recomendado: Enate Reserva (Somontano) · Hora: 21:30 h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="consejo-box">
+                    <div class="consejo-titulo">⚠️ Consejos del día</div>
+                    <p class="consejo-texto"><strong>Sobre la reserva en Casa Blasquico:</strong> El domingo de julio en Hecho es uno de los días de mayor afluencia turística. Casa Blasquico puede llenarse con 24-48 horas de antelación. Llamad el sábado por la mañana. Si no hay mesa, Borda Ixeia es la alternativa perfecta.</p>
+                    <p class="consejo-texto"><strong>Sobre el descanso:</strong> Este es el día de recuperación antes del último día de ruta. Una siesta larga, mucha agua, ratos de lectura o meditación en el jardín. El senderismo continuado acumula fatiga. Aprovechad el domingo para estirar y cargar pilas.</p>
+                    <p class="consejo-texto"><strong>Para Greta en domingo:</strong> El domingo tiene más movimiento en el pueblo. Llevad la correa siempre puesta: habrá más perros, niños corriendo, bicicletas y motos. Una caniche toy puede asustarse fácilmente con el bullicio.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dia-sep"><div class="sep-line"></div><div class="sep-icon">🏔️</div><div class="sep-line"></div></div>
+
+        <!-- DÍA 6 -->
+        <div class="dia-block fade-in" id="dia6">
+            <div class="dia-header" data-num="6">
+                <div class="dia-bloque-label">Bloque 01 · Valle de Hecho</div>
+                <div class="dia-numero-fecha">
+                    <span class="dia-numero">Día 6</span>
+                    <span class="dia-fecha-txt">Lunes, 6 de julio de 2026</span>
+                </div>
+                <h2 class="dia-titulo">El valle más alto · Aguas Tuertas</h2>
+            </div>
+            <div class="dia-secciones">
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">📖</span><span class="seccion-titulo">Introducción del día</span></div>
+                    <p class="intro-texto">El último día en el Hotel Uson merece el paisaje más grande. Aguas Tuertas es ese tipo de lugar que se guarda en la memoria para siempre: una pradera de alta montaña donde el río dibuja meandros perfectos, geométricos, imposibles, sobre un tapiz de hierba tan verde que duele mirarlo. Todo alrededor son paredes de roca y picos que superan los 2.000 metros. Es el Pirineo más puro, más arcaico, más silencioso. Y el lunes por la mañana, cuando los turistas de fin de semana ya se han marchado, es casi vuestro.</p>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🕐</span><span class="seccion-titulo">Horario orientativo</span></div>
+                    <table class="horario-tabla">
+                        <tr><td>6:30 h</td><td>Despertador. Preparar todo la noche anterior</td></tr>
+                        <tr><td>7:00 h</td><td>Desayuno en el hotel (pedir que lo tengan listo)</td></tr>
+                        <tr><td>7:30 h</td><td>Salida hacia Aguas Tuertas</td></tr>
+                        <tr><td>8:15 h</td><td>Llegada al aparcamiento superior de la Selva de Oza</td></tr>
+                        <tr><td>8:30 h</td><td>Inicio de la ruta</td></tr>
+                        <tr><td>11:30 h</td><td>Vuelta al aparcamiento</td></tr>
+                        <tr><td>12:30 h</td><td>Regreso al hotel</td></tr>
+                        <tr><td>14:00 h</td><td>Comida (picnic en Aguas Tuertas o restaurante al volver)</td></tr>
+                        <tr><td>21:30 h</td><td>Cena de despedida en el Hotel Uson</td></tr>
+                    </table>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🥾</span><span class="seccion-titulo">Actividad principal</span></div>
+                    <h3 class="sub-titulo">Ruta a Aguas Tuertas — Parque Natural de los Valles Occidentales</h3>
+                    <p class="sub-texto">Aguas Tuertas (en aragonés, "aguas torcidas" o "meandros") es una pradería de alta montaña a 1.640 metros de altitud, en el interior del Parque Natural de los Valles Occidentales, a pocos kilómetros de la frontera con Francia. Es un ejemplo extraordinario de valle glaciar en U de origen cuaternario: durante las glaciaciones del Pleistoceno, un glaciar excavó el fondo del valle creando esa forma característica de artesa.</p>
+                    <p class="sub-texto">El río Aragón Subordán forma aquí una sucesión de meandros que son el resultado de la escasa pendiente del fondo del valle glaciar. El fenómeno de los meandros en un valle de montaña es geomorfológicamente poco frecuente y constituye uno de los rasgos más singulares del lugar. La fauna es extraordinariamente rica: sarrios en las laderas, marmotas en los taludes, quebrantahuesos sobrevolando el circo.</p>
+
+                    <h3 class="sub-titulo">Descripción de la ruta</h3>
+                    <ul class="items-lista">
+                        <li><strong>Tramo 1 — Del aparcamiento al inicio de la pradera (1,5 km):</strong> El camino sube por el margen del bosque con el Aragón Subordán a la derecha. A 1,2 km aparece el primer meandro. Posibilidad de ver sarrios en las laderas.</li>
+                        <li><strong>Tramo 2 — Recorrido por la pradera (2 km):</strong> El camino bordea la pradera siguiendo el río. El punto más fotogénico es una loma al norte de la pradera desde donde se ven todos los meandros con los picos al fondo. Las marmotas son muy activas en los bordes.</li>
+                    </ul>
+
+                    <div class="actividad-datos">
+                        <div class="dato-item">
+                            <span class="dato-label">Punto de inicio</span>
+                            <span class="dato-valor">Aparcamiento superior Selva de Oza</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Altitud pradera</span>
+                            <span class="dato-valor">1.640 m</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Distancia</span>
+                            <span class="dato-valor">6-7 km circulares</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Desnivel</span>
+                            <span class="dato-valor">+250 m / -250 m</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Tiempo estimado</span>
+                            <span class="dato-valor">2,5 - 3 horas</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Dificultad</span>
+                            <span class="dato-valor verde">⭐⭐ Fácil-Moderado</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Apta para Greta</span>
+                            <span class="dato-valor verde">✅ Sí — correa con ganado</span>
+                        </div>
+                        <div class="dato-item">
+                            <span class="dato-label">Llegada recomendada</span>
+                            <span class="dato-valor naranja">Antes de las 8:15 h</span>
+                        </div>
+                    </div>
+
+                    <div class="aviso-box">
+                        <div class="aviso-icon">⚠️</div>
+                        <div>
+                            <div class="aviso-title">Acceso en coche al aparcamiento superior</div>
+                            <div class="aviso-text">La pista forestal desde el aparcamiento principal de Oza hasta el aparcamiento superior (4 km) requiere vehículo con buena suspensión. Un turismo estándar puede llegar con precaución. Hay tramos con piedras sueltas y baches. Consultad en el hotel el estado de la pista en julio 2026. Alternativa: aparcar en Oza y subir a pie (añade 1 hora a la ruta).</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🌅</span><span class="seccion-titulo">Momento destacado del día</span></div>
+                    <div class="momento-box">
+                        <p class="momento-texto">El primer meandro de Aguas Tuertas, a las 8:45 de la mañana del último día. Estáis de pie en el borde del bosque. La pradera se abre de repente. El río describe una curva perfecta, luego otra, y otra. Al fondo los picos. El silencio es casi absoluto excepto por el río y el viento suave. Greta está a vuestros pies, mirando hacia adelante con las orejas levantadas y la nariz trabajando. Lleváis seis días en el Pirineo y este es el paisaje más grande que habéis visto. Guardáoslo. No lo vais a olvidar.</p>
+                    </div>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🍽️</span><span class="seccion-titulo">Comida</span></div>
+                    <div class="restaurante-card">
+                        <div class="rest-header">
+                            <div class="rest-nombre">Picnic de despedida — Pradera de Aguas Tuertas</div>
+                            <span class="rest-badge badge-si">🐾 Admite perros ✅</span>
+                        </div>
+                        <p class="rest-desc">El último día merece el mejor picnic del viaje. Preparad todo la noche anterior con los productos que habéis ido comprando durante la semana.</p>
+                        <div class="rest-platos">
+                            <div class="rest-platos-title">Menú del picnic de despedida</div>
+                            <ul class="items-lista">
+                                <li>Hogaza de pueblo (pedid al hotel que os guarden pan de la cena)</li>
+                                <li>Queso Roncal DOP semicurado cortado grueso</li>
+                                <li>Longaniza de Hecho, lomo ibérico</li>
+                                <li>Tomates maduros con sal y aceite de oliva virgen extra</li>
+                                <li>Cerezas del Pirineo o melocotones de temporada</li>
+                                <li>Tableta de chocolate negro con avellanas</li>
+                            </ul>
+                            <p class="rest-precio">Dónde: En la loma norte de la pradera con vistas a todos los meandros. Sin móvil.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="seccion">
+                    <div class="seccion-header"><span class="seccion-emoji">🌙</span><span class="seccion-titulo">Cena de despedida</span></div>
+                    <div class="restaurante-card">
+                        <div class="rest-header">
+                            <div class="rest-nombre">Hotel de Montaña Uson — La última noche</div>
+                            <span class="rest-badge badge-si">🐾 Admite perros ✅</span>
+                        </div>
+                        <p class="rest-desc">La última cena en el Hotel Uson merece ser especial. Avisad con antelación al restaurante que es vuestra última noche. Los hoteles de montaña de este estilo suelen responder muy bien a estas peticiones.</p>
+                        <div class="rest-platos">
+                            <div class="rest-platos-title">Menú de despedida sugerido</div>
+                            <ul class="items-lista">
+                                <li>Croquetas caseras de bacalao o jamón ibérico con una copa de cava</li>
+                                <li>Ensalada templada de setas, foie y piñones con reducción de Pedro Ximénez</li>
+                                <li>Paletilla de cordero lechal al horno de leña con romero y ajo</li>
+                                <li>Tabla de quesos del Pirineo (Roncal, Benasque, Urdazubi) con miel y nueces</li>
+                            </ul>
+                            <p class="rest-precio">Vino recomendado: Enate Uno Tinto (Somontano) · Hora: 21:30-22:00 h · Larga sobremesa</p>
+                        </div>
+                    </div>
+
+                    <div class="momento-box" style="margin-top:16px;">
+                        <p class="momento-texto">Después de cenar, salid a ver las estrellas desde el jardín del hotel. El cielo del Valle de Hecho en julio es absolutamente extraordinario: la Vía Láctea visible a simple vista, las constelaciones de verano, algún satélite que cruza silencioso. Tumbáos en la hierba con Greta entre vosotros y mirad hacia arriba durante diez minutos. Es el mejor final posible para este bloque del viaje.</p>
+                    </div>
+                </div>
+
+                <div class="consejo-box">
+                    <div class="consejo-titulo">⚠️ Consejos del día</div>
+                    <p class="consejo-texto"><strong>Preparación nocturna del día anterior (domingo noche):</strong> Para poder salir a las 7:30 h sin estrés, preparad todo el domingo por la noche: maletas completamente hechas, mochila de ruta preparada, bolsa de Greta lista, coche preparado (llenad el depósito el domingo).</p>
+                    <p class="consejo-texto"><strong>Sobre Greta y los buitres en Aguas Tuertas:</strong> Los buitres leonados planean constantemente en el circo. No suponen ningún peligro real para Greta, pero puede asustarse si uno pasa cerca en vuelo rasante. Tranquilizadla con calma. Las marmotas, por el contrario, despertarán todos sus instintos: si la dejáis suelta, intentará perseguirlas. Tened controlada la distancia.</p>
+                    <p class="consejo-texto"><strong>Sobre el tiempo meteorológico:</strong> El lunes puede traer las primeras tormentas de verano. Si veis nubes de desarrollo vertical formándose antes de las 11:00 h, abreviad la ruta y bajad al bosque antes del mediodía. En la pradera abierta de Aguas Tuertas, una tormenta eléctrica puede ser peligrosa.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ===== GRETA CONSEJOS ===== -->
+    <section class="final-section bg-crema" id="greta">
+        <div class="container-wide">
+            <p class="section-label">🐾 Para Greta</p>
+            <h2 class="section-title">Consejos específicos para <span>Greta</span> en esta zona</h2>
+            <p style="color:var(--gris-claro); font-family:Arial,sans-serif; font-size:0.9rem; margin-bottom:32px;">Valle de Hecho y entorno · Julio 2026</p>
+
+            <div class="greta-grid">
+                <div class="greta-card">
+                    <div class="greta-card-header">
+                        <span class="greta-icon">🌡️</span>
+                        <span class="greta-card-title">Gestión del calor</span>
+                    </div>
+                    <p class="greta-card-text">Las caniches toy (2-4 kg) absorben y pierdan calor más rápido que razas grandes. Señales de golpe de calor: jadeo excesivo y rápido, salivación abundante, encías rojas o pálidas, desorientación, colapso.</p>
+                    <ul class="greta-card-lista">
+                        <li>NUNCA en el coche cerrado, ni 5 minutos, en julio</li>
+                        <li>Actividad física solo antes de las 10:00 h y después de las 18:30 h</li>
+                        <li>Agua disponible cada 30-45 minutos en rutas activas</li>
+                        <li>Asfalto a mediodía puede superar 55°C — cargarla en brazos</li>
+                        <li>Crema para almohadillas cada noche</li>
+                    </ul>
+                </div>
+
+                <div class="greta-card">
+                    <div class="greta-card-header">
+                        <span class="greta-icon">🐑</span>
+                        <span class="greta-card-title">Mastines del Pirineo</span>
+                    </div>
+                    <p class="greta-card-text">Los mastines del Pirineo son perros de trabajo enormes (90-120 kg) que guardan los rebaños. Son muy territoriales. Protocolo obligatorio:</p>
+                    <ul class="greta-card-lista">
+                        <li>Ver un rebaño = coger a Greta en brazos INMEDIATAMENTE</li>
+                        <li>No correr jamás (activa el instinto de presa)</li>
+                        <li>Quedarse quieto, de lado, sin mirar al mastín a los ojos</li>
+                        <li>Rodear el rebaño por el lado opuesto al mastín con calma</li>
+                        <li>Hablar en voz normal para que os identifique como humanos</li>
+                    </ul>
+                </div>
+
+                <div class="greta-card">
+                    <div class="greta-card-header">
+                        <span class="greta-icon">🌿</span>
+                        <span class="greta-card-title">Flora y fauna peligrosa</span>
+                    </div>
+                    <p class="greta-card-text">Elementos a vigilar en el entorno natural del Valle de Hecho:</p>
+                    <ul class="greta-card-lista">
+                        <li><strong>Procesionaria del pino:</strong> Orugas en fila india = peligro máximo. Puede causar necrosis de la lengua. Si contacto: lavado inmediato y veterinario urgente.</li>
+                        <li><strong>Garrapatas:</strong> Revisión nocturna obligatoria. Cuello, axilas, ingle, dedos, orejas. Pinzas específicas para extraer.</li>
+                        <li><strong>Víboras áspid:</strong> No dejar husmear bajo piedras. Si mordedura: veterinario urgente.</li>
+                        <li><strong>Hongos tóxicos:</strong> No dejar morder ningún hongo silvestre.</li>
+                    </ul>
+                </div>
+
+                <div class="greta-card">
+                    <div class="greta-card-header">
+                        <span class="greta-icon">🚗</span>
+                        <span class="greta-card-title">En el coche y el hotel</span>
+                    </div>
+                    <p class="greta-card-text">La carretera de acceso al Valle de Hecho tiene muchas curvas. Si Greta es propensa al mareo, consultar con el veterinario la medicación adecuada antes del viaje.</p>
+                    <ul class="greta-card-lista">
+                        <li>Llevar su cama o manta propia (reduce la ansiedad en entornos nuevos)</li>
+                        <li>Comedero y bebedero propios</li>
+                        <li>Juguete favorito de viaje</li>
+                        <li>Preguntar al hotel por zona de hierba para necesidades</li>
+                        <li>No dejarla sola en la habitación más de 2-3 horas</li>
+                    </ul>
+                </div>
+
+                <div class="greta-card">
+                    <div class="greta-card-header">
+                        <span class="greta-icon">🩺</span>
+                        <span class="greta-card-title">Botiquín básico</span>
+                    </div>
+                    <ul class="greta-card-lista">
+                        <li>Pipetas antiparasitarias (aplicar 48h antes del viaje)</li>
+                        <li>Collar antigarrapatas (Seresto o Scalibor)</li>
+                        <li>Pinzas extracción garrapatas × 2</li>
+                        <li>Gasas estériles y vendas autoadhesivas</li>
+                        <li>Betadine en spray y agua oxigenada</li>
+                        <li>Crema para almohadillas</li>
+                        <li>Termómetro digital rectal</li>
+                        <li>Cartilla de vacunas y número de chip</li>
+                    </ul>
+                </div>
+
+                <div class="greta-card">
+                    <div class="greta-card-header">
+                        <span class="greta-icon">💧</span>
+                        <span class="greta-card-title">Greta y los ríos</span>
+                    </div>
+                    <p class="greta-card-text">Los ríos del Valle de Hecho (Aragón Subordán, Veral) tienen agua de montaña muy fría (8-16°C en julio). Excelente calidad y potable.</p>
+                    <ul class="greta-card-lista">
+                        <li>Baños solo en pozas de orilla, no en corrientes rápidas</li>
+                        <li>Limitar los baños a periodos cortos (agua muy fría)</li>
+                        <li>Secar completamente antes del viento o el coche</li>
+                        <li>Comprobar que puede salir del agua por sus propios medios antes de dejarla entrar</li>
+                        <li>Toalla específica para Greta × 2</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MAPA MENTAL ===== -->
+    <section class="final-section bg-white">
+        <div class="container">
+            <p class="section-label">Mapa mental</p>
+            <h2 class="section-title">Zonas visitadas en el <span>Bloque 1</span></h2>
+
+            <div class="mapa-box">
+<span class="highlight2">BLOQUE 1 — BASE: HOTEL USON (Valle de Hecho)</span>
+│
+├── <span class="highlight">VALLE DE HECHO (zona central)</span>
+│   ├── Pueblo de Hecho ............. DÍA 1 (llegada) + DÍA 5 (museo)
+│   ├── Selva de Oza ................ DÍA 2 (hayedo + circo)
+│   └── Aguas Tuertas (1.640 m) ..... DÍA 6 (pradera glaciar, meandros)
+│
+├── <span class="highlight">VALLE DEL RONCAL — Navarra</span> (40 km al oeste)
+│   ├── Isaba ....................... DÍA 3 (pueblo + ruta fluvial)
+│   └── Collado de Belagua .......... DÍA 3 (mirador alpino, Anie 2.507m)
+│
+└── <span class="highlight">VALLE DE ANSÓ</span> (22 km al noroeste)
+    ├── Zuriza — Pozas del Veral .... DÍA 4 (agua turquesa, baño)
+    └── Ansó pueblo ................. DÍA 4 (visita medieval)
+
+<span class="muted">── Distancias desde Hotel Uson ──────────────────────────</span>
+Hecho pueblo ........... 5 km · 10 min
+Selva de Oza ........... 14 km · 25 min
+Aguas Tuertas .......... 18 km · 40 min
+Valle de Ansó/Zuriza ... 22 km · 35 min
+Isaba (Roncal) ......... 38 km · 50 min
+Jaca (ciudad) .......... 50 km · 1h 15 min
+            </div>
+
+            <div style="overflow-x:auto;">
+                <table class="tabla-resumen">
+                    <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>Fecha</th>
+                            <th>Actividad</th>
+                            <th>Km</th>
+                            <th>Dificultad</th>
+                            <th>Greta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Mié 1 jul</td><td>Llegada + Paseo Hecho</td><td>3-4 km</td><td>⭐ Muy fácil</td><td>✅</td></tr>
+                        <tr><td>2</td><td>Jue 2 jul</td><td>Selva de Oza + Circo</td><td>8 km</td><td>⭐⭐ Fácil-Mod.</td><td>✅</td></tr>
+                        <tr><td>3</td><td>Vie 3 jul</td><td>Valle Roncal · Isaba</td><td>6 km</td><td>⭐⭐ Fácil-Mod.</td><td>✅</td></tr>
+                        <tr><td>4</td><td>Sáb 4 jul</td><td>Pozas Veral + Ansó</td><td>7 km</td><td>⭐ Fácil</td><td>✅</td></tr>
+                        <tr><td>5</td><td>Dom 5 jul</td><td>Museo Arte + Hoya</td><td>4-5 km</td><td>⭐ Fácil</td><td>✅</td></tr>
+                        <tr><td>6</td><td>Lun 6 jul</td><td>Aguas Tuertas</td><td>6-7 km</td><td>⭐⭐ Fácil-Mod.</td><td>✅</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CHECKLIST SIGUIENTE BLOQUE ===== -->
+    <section class="final-section bg-crema">
+        <div class="container">
+            <p class="section-label">✅ Preparación</p>
+            <h2 class="section-title">Qué tener listo para el <span>Bloque 2</span></h2>
+            <p style="color:var(--gris-claro); font-family:Arial,sans-serif; font-size:0.88rem; margin-bottom:32px;">Casa Rincón de Broto · Valle del Ara · Sobrarbe</p>
+
+            <div class="checklist-grid">
+                <div class="checklist-group">
+                    <div class="checklist-group-title">📦 Equipaje</div>
+                    <div class="checklist-item"><div class="check-box"></div>Maletas cerradas la noche del día 6</div>
+                    <div class="checklist-item"><div class="check-box"></div>Ropa lavada y seca (preguntar si el hotel tiene lavadora)</div>
+                    <div class="checklist-item"><div class="check-box"></div>Botines de montaña aireados y secos</div>
+                    <div class="checklist-item"><div class="check-box"></div>Todas las baterías cargadas (móviles, cámara, powerbank)</div>
+                    <div class="checklist-item"><div class="check-box"></div>Copia de seguridad de todas las fotos del Bloque 1</div>
+                </div>
+
+                <div class="checklist-group">
+                    <div class="checklist-group-title">🚗 Coche y trayecto</div>
+                    <div class="checklist-item"><div class="check-box"></div>Llenar depósito en Hecho o Jaca antes de salir</div>
+                    <div class="checklist-item"><div class="check-box"></div>Agua y provisiones para el trayecto (~2h hasta Broto)</div>
+                    <div class="checklist-item"><div class="check-box"></div>GPS programado con Casa Rincón de Broto</div>
+                    <div class="checklist-item"><div class="check-box"></div>Nevera portátil con queso Roncal y embutidos comprados</div>
+                </div>
+
+                <div class="checklist-group">
+                    <div class="checklist-group-title">🐾 Greta</div>
+                    <div class="checklist-item"><div class="check-box"></div>Revisión final de garrapatas antes de salir</div>
+                    <div class="checklist-item"><div class="check-box"></div>Bolsa de Greta accesible: agua, snacks, manta, juguete</div>
+                    <div class="checklist-item"><div class="check-box"></div>Medicación antimareo si el trayecto tiene curvas</div>
+                    <div class="checklist-item"><div class="check-box"></div>Botiquín revisado y repuesto si algo se ha consumido</div>
+                </div>
+
+                <div class="checklist-group">
+                    <div class="checklist-group-title">🗂️ Gestión y reservas</div>
+                    <div class="checklist-item"><div class="check-box"></div>Check-out del Hotel Uson (pedir factura noche anterior)</div>
+                    <div class="checklist-item"><div class="check-box"></div>Reserva confirmada en Casa Rincón de Broto</div>
+                    <div class="checklist-item"><div class="check-box"></div>Reserva en Casa Frauca (Sarvisé) — URGENTE</div>
+                    <div class="checklist-item"><div class="check-box"></div>Previsión meteorológica días 7-12 (AEMET / Meteoblue)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NAVEGACIÓN INFERIOR ===== -->
+    <nav class="nav-inferior">
+        <a href="index.html" class="nav-inf-btn nav-inf-back">← Volver al inicio</a>
+        <div class="nav-inf-center">
+            <div style="color:rgba(255,255,255,0.6); font-size:0.8rem; margin-bottom:4px;">Bloque 1 de 3</div>
+            <div style="display:flex; gap:8px; justify-content:center;">
+                <div style="width:32px; height:3px; background:var(--verde-pirineo); border-radius:2px;"></div>
+                <div style="width:32px; height:3px; background:rgba(255,255,255,0.2); border-radius:2px;"></div>
+                <div style="width:32px; height:3px; background:rgba(255,255,255,0.2); border-radius:2px;"></div>
+            </div>
+        </div>
+        <a href="bloque2.html" class="nav-inf-btn nav-inf-next" style="background:#4a7fa5;">
+            Bloque 02 · Valle de Broto →
+        </a>
+    </nav>
+
+    <script>
+        // Fade in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 80);
+                }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Topbar scroll effect
+        window.addEventListener('scroll', () => {
+            const topbar = document.querySelector('.topbar');
+            if (window.scrollY > 100) {
+                topbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
+            } else {
+                topbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
