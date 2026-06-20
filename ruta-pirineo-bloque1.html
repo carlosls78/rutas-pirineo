@@ -6,55 +6,28 @@
 <title>Ruta Pirineo Aragonés · Bloque 1 — Valle de Hecho (1-6 julio 2026)</title>
 <style>
   :root{
-    --verde-bosque:#2f5d3a;
-    --verde-claro:#4a8259;
-    --piedra:#b88c4a;
-    --crema:#f7f3e9;
-    --crema-card:#fffdf7;
-    --texto:#2b2b26;
-    --gris-suave:#6b6b60;
-    --azul-rio:#3a7ca5;
-    --sombra:0 6px 24px rgba(47,93,58,.12);
+    --verde-bosque:#2f5d3a;--verde-claro:#4a8259;--piedra:#b88c4a;
+    --crema:#f7f3e9;--crema-card:#fffdf7;--texto:#2b2b26;--gris-suave:#6b6b60;
+    --azul-rio:#3a7ca5;--sombra:0 6px 24px rgba(47,93,58,.12);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{
-    font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
-    color:var(--texto);
-    background:var(--crema);
-    line-height:1.65;
-  }
-  /* ===== HERO ===== */
-  .hero{
-    background:linear-gradient(135deg,var(--verde-bosque) 0%,var(--verde-claro) 60%,var(--azul-rio) 130%);
-    color:#fff;padding:60px 24px 70px;text-align:center;position:relative;
-  }
-  .hero .badge{
-    display:inline-block;background:rgba(255,255,255,.18);
-    border:1px solid rgba(255,255,255,.4);padding:6px 16px;border-radius:30px;
-    font-size:.85rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;
-  }
+  body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;color:var(--texto);background:var(--crema);line-height:1.65;}
+  .hero{background:linear-gradient(135deg,var(--verde-bosque) 0%,var(--verde-claro) 60%,var(--azul-rio) 130%);color:#fff;padding:60px 24px 70px;text-align:center;position:relative;}
+  .hero .badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);padding:6px 16px;border-radius:30px;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;}
   .hero h1{font-size:2.5rem;font-weight:800;line-height:1.15;margin-bottom:14px;text-shadow:0 2px 12px rgba(0,0,0,.2);}
   .hero .sub{font-size:1.15rem;opacity:.95;max-width:760px;margin:0 auto 24px;}
   .hero .meta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:10px;}
   .hero .meta span{background:rgba(255,255,255,.15);padding:8px 16px;border-radius:10px;font-size:.95rem;backdrop-filter:blur(4px);}
-  /* ===== CONTENEDOR ===== */
+  .hero .nav{margin-top:22px;}
+  .hero .nav a{color:#fff;text-decoration:none;background:rgba(255,255,255,.22);padding:7px 16px;border-radius:8px;margin:0 5px;font-size:.9rem;display:inline-block;}
+  .hero .nav a:hover{background:rgba(255,255,255,.35);}
   .wrap{max-width:980px;margin:0 auto;padding:40px 20px 80px;}
-  .intro-box{
-    background:var(--crema-card);border-left:6px solid var(--piedra);border-radius:12px;
-    padding:24px 28px;box-shadow:var(--sombra);margin-bottom:46px;
-  }
+  .intro-box{background:var(--crema-card);border-left:6px solid var(--piedra);border-radius:12px;padding:24px 28px;box-shadow:var(--sombra);margin-bottom:46px;}
   .intro-box h2{color:var(--verde-bosque);font-size:1.3rem;margin-bottom:10px;}
-  .intro-box p{color:var(--gris-suave);}
+  .intro-box p{color:var(--gris-suave);margin-bottom:10px;}
   .intro-box strong{color:var(--texto);}
-  /* ===== TARJETA DÍA ===== */
-  .dia{
-    background:var(--crema-card);border-radius:16px;box-shadow:var(--sombra);
-    margin-bottom:40px;overflow:hidden;border:1px solid rgba(184,140,74,.18);
-  }
-  .dia-header{
-    background:linear-gradient(100deg,var(--verde-bosque),var(--verde-claro));color:#fff;
-    padding:22px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;
-  }
+  .dia{background:var(--crema-card);border-radius:16px;box-shadow:var(--sombra);margin-bottom:40px;overflow:hidden;border:1px solid rgba(184,140,74,.18);}
+  .dia-header{background:linear-gradient(100deg,var(--verde-bosque),var(--verde-claro));color:#fff;padding:22px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;}
   .dia-header .num{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;opacity:.85;display:block;}
   .dia-header h3{font-size:1.5rem;font-weight:700;}
   .dia-header .fecha{background:rgba(255,255,255,.2);padding:7px 15px;border-radius:20px;font-size:.9rem;white-space:nowrap;}
@@ -63,7 +36,7 @@
   .seccion:last-child{border-bottom:none;}
   .seccion h4{font-size:1.08rem;color:var(--verde-bosque);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
   .seccion .emoji{font-size:1.25rem;}
-  .seccion p{color:var(--texto);margin-bottom:8px;}
+  .seccion p{color:var(--texto);margin-bottom:10px;}
   .seccion ul{list-style:none;margin-top:6px;}
   .seccion ul li{padding:4px 0 4px 22px;position:relative;color:var(--texto);}
   .seccion ul li::before{content:"›";position:absolute;left:6px;color:var(--piedra);font-weight:bold;}
@@ -71,19 +44,26 @@
   .destacado{background:linear-gradient(90deg,rgba(184,140,74,.12),transparent);border-radius:10px;padding:14px 16px;}
   .consejo{background:#fff7e6;border:1px solid #f0d9a8;border-radius:10px;padding:14px 16px;}
   .consejo h4{color:#a9761c;}
-  /* timeline */
-  .timeline{background:#eef4ec;border-radius:10px;padding:14px 18px;}
-  .timeline h4{color:var(--azul-rio);}
-  .timeline ul li{padding:5px 0 5px 0;border-bottom:1px dotted rgba(0,0,0,.08);}
-  .timeline ul li::before{content:"";}
-  .timeline .hora{display:inline-block;min-width:96px;font-weight:700;color:var(--verde-bosque);}
+  .consejo p{margin-bottom:8px;}
+  .subtitulo{font-weight:700;color:var(--verde-bosque);margin-top:6px;margin-bottom:4px;}
+  /* tablas */
+  .tabla{width:100%;border-collapse:collapse;margin-top:8px;font-size:.95rem;}
+  .tabla th,.tabla td{text-align:left;padding:8px 12px;border-bottom:1px solid rgba(184,140,74,.25);vertical-align:top;}
+  .tabla th{background:#eef4ec;color:var(--verde-bosque);}
+  .tabla tr:last-child td{border-bottom:none;}
+  .tabla .hora-col{font-weight:700;color:var(--verde-bosque);white-space:nowrap;width:130px;}
+  .ficha td:first-child{font-weight:600;color:var(--gris-suave);width:38%;}
+  /* opciones de comida */
+  .opcion{background:#fbf7ee;border:1px solid rgba(184,140,74,.25);border-radius:10px;padding:14px 16px;margin-bottom:12px;}
+  .opcion:last-child{margin-bottom:0;}
+  .opcion h5{color:var(--piedra);font-size:1rem;margin-bottom:6px;}
+  .opcion p{margin-bottom:6px;}
   /* etiquetas */
   .tag{display:inline-block;font-size:.82rem;font-weight:600;padding:2px 10px;border-radius:20px;margin-left:4px;}
   .si{background:#dff3e3;color:#1f7a38;}
   .precaucion{background:#fff1d6;color:#b3760a;}
   .no{background:#fbe0e0;color:#b32020;}
   .label{font-weight:600;color:var(--gris-suave);}
-  /* ===== BLOQUES FINALES ===== */
   .final{background:var(--crema-card);border-radius:16px;box-shadow:var(--sombra);padding:28px 30px;margin-bottom:34px;border-top:5px solid var(--azul-rio);}
   .final h2{color:var(--verde-bosque);font-size:1.5rem;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
   .final ul{list-style:none;}
@@ -94,11 +74,13 @@
   .mapa{font-family:'Courier New',monospace;background:#1f3326;color:#cfe6d4;padding:24px;border-radius:12px;white-space:pre;overflow-x:auto;line-height:1.5;font-size:.92rem;}
   footer{text-align:center;padding:34px 20px;color:var(--gris-suave);font-size:.9rem;}
   footer strong{color:var(--verde-bosque);}
+  footer a{color:var(--azul-rio);text-decoration:none;}
   @media(max-width:600px){
     .hero h1{font-size:1.8rem;}
     .dia-body{padding:8px 18px 20px;}
     .dia-header{padding:18px;}
-    .timeline .hora{min-width:80px;}
+    .tabla .hora-col{width:90px;}
+    .ficha td:first-child{width:45%;}
   }
 </style>
 </head>
@@ -114,9 +96,9 @@
     <span>🐕 100% pet-friendly</span>
     <span>🥾 Senderismo suave</span>
   </div>
-  <div style="margin-top:22px;">
-    <a href="index.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.22);padding:7px 16px;border-radius:8px;margin:0 5px;font-size:.9rem;display:inline-block;">🏠 Índice del viaje</a>
-    <a href="ruta-pirineo-bloque2.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.22);padding:7px 16px;border-radius:8px;margin:0 5px;font-size:.9rem;display:inline-block;">Bloque 2 →</a>
+  <div class="nav">
+    <a href="index.html">🏠 Índice del viaje</a>
+    <a href="ruta-pirineo-bloque2.html">Bloque 2 →</a>
   </div>
 </header>
 
@@ -124,445 +106,629 @@
 
   <section class="intro-box">
     <h2>📍 Contexto de la zona</h2>
-    <p>El <strong>Hotel de Montaña Usón</strong> se asienta en plena carretera del <strong>Valle de Hecho (Echo)</strong>, en la comarca de la Jacetania (Huesca), a orillas del río Aragón Subordán y a las puertas de la Selva de Oza. Es una base inmejorable para un viaje sin prisas: prácticamente <strong>todas las actividades de este bloque quedan a menos de 30-40 minutos en coche</strong>, y muchas a apenas 10-15. Es una zona verde, fresca, de bosque de hayas y abetos, ríos cristalinos y pueblos de piedra dorada — perfecta para el calor de julio y para viajar con perro.</p>
-    <p style="margin-top:10px"><strong>Ritmo del viaje:</strong> en julio el calor aprieta entre las 13:00 y las 18:00. La estrategia de todos los días es la misma: <strong>actividad por la mañana temprano</strong> (cuando hace fresco y hay sombra), <strong>siesta y descanso en las horas centrales</strong> y <strong>paseo suave o pueblo al atardecer</strong>.</p>
-    <p style="margin-top:10px"><strong>Ventaja clave para Greta:</strong> el Valle de Hecho <strong>NO es Parque Nacional</strong> (a diferencia de Ordesa, donde los perros están prohibidos), así que puede acompañaros prácticamente a todas partes.</p>
+    <p>El Hotel Usón se sitúa en la carretera del Valle de Hecho, entre el pueblo de Echo (al sur) y la Selva de Oza (al norte), con el río Aragón Subordán como hilo conductor de todo. Estáis en la <strong>Jacetania</strong>, la comarca más occidental del Pirineo aragonés, dentro del <strong>Parque Natural de los Valles Occidentales</strong>: valles verdes, bosques de hayas y abetos, ganadería tradicional y pueblos chesos de piedra dorada. Un Pirineo menos masificado, fresco y umbrío, ideal para el calor de julio y para viajar con perro: <strong>no hay figura de Parque Nacional</strong>, así que Greta puede ir prácticamente a todas partes con correa.</p>
+    <p><strong>Lógica de los desplazamientos:</strong> Echo y Siresa quedan a 5-10 min al sur; la Boca del Infierno a ~10 min al norte; la Selva de Oza a ~20 min; los llanos de la Guarrinza a ~25-30 min; y Ansó a ~30-40 min. Ningún trayecto supera los 40 minutos.</p>
+    <p><strong>Estrategia diaria en julio:</strong> mañana fresca para la actividad principal (salir entre las 8:00 y las 9:00), descanso a la sombra en las horas centrales (13:00-18:00) y paseo suave o pueblo al atardecer.</p>
   </section>
+
 
   <!-- ============ DÍA 1 ============ -->
   <article class="dia">
     <div class="dia-header">
-      <div><span class="num">Día 1</span><h3>Llegada y primer paseo por el valle</h3></div>
+      <div><span class="num">Día 1</span><h3>El valle que respira despacio</h3></div>
       <span class="fecha">Miércoles 1 de julio</span>
     </div>
     <div class="dia-body">
       <div class="seccion">
         <h4><span class="emoji">📖</span> Introducción del día</h4>
-        <p class="evocador">Llegáis al corazón de la Jacetania, donde el aire huele a pino y a hierba recién regada por el río. Hoy no hay prisa: deshacer maletas, dejar que Greta reconozca su nuevo territorio y empezar a sentir el ritmo lento de la montaña. El primer contacto es con Echo (Hecho), un pueblo de piedra dorada y tejados de losa donde todavía se escucha el <em>cheso</em>, una de las variedades del aragonés mejor conservadas, y donde cada esquina —chimeneas troncocónicas, pasadizos cubiertos, portalones blasonados— cuenta siglos de vida pastoril y montañesa.</p>
-        <p>Es una jornada de aterrizaje pensada para no forzar nada: organizar la habitación, ubicar dónde compraréis el pan y el picnic de los próximos días, localizar la veterinaria y la farmacia más cercanas en Echo, y reconocer el primer tramo de río junto al hotel para los baños de Greta.</p>
+        <p class="evocador">Hay viajes que empiezan de verdad cuando apagas el motor del coche y, por fin, escuchas el silencio. Eso es lo que os espera al llegar al Valle de Hecho: el rumor lejano del Aragón Subordán, el olor a boj y a hierba segada, y unas montañas que se cierran alrededor como un abrazo verde. Hoy no hay que conquistar nada: es el día de deshacer maletas sin prisa, de que Greta reconozca a base de olfato cada rincón del hotel, y de bajar las pulsaciones.</p>
+        <p class="evocador">Por la tarde, cuando el sol pierda su filo, os espera Echo (Hecho): un pueblo de piedra dorada, tejados de losa y chimeneas troncocónicas donde todavía se habla el <em>cheso</em>, una de las variedades vivas de la fabla aragonesa. Pasear sus calles al atardecer es la mejor manera de decirle al cuerpo que el descanso ha comenzado.</p>
       </div>
-      <div class="seccion timeline">
-        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
-        <ul>
-          <li><span class="hora">Tarde</span> Llegada al Hotel Usón, check-in y descanso del viaje</li>
-          <li><span class="hora">18:30</span> Traslado corto a Echo (≈10 min) y paseo por el casco antiguo</li>
-          <li><span class="hora">19:30</span> Compra de provisiones locales (panadería, queso, embutido)</li>
-          <li><span class="hora">20:30</span> Cena tranquila y vuelta al hotel</li>
-        </ul>
+
+      <div class="seccion">
+        <h4><span class="emoji">⏰</span> Horario orientativo del día</h4>
+        <table class="tabla">
+          <tr><th class="hora-col">Hora</th><th>Actividad</th></tr>
+          <tr><td class="hora-col">Mediodía-tarde</td><td>Llegada al Hotel Usón, check-in e instalación</td></tr>
+          <tr><td class="hora-col">17:00 h</td><td>Agua y descanso; Greta reconoce el entorno del hotel</td></tr>
+          <tr><td class="hora-col">18:30 h</td><td>Traslado a Echo (~10 min) y paseo por el casco histórico</td></tr>
+          <tr><td class="hora-col">19:30 h</td><td>Compra de pan, queso y embutido para los picnics</td></tr>
+          <tr><td class="hora-col">20:30 h</td><td>Cena tranquila en Echo</td></tr>
+          <tr><td class="hora-col">22:00 h</td><td>Vuelta al hotel y a descansar</td></tr>
+        </table>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <p><strong>Paseo por Echo (Hecho) y el Museo de Escultura al Aire Libre</strong></p>
+        <p class="subtitulo">Contexto geográfico y natural</p>
+        <p>Echo es la capital histórica del Valle de Hecho, en el extremo más occidental del Pirineo aragonés, dentro del Parque Natural de los Valles Occidentales (declarado en 2006). El pueblo se asienta a unos 833 m de altitud, en la ribera del río Aragón Subordán, rodeado de prados de siega, choperas y las primeras laderas boscosas. Es un núcleo de arquitectura pirenaica purísima: casonas de sillar dorado, portalones en arco de medio punto, aleros de madera y las características chimeneas cónicas rematadas con un <em>espantabrujas</em>. Echo conserva además una fuerte identidad cultural en torno al cheso.</p>
+        <p class="subtitulo">Descripción detallada del recorrido</p>
+        <p><strong>Tramo 1 — Plaza Mayor e iglesia de San Martín:</strong> empezad en el corazón del pueblo, con la robusta iglesia parroquial y las casonas que la rodean. El mejor punto para captar la escala y el color de la piedra.</p>
+        <p><strong>Tramo 2 — El laberinto del casco antiguo:</strong> dejaos perder por las callejas, fijándoos en los dinteles tallados con fechas, los pasadizos cubiertos y las chimeneas sobre los tejados. Pasaréis junto al exterior del Museo etnológico Casa Mazo.</p>
+        <p><strong>Tramo 3 — El pinar de las esculturas:</strong> a las afueras, el Museo de Escultura al Aire Libre reparte decenas de obras de piedra entre un pinar umbrío. Paseo corto, llano y sombreado, ideal para terminar la tarde con Greta.</p>
+        <table class="tabla ficha">
+          <tr><td>Punto de inicio</td><td>Plaza Mayor de Echo</td></tr>
+          <tr><td>Cómo llegar</td><td>Desde el hotel, ~6-7 km al sur por la carretera del valle (~10 min). Aparcad en las entradas del pueblo</td></tr>
+          <tr><td>Distancia</td><td>2-3 km (paseo urbano + pinar)</td></tr>
+          <tr><td>Desnivel</td><td>Insignificante</td></tr>
+          <tr><td>Tiempo estimado</td><td>1-1,5 h con paradas</td></tr>
+          <tr><td>Dificultad</td><td>⭐ Muy fácil</td></tr>
+          <tr><td>Apta para Greta</td><td><span class="tag si">✅ Sí</span> calles tranquilas, fuentes con agua, suelo cómodo. Correa por tráfico ocasional</td></tr>
+          <tr><td>Mejor horario</td><td>18:30-20:30 h, con la piedra dorada por el sol bajo</td></tr>
+        </table>
+        <p class="subtitulo">Qué llevar</p>
         <ul>
-          <li><span class="label">Ruta:</span> Paseo por el casco histórico de Echo (Hecho) y su ribera</li>
-          <li><span class="label">Recorrido:</span> Plaza Mayor, iglesia de San Martín, callejas del barrio antiguo y el exterior del Museo etnológico Casa Mazo; remate junto al río</li>
-          <li><span class="label">Firme y desnivel:</span> Empedrado y asfalto llano, prácticamente sin desnivel</li>
-          <li><span class="label">Dificultad / distancia:</span> Muy fácil · 2-3 km · 1-1,5 h con paradas</li>
-          <li><span class="label">Aparcamiento:</span> Entradas del pueblo, fácil fuera de horas punta</li>
-          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> calles tranquilas, fuentes con agua</li>
-          <li><span class="label">Mejor horario:</span> Última hora de la tarde (18:30-20:30), con la piedra dorada por el sol bajo</li>
+          <li>Agua para Greta y bolsas</li>
+          <li>Calzado cómodo (empedrado irregular)</li>
+          <li>Cámara: la luz del atardecer sobre la piedra es espectacular</li>
+          <li>Bolsa para las compras del pueblo (pan, queso, embutido)</li>
         </ul>
-        <p><strong>👀 No te pierdas:</strong> el Museo de Arte Contemporáneo al aire libre, con esculturas repartidas en un pinar a las afueras de Echo — un paseo corto, sombreado y perfecto para ir con perro.</p>
       </div>
+
       <div class="seccion destacado">
         <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
-        <p>El atardecer sobre los tejados de losa de Echo, con el sonido del río de fondo desde la terraza del hotel. La luz cálida sobre la piedra y el primer respiro real de desconexión: ese instante en el que notáis que el viaje ha empezado de verdad.</p>
+        <p>El atardecer sobre los tejados de losa de Echo. El sol roza las crestas del oeste y, durante unos minutos, toda la piedra del pueblo se enciende en un tono miel intenso. Sentaos en un banco de la plaza o en la terraza del hotel, con Greta tumbada a vuestros pies y el murmullo del río de fondo. Es el instante exacto en que el viaje deja de ser un plan y se convierte en presente.</p>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
-        <ul>
-          <li><span class="label">Lugar:</span> Restaurante del propio Hotel Usón o picnic ligero de llegada</li>
-          <li><span class="label">Cocina:</span> Casera de montaña; migas a la pastora, sopas, verduras de temporada, ternera de la zona</li>
-          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> hotel pet-friendly, ideal en terraza</li>
-          <li><span class="label">Alternativa:</span> Picnic junto al río Aragón Subordán a la sombra</li>
-        </ul>
+        <div class="opcion">
+          <h5>Opción A — Restaurante Canteré (Echo)</h5>
+          <p><span class="label">Contexto:</span> una de las mesas con más nombre del valle, en una casa chesa tradicional. Cocina de raíz local trabajada con mimo y un punto de actualización.</p>
+          <p><span class="label">Platos recomendados:</span> sopa o crema de temporada; ternera de la Parda Alpina a la brasa o guisada; de postre, crespillos (hojas de borraja rebozadas y fritas con azúcar).</p>
+          <p><span class="label">Para beber:</span> tinto de Somontano · <span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> pedid terraza · <span class="label">Precio:</span> 25-35 € por persona</p>
+        </div>
+        <div class="opcion">
+          <h5>Opción B — Picnic de llegada</h5>
+          <p>Si llegáis a media tarde, un picnic ligero junto al río Aragón Subordán, a la sombra de las choperas cerca del hotel: embutido, queso, fruta y agua fresca.</p>
+        </div>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
         <ul>
-          <li><span class="label">Lugar:</span> Restaurante Canteré (Echo)</li>
-          <li><span class="label">Cocina:</span> Chesa tradicional actualizada; ternera de pasto, setas de temporada, postres caseros</li>
-          <li><span class="label">Qué pedir:</span> Una carne a la brasa de la zona y un postre artesano para compartir</li>
-          <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> reservar y pedir terraza</li>
-          <li><span class="label">Ambiente / hora:</span> Acogedor, de pueblo, tranquilo · 20:30</li>
+          <li><span class="label">Lugar:</span> Restaurante del Hotel de Montaña Usón (cena en casa el día de llegada)</li>
+          <li><span class="label">Cocina:</span> casera de montaña con producto del valle</li>
+          <li><span class="label">Qué pedir:</span> algo reconfortante y sin complicaciones — crema de verduras, carne a la brasa o un guiso suave, y postre casero</li>
+          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span></li>
+          <li><span class="label">Ambiente / hora:</span> tranquilo y familiar, en terraza si la temperatura acompaña · 20:30-21:00 h</li>
         </ul>
       </div>
+
       <div class="seccion consejo">
         <h4><span class="emoji">⚠️</span> Consejo del día</h4>
-        <p><strong>Llegada relajada:</strong> hidratad bien a Greta tras el viaje y dejadla aclimatarse antes de salir a pasear. <strong>Reservad la cena por teléfono el mismo día</strong> — en julio los pocos restaurantes del valle se llenan rápido. Aprovechad hoy para localizar la <strong>farmacia y la clínica veterinaria</strong> más cercanas (en Echo o en Jaca) y compraos agua y picnic para mañana, porque arriba en Oza no hay tiendas.</p>
+        <p><strong>Sobre la logística de llegada:</strong> dedicad la primera tarde a dejarlo todo localizado. La farmacia está en Echo; la clínica veterinaria más cercana puede estar en Jaca (~50 min), así que apuntad el teléfono. Comprad agua y comida para el picnic de mañana hoy mismo: arriba, en Oza, no hay tiendas.</p>
+        <p><strong>Sobre Greta tras el coche:</strong> dadle agua y un rato de calma antes de salir a pasear. El paseo suave por Echo es perfecto para que descargue tensión sin esfuerzo.</p>
+        <p><strong>Sobre las reservas:</strong> en julio los restaurantes del valle se llenan. Reservad por teléfono la cena de mañana y asegurad ya Casa Blasquico–Gaby para el día que queráis (tiene muy pocas mesas).</p>
       </div>
     </div>
   </article>
 
+
   <!-- ============ DÍA 2 ============ -->
   <article class="dia">
     <div class="dia-header">
-      <div><span class="num">Día 2</span><h3>Selva de Oza y Boca del Infierno</h3></div>
+      <div><span class="num">Día 2</span><h3>El bosque que no olvidas</h3></div>
       <span class="fecha">Jueves 2 de julio</span>
     </div>
     <div class="dia-body">
       <div class="seccion">
         <h4><span class="emoji">📖</span> Introducción del día</h4>
-        <p class="evocador">Hoy os adentráis en uno de los bosques más bellos del Pirineo: la Selva de Oza, un extenso hayedo-abetal umbrío donde la luz se filtra entre las copas y el río canta entre las raíces y las piedras cubiertas de musgo. Antes de llegar, la carretera os regalará la Boca del Infierno, un desfiladero angosto y vertiginoso tallado por el agua durante milenios.</p>
-        <p>Es el día perfecto para el calor de julio: el bosque mantiene una temperatura fresca y agradable incluso a mediodía, hay agua por todas partes y el firme es blando y agradecido para las patas de Greta. Además, el entorno guarda historia: vestigios megalíticos y los restos de una antigua calzada romana que cruzaba el Pirineo por aquí.</p>
+        <p class="evocador">Hay bosques en el Pirineo que funcionan como catedrales: te obligan a bajar la voz, a andar despacio, a mirar hacia arriba. El hayedo y abetar de la Selva de Oza es uno de ellos. Las hayas centenarias crean una bóveda vegetal que filtra la luz del amanecer en haces dorados y oblicuos, el suelo está tapizado de musgo verde brillante, y el río suena siempre, cerca o lejos, como un bajo continuo.</p>
+        <p class="evocador">Madrugar hoy vale la pena: a las 8:00 de la mañana, cuando el bosque aún guarda la frescura de la noche y la niebla baja todavía por las laderas, la Selva de Oza es uno de los lugares más mágicos del Pirineo. Greta lo sabrá en cuanto ponga una pata en la hojarasca.</p>
       </div>
-      <div class="seccion timeline">
-        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
-        <ul>
-          <li><span class="hora">8:30</span> Salida del hotel con picnic y agua preparados</li>
-          <li><span class="hora">9:00</span> Parada en el mirador de la Boca del Infierno</li>
-          <li><span class="hora">9:30</span> Paseo por la Selva de Oza por el tramo llano junto al río</li>
-          <li><span class="hora">13:00</span> Picnic en la pradera de Oza, a la sombra</li>
-          <li><span class="hora">15:00</span> Regreso al hotel: siesta y descanso</li>
-          <li><span class="hora">20:30</span> Cena en Echo</li>
-        </ul>
+
+      <div class="seccion">
+        <h4><span class="emoji">⏰</span> Horario orientativo del día</h4>
+        <table class="tabla">
+          <tr><th class="hora-col">Hora</th><th>Actividad</th></tr>
+          <tr><td class="hora-col">7:00 h</td><td>Despertador. Desayuno rápido en el hotel</td></tr>
+          <tr><td class="hora-col">7:30 h</td><td>Salida hacia la Selva de Oza</td></tr>
+          <tr><td class="hora-col">8:00 h</td><td>Inicio de la ruta</td></tr>
+          <tr><td class="hora-col">11:00-11:30 h</td><td>Final de la ruta, vuelta al aparcamiento</td></tr>
+          <tr><td class="hora-col">11:30 h</td><td>Regreso al hotel</td></tr>
+          <tr><td class="hora-col">12:00 h</td><td>Ducha y descanso</td></tr>
+          <tr><td class="hora-col">14:00 h</td><td>Comida</td></tr>
+          <tr><td class="hora-col">15:30-18:00 h</td><td>Siesta y descanso. Lectura en terraza</td></tr>
+          <tr><td class="hora-col">18:30 h</td><td>Paseo suave por los alrededores del hotel o el río</td></tr>
+          <tr><td class="hora-col">21:00 h</td><td>Cena</td></tr>
+        </table>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <p><strong>Ruta por la Selva de Oza y el Circo de Oza — Valle de Hecho</strong></p>
+        <p class="subtitulo">Contexto geográfico y natural</p>
+        <p>La Selva de Oza es uno de los bosques mixtos más extensos y mejor conservados del Pirineo aragonés occidental. Ocupa el fondo del Valle de Hecho desde aproximadamente el km 12 de la carretera de acceso hasta la frontera con Francia. Está compuesta principalmente de hayas (<em>Fagus sylvatica</em>) y abetos (<em>Abies alba</em>), con ejemplares centenarios de más de 30 metros. En las zonas húmedas aparecen alisos, sauces y fresnos junto al río, y el sotobosque es riquísimo: helechos, musgos, orquídeas silvestres. Forma parte del Parque Natural de los Valles Occidentales y es hábitat del quebrantahuesos, el urogallo, el sarrio y muchas rapaces. El río Aragón Subordán recorre el fondo del bosque con un sonido de agua constante; en julio lleva caudal reducido pero suficiente para refrescar las patas de Greta en vados y pozas.</p>
+        <p class="subtitulo">Descripción detallada de la ruta</p>
+        <p><strong>Tramo 1 — Del aparcamiento al primer meandro (2 km):</strong> el camino arranca hacia el norte siguiendo la orilla del río. Los primeros 500 m, entre choperas y prados; a partir del km 1, el hayedo cierra por encima y la temperatura baja. Suelo de raíces y musgo; cuidado si está húmedo.</p>
+        <p><strong>Tramo 2 — El bosque interior (2 km):</strong> el tramo más espectacular. Las hayas alcanzan su mayor porte y la luz penetra en haces. El camino se estrecha y cruza pequeños afluentes por pasarelas. Greta disfrutará: suelo suave, olores, agua, sombra constante.</p>
+        <p><strong>Tramo 3 — Apertura al Circo de Oza (desde el km 4):</strong> el hayedo se abre de golpe a un anfiteatro glaciar donde los prados alpinos sustituyen al bosque. Las paredes superan los 2.000 m (Mesa de los Tres Reyes al fondo, 2.444 m). El cambio de escala es brutal y hermoso.</p>
+        <p><strong>Regreso:</strong> por el mismo camino, con el sol más alto y una luz más cálida y dorada.</p>
+        <table class="tabla ficha">
+          <tr><td>Punto de inicio</td><td>Aparcamiento de la Selva de Oza</td></tr>
+          <tr><td>Cómo llegar</td><td>Desde el hotel, carretera de Hecho hacia el norte ~14 km. Asfaltada hasta el aparcamiento, con algún bache final. Señalización clara</td></tr>
+          <tr><td>Distancia</td><td>8 km ida y vuelta (o 5 km si se vuelve antes del circo)</td></tr>
+          <tr><td>Desnivel</td><td>+180 m / -180 m</td></tr>
+          <tr><td>Tiempo estimado</td><td>2,5-3 h con paradas y sin prisa</td></tr>
+          <tr><td>Dificultad</td><td>⭐⭐ Fácil-Moderado (raíces y algún paso húmedo, sin dificultad técnica)</td></tr>
+          <tr><td>Apta para Greta</td><td><span class="tag si">✅ Sí</span> sendero casi ideal: suelo blando, sombra, agua, frescor. Correa con otros senderistas; en el circo, sin ganado, puede ir suelta</td></tr>
+          <tr><td>Mejor horario</td><td>Inicio a las 8:00 h; volver antes de las 11:30 h</td></tr>
+        </table>
+        <p class="subtitulo">Qué llevar</p>
         <ul>
-          <li><span class="label">Ruta:</span> Camino Natural / paseo por la Selva de Oza, tramo llano junto al río Aragón Subordán</li>
-          <li><span class="label">Recorrido:</span> Senda forestal entre hayas y abetos, con el río siempre cerca; opción de acercarse al crómlech de la Corona de los Muertos y a los restos de calzada romana</li>
-          <li><span class="label">Firme y desnivel:</span> Pista y senda de tierra, llano, apenas unos metros de desnivel</li>
-          <li><span class="label">Dificultad / distancia:</span> Fácil · 4-6 km (ida y vuelta, adaptable) · 2-3 h con paradas</li>
-          <li><span class="label">Aparcamiento:</span> Zona recreativa de Oza (llega temprano, se llena)</li>
-          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> sombra, agua abundante, firme blando — el mejor día para ella</li>
-          <li><span class="label">Mejor horario:</span> Mañana (9:00-12:00), antes del calor y del trasiego de coches</li>
+          <li>Agua: mínimo 1,5 l por persona + 500 ml para Greta</li>
+          <li>Bocadillo o fruta para una pausa en el circo</li>
+          <li>Botines o zapatillas de trail (raíces y pasos húmedos)</li>
+          <li>Bastones opcionales</li>
+          <li>Crema solar (el circo es abierto, sin sombra)</li>
+          <li>Toalla pequeña para secar a Greta tras el río</li>
         </ul>
-        <p><strong>👀 No te pierdas:</strong> los puentes sobre el río y las pozas de agua transparente; en algunas, tranquilas y poco profundas, Greta puede refrescarse con seguridad.</p>
       </div>
+
       <div class="seccion destacado">
         <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
-        <p>Cruzar la <strong>Boca del Infierno</strong>: paredes verticales que casi se rozan sobre el río rugiente, con la carretera y una pasarela colgadas del precipicio. El estruendo del agua, la humedad fresca y la sensación de pequeñez ante la roca dejan huella. Es uno de esos lugares que se sienten en el cuerpo, no solo se ven.</p>
+        <p>El instante en que el hayedo se abre al Circo de Oza. Lleváis cuatro kilómetros de penumbra de bosque, de sonidos amortiguados, de luz filtrada. Y de repente el árbol que tenéis delante se acaba y el mundo explota en verde y azul y blanco: prados brillantes, cielo limpio de julio, paredes rocosas que suben hasta las nubes. Greta se lanzará a galope por la hierba antes de que hayáis podido reaccionar. Es uno de esos momentos que justifican todos los kilómetros hasta llegar aquí.</p>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
-        <ul>
-          <li><span class="label">Lugar:</span> Picnic en la pradera de la Selva de Oza (zona recreativa con mesas y sombra de árboles)</li>
-          <li><span class="label">Qué:</span> Queso y embutido de la Jacetania, empanada, fruta y mucha agua fresca</li>
-          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> espacio abierto, perfecto para Greta</li>
-          <li><span class="label">Alternativa:</span> Bar del Camping Selva de Oza (consultar apertura y terraza en temporada)</li>
-        </ul>
+        <div class="opcion">
+          <h5>Opción A — Restaurante Borda Ixeia (Hecho)</h5>
+          <p><span class="label">Contexto:</span> una <em>borda</em> es una construcción tradicional de piedra, originalmente refugio ganadero de altura. La Borda Ixeia está rehabilitada como restaurante manteniendo muros de piedra y techos de madera, y trabaja con productores locales.</p>
+          <p><span class="label">Platos recomendados:</span> tabla de embutidos del Pirineo con queso de cabra y pan tostado (atención a la chistorra); chuleta de ternera del Pirineo a la brasa (Parda Alpina) con patatas y pimientos; opción vegetariana de pimientos del cristal asados; de postre, cuajada de oveja con miel.</p>
+          <p><span class="label">Para beber:</span> tinto de Somontano · <span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> terraza con vistas · <span class="label">Precio:</span> 25-35 € por persona · <span class="label">Reserva:</span> recomendable en julio</p>
+        </div>
+        <div class="opcion">
+          <h5>Opción B — Picnic en la Selva de Oza</h5>
+          <p>El área recreativa junto al aparcamiento tiene mesas de madera con vistas al río. Preparad el día anterior: bocadillos de lomo con queso de oveja, tomates aliñados, fruta de temporada (cerezas), agua y algo fresco.</p>
+        </div>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
         <ul>
-          <li><span class="label">Lugar:</span> Restaurante Gaby – Casa Blasquico (Echo), una referencia gastronómica del valle</li>
-          <li><span class="label">Cocina:</span> Chesa de producto y temporada; caza, setas, jabalí, recetas de raíz local muy cuidadas</li>
-          <li><span class="label">Qué pedir:</span> Plato de caza o guiso de la casa según temporada; dejaos aconsejar</li>
-          <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> imprescindible reservar (aforo pequeño y muy demandado)</li>
-          <li><span class="label">Ambiente / hora:</span> Íntimo, de alta calidad · 20:30</li>
+          <li><span class="label">Lugar:</span> Hotel de Montaña Usón (cena en casa)</li>
+          <li><span class="label">Contexto:</span> tras madrugar y caminar casi 3 horas, la tarde en el hotel es sagrada y la cena en casa es el final perfecto</li>
+          <li><span class="label">Platos recomendados:</span> crema de hongos del Pirineo con aceite de trufa; cordero a la brasa con hierbas y patatas confitadas (ternasco de Aragón IGP); tarta de queso de oveja con mermelada de arándanos silvestres</li>
+          <li><span class="label">Para beber:</span> Chardonnay de Somontano o el tinto que prefiráis</li>
+          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span></li>
+          <li><span class="label">Ambiente / hora:</span> 21:00-21:30 h en terraza si la temperatura lo permite. Sin prisa</li>
         </ul>
       </div>
+
       <div class="seccion consejo">
         <h4><span class="emoji">⚠️</span> Consejo del día</h4>
-        <p>La carretera a Oza es <strong>estrecha y muy concurrida en julio</strong>: madrugad para aparcar sin agobios (a partir de media mañana suele completarse). Greta con correa por la presencia de ganado y otros visitantes con perro. Aunque el bosque es fresco, llevad <strong>agua suficiente</strong> y comprobad las almohadillas si camináis por tramos pedregosos al sol. Reservad Casa Blasquico con varios días de antelación si es posible.</p>
+        <p><strong>Sobre el aparcamiento de Oza:</strong> en julio y agosto hay gestión de aforo en fines de semana y festivos (no es el caso del jueves). Entre semana, llegar a las 8:00 h garantiza plaza. Hay un segundo aparcamiento 1,5 km antes (señalizado).</p>
+        <p><strong>Sobre el calor durante la ruta:</strong> el hayedo mantiene temperaturas 8-12 °C inferiores a las del exterior. Pero el circo es abierto y el sol de julio pega fuerte: crema solar antes de llegar y proteged a Greta del sol directo (la radiación UV en altura es mayor).</p>
+        <p><strong>Sobre las raíces del camino:</strong> con humedad se vuelven resbaladizas. Pisad con cuidado en las bajadas; botines con suela de agarre, no deportivas de calle.</p>
       </div>
     </div>
   </article>
 
+
   <!-- ============ DÍA 3 ============ -->
   <article class="dia">
     <div class="dia-header">
-      <div><span class="num">Día 3</span><h3>Ansó, el pueblo de cuento</h3></div>
+      <div><span class="num">Día 3</span><h3>El pueblo detenido en el tiempo</h3></div>
       <span class="fecha">Viernes 3 de julio</span>
     </div>
     <div class="dia-body">
       <div class="seccion">
         <h4><span class="emoji">📖</span> Introducción del día</h4>
-        <p class="evocador">Hoy saltáis al valle vecino para conocer Ansó, considerado uno de los pueblos más bonitos de España. Sus calles de piedra, balcones de madera, casonas blasonadas y su célebre traje tradicional —uno de los más singulares del Pirineo— lo convierten en un auténtico viaje en el tiempo. Pasear sin rumbo por su casco es la actividad en sí misma: dejarse perder por callejas, asomarse a portalones y escuchar el rumor del río Veral.</p>
-        <p>Combinaréis el pueblo con la espectacular Foz de Biniés, el cañón que da entrada al valle, donde la carretera se encajona entre paredes rojizas mientras los buitres planean en lo alto. Una jornada que mezcla cultura, paisaje y un paseo muy llevadero.</p>
+        <p class="evocador">Hay pueblos que parecen seguir viviendo en otro siglo, y Ansó es uno de ellos. Cuando entras en su casco, las prisas se quedan fuera: las calles empedradas suben y bajan entre casonas de piedra y madera, los balcones desbordan geranios, y de vez en cuando una puerta entreabierta deja ver un zaguán de otra época. Ansó conserva uno de los trajes tradicionales más espectaculares del Pirineo y un urbanismo medieval intacto.</p>
+        <p class="evocador">Hoy combinaréis ese viaje en el tiempo con un golpe de naturaleza pura: la Foz de Biniés, un desfiladero de paredes rojizas donde el río Veral se encajona y los buitres dibujan círculos sobre vuestras cabezas. Pueblo con alma por la mañana, cañón espectacular después: un día redondo.</p>
       </div>
-      <div class="seccion timeline">
-        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
-        <ul>
-          <li><span class="hora">8:30</span> Salida hacia Ansó (≈30 min de carretera de montaña)</li>
-          <li><span class="hora">9:00</span> Paseo por el casco histórico de Ansó, aún fresco</li>
-          <li><span class="hora">10:30</span> Bajada a la Foz de Biniés y paseo por el cañón</li>
-          <li><span class="hora">13:30</span> Comida en Ansó</li>
-          <li><span class="hora">15:30</span> Regreso a Echo: descanso y siesta</li>
-          <li><span class="hora">21:00</span> Cena tranquila en el hotel</li>
-        </ul>
+
+      <div class="seccion">
+        <h4><span class="emoji">⏰</span> Horario orientativo del día</h4>
+        <table class="tabla">
+          <tr><th class="hora-col">Hora</th><th>Actividad</th></tr>
+          <tr><td class="hora-col">8:00 h</td><td>Desayuno en el hotel</td></tr>
+          <tr><td class="hora-col">8:30 h</td><td>Salida hacia Ansó (~30-40 min de carretera de montaña)</td></tr>
+          <tr><td class="hora-col">9:15 h</td><td>Paseo por el casco histórico de Ansó, aún fresco</td></tr>
+          <tr><td class="hora-col">10:45 h</td><td>Traslado y paseo por la Foz de Biniés</td></tr>
+          <tr><td class="hora-col">13:30 h</td><td>Comida en Ansó</td></tr>
+          <tr><td class="hora-col">15:30 h</td><td>Regreso a Echo: descanso y siesta</td></tr>
+          <tr><td class="hora-col">21:00 h</td><td>Cena tranquila</td></tr>
+        </table>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <p><strong>Casco histórico de Ansó + paseo por la Foz de Biniés</strong></p>
+        <p class="subtitulo">Contexto geográfico y natural</p>
+        <p>Ansó (860 m) es la capital del valle homónimo, paralelo al de Hecho y también dentro del Parque Natural de los Valles Occidentales. Es uno de los conjuntos de arquitectura popular pirenaica mejor conservados de España, con casonas de los siglos XVI-XVIII, la imponente iglesia de San Pedro (de aspecto fortificado) y un Museo del Traje que custodia la indumentaria tradicional ansotana. A pocos kilómetros, el río Veral excava la Foz de Biniés, un cañón de paredes calizas rojizas de más de 200 metros, refugio de una notable colonia de buitres leonados y zona de paso de quebrantahuesos.</p>
+        <p class="subtitulo">Descripción detallada del recorrido</p>
+        <p><strong>Tramo 1 — El casco de Ansó (1-1,5 km a pie):</strong> aparcad a la entrada y subid hacia la plaza y la iglesia de San Pedro. Recorred las callejas, fijándoos en dinteles, galerías de madera y fachadas blasonadas. Turnaos para visitar el Museo del Traje (Greta no entra).</p>
+        <p><strong>Tramo 2 — Traslado a la Foz de Biniés (~10 min en coche):</strong> bajad hacia la entrada del valle; la carretera se adentra en el cañón siguiendo el Veral.</p>
+        <p><strong>Tramo 3 — Paseo por el fondo de la foz:</strong> aparcad en un ensanche y caminad por el fondo del desfiladero, llano y fresco, con las paredes rojizas a ambos lados y el agua turquesa abajo. Tramo corto y muy fotogénico; alzad la vista para buscar buitres.</p>
+        <table class="tabla ficha">
+          <tr><td>Punto de inicio</td><td>Entrada de Ansó (pueblo) y, después, Foz de Biniés (río Veral)</td></tr>
+          <tr><td>Cómo llegar</td><td>Desde el hotel, bajad a Echo y tomad la carretera de montaña que enlaza con el valle de Ansó (~30-40 min). Estrecha y revirada, pero muy bonita</td></tr>
+          <tr><td>Distancia</td><td>3-5 km combinados (pueblo + foz)</td></tr>
+          <tr><td>Desnivel</td><td>Suave (cuestas cortas en el pueblo); foz prácticamente llana</td></tr>
+          <tr><td>Tiempo estimado</td><td>2-2,5 h con paradas</td></tr>
+          <tr><td>Dificultad</td><td>⭐ Fácil</td></tr>
+          <tr><td>Apta para Greta</td><td><span class="tag si">✅ Sí</span> con correa; sombra y agua en la foz. No entra al Museo del Traje</td></tr>
+          <tr><td>Mejor horario</td><td>Pueblo a primera hora (fresco); foz a media mañana</td></tr>
+        </table>
+        <p class="subtitulo">Qué llevar</p>
         <ul>
-          <li><span class="label">Ruta:</span> Casco histórico de Ansó + tramo llano de la Foz de Biniés</li>
-          <li><span class="label">Recorrido:</span> Plaza, entorno de la iglesia de San Pedro y callejas de Ansó; después, paseo por el fondo del cañón del río Veral</li>
-          <li><span class="label">Firme y desnivel:</span> Empedrado en el pueblo; pista/senda llana junto al río en la foz</li>
-          <li><span class="label">Dificultad / distancia:</span> Fácil · 3-5 km combinados · 2-2,5 h con paradas</li>
-          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> con correa; sombra y agua en la foz</li>
-          <li><span class="label">Mejor horario:</span> Mañana temprano para el pueblo; foz a media mañana</li>
+          <li>Agua para Greta (en Ansó hay poca sombra a mediodía)</li>
+          <li>Gorra, gafas y crema solar</li>
+          <li>Cámara o prismáticos para los buitres</li>
+          <li>Calzado cómodo para empedrado y senda de tierra</li>
         </ul>
-        <p><strong>👀 No te pierdas:</strong> el Museo del Traje Ansotano (queda para turnaros, no entra Greta) y los miradores de la Foz de Biniés para observar el vuelo de los buitres leonados.</p>
       </div>
+
       <div class="seccion destacado">
         <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
-        <p>La <strong>Foz de Biniés</strong>: un desfiladero de paredes rojizas y verticales sobre el río Veral, con buitres leonados trazando círculos en el cielo. El contraste entre el agua turquesa, la roca cálida y el verde de la vegetación lo convierte en uno de los rincones más fotogénicos de los Pirineos occidentales.</p>
+        <p>La Foz de Biniés vista desde su fondo: las paredes rojizas se cierran sobre vosotros, el río suena encajonado y, si alzáis la vista, decenas de buitres leonados planean sin esfuerzo en las corrientes térmicas, recortados contra el azul. Es uno de esos lugares donde la geología y la vida se dan la mano y donde uno se siente, gozosamente, muy pequeño.</p>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
-        <ul>
-          <li><span class="label">Lugar:</span> Restaurante en Ansó (p. ej. Borda de Borruel o Posada Magoria)</li>
-          <li><span class="label">Cocina:</span> Tradicional ansotana; verduras ecológicas, cordero, recetas de cuchara de la zona</li>
-          <li><span class="label">Qué pedir:</span> Cordero o un guiso local, con producto de huerta de temporada</li>
-          <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> pedir terraza al reservar</li>
-          <li><span class="label">Alternativa:</span> Picnic a la entrada de la Foz de Biniés, junto al río</li>
-        </ul>
+        <div class="opcion">
+          <h5>Opción A — Posada Magoria (Ansó)</h5>
+          <p><span class="label">Contexto:</span> casa señorial de principios del s. XX convertida en posada con encanto, conocida por su cocina vegetariana y ecológica con verduras de su propia huerta. Un contrapunto saludable tras el embutido de los días anteriores.</p>
+          <p><span class="label">Platos recomendados:</span> verduras de la huerta de temporada, legumbres, panes y postres caseros. (Si preferís carne, Borda de Borruel es la alternativa con cordero y cocina tradicional ansotana.)</p>
+          <p><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> pedid terraza/jardín · <span class="label">Precio:</span> 20-30 € por persona</p>
+        </div>
+        <div class="opcion">
+          <h5>Opción B — Picnic en la Foz de Biniés</h5>
+          <p>Junto al río Veral, a la sombra de las paredes del cañón: embutido y queso de la zona, ensalada, fruta y agua. El sitio perfecto para comer escuchando el agua.</p>
+        </div>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
         <ul>
-          <li><span class="label">Lugar:</span> Regreso a Echo — cena tranquila en el Hotel Usón o bar del pueblo</li>
-          <li><span class="label">Cocina:</span> Casera de montaña, ligera tras el día</li>
+          <li><span class="label">Lugar:</span> regreso a Echo — cena en el Hotel Usón o en un bar-restaurante del pueblo</li>
+          <li><span class="label">Cocina:</span> casera de montaña, ligera tras el día</li>
+          <li><span class="label">Qué pedir:</span> una ensalada, una sopa y algo a la plancha; nada pesado</li>
           <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> en el hotel</li>
-          <li><span class="label">Ambiente / hora:</span> Relajado, sin desplazamientos · 21:00</li>
+          <li><span class="label">Ambiente / hora:</span> relajado, sin más desplazamientos · 21:00 h</li>
         </ul>
       </div>
+
       <div class="seccion consejo">
         <h4><span class="emoji">⚠️</span> Consejo del día</h4>
-        <p>Entre Echo y Ansó hay unos <strong>30 min de carretera de montaña con curvas</strong>: conducid sin prisa, sobre todo si Greta se marea (mejor en ayunas ligeras). En Ansó hay <strong>poca sombra a mediodía</strong> y el empedrado se calienta: visitad el pueblo a primera hora. Llevad agua para Greta y aprovechad la frescura del fondo del cañón en la Foz de Biniés.</p>
+        <p><strong>Sobre la carretera:</strong> los 30-40 min entre Hecho y Ansó son de curvas. Si Greta se marea, que viaje con el estómago casi vacío y haced alguna parada. Conducid con calma.</p>
+        <p><strong>Sobre el calor en Ansó:</strong> el empedrado y la falta de sombra a mediodía hacen duro el pueblo al sol. Priorizad el casco a primera hora y reservad la foz (más fresca) para después.</p>
+        <p><strong>Sobre reservas y aparcamiento:</strong> Ansó recibe muchos visitantes en julio. Reservad si queréis comer en restaurante y aparcad a la entrada del pueblo (el centro es estrecho).</p>
       </div>
     </div>
   </article>
 
+
   <!-- ============ DÍA 4 ============ -->
   <article class="dia">
     <div class="dia-header">
-      <div><span class="num">Día 4</span><h3>Día de descanso y río</h3></div>
+      <div><span class="num">Día 4</span><h3>El día sin reloj</h3></div>
       <span class="fecha">Sábado 4 de julio</span>
     </div>
     <div class="dia-body">
       <div class="seccion">
         <h4><span class="emoji">📖</span> Introducción del día</h4>
-        <p class="evocador">A mitad de bloque toca bajar el ritmo de verdad. Mañana lenta, café largo en la terraza y un paseo corto junto al agua para que Greta se refresque. La filosofía del viaje en estado puro: no hacer nada y que eso sea más que suficiente. Hoy el reloj se queda guardado.</p>
-        <p>Es también el día más práctico para recargar pilas: lectura, siesta, una conversación larga sin mirar la hora y, si el cuerpo lo pide, un chapuzón de pies en una poza. El sábado, además, es buen día para acercarse al pequeño mercado o a las tiendas de Echo a por producto local.</p>
+        <p class="evocador">Todo viaje necesita un día así: uno en el que el único plan sea no tener plan. A mitad de bloque, el cuerpo agradece parar, y el Valle de Hecho es el lugar perfecto para hacerlo. Hoy el despertador se queda en silencio. Habrá café largo en la terraza, un libro abierto, una hamaca, y un río cristalino esperando a unos metros para refrescar los pies (los vuestros) y las patas (las de Greta).</p>
+        <p class="evocador">No medir el tiempo, no contar kilómetros, no fotografiar nada que no nazca de las ganas. El lujo verdadero de la montaña no son las cumbres: es esto.</p>
       </div>
-      <div class="seccion timeline">
-        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
-        <ul>
-          <li><span class="hora">9:30</span> Desayuno sin prisa y paseo de ribera junto al hotel</li>
-          <li><span class="hora">11:00</span> Rato de río: baño de pies y juego con Greta en una poza tranquila</li>
-          <li><span class="hora">13:30</span> Comida ligera (picnic u hotel)</li>
-          <li><span class="hora">14:30</span> Tarde libre: lectura, siesta, descanso</li>
-          <li><span class="hora">19:00</span> Paseo opcional por Echo al fresco</li>
-          <li><span class="hora">21:00</span> Cena</li>
-        </ul>
+
+      <div class="seccion">
+        <h4><span class="emoji">⏰</span> Horario orientativo del día</h4>
+        <table class="tabla">
+          <tr><th class="hora-col">Hora</th><th>Actividad</th></tr>
+          <tr><td class="hora-col">9:30 h</td><td>Desayuno sin prisa</td></tr>
+          <tr><td class="hora-col">10:30 h</td><td>Paseo de ribera junto al hotel, buscando pozas</td></tr>
+          <tr><td class="hora-col">11:30 h</td><td>Rato de río: baño de pies y juego con Greta</td></tr>
+          <tr><td class="hora-col">13:30 h</td><td>Comida ligera (hotel o picnic)</td></tr>
+          <tr><td class="hora-col">14:30-18:00 h</td><td>Tarde libre: lectura, siesta, terraza</td></tr>
+          <tr><td class="hora-col">18:30 h</td><td>Paseo opcional por Echo al fresco</td></tr>
+          <tr><td class="hora-col">21:00 h</td><td>Cena</td></tr>
+        </table>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <p><strong>Paseo de ribera y pozas del Aragón Subordán</strong></p>
+        <p class="subtitulo">Contexto geográfico y natural</p>
+        <p>El Aragón Subordán es uno de los ríos mejor conservados del Pirineo, de aguas frías y transparentes alimentadas por el deshielo y las fuentes de la Selva de Oza. A su paso por el fondo del valle forma remansos y pozas entre bloques de piedra, bordeados de alisos, sauces y fresnos. Es hábitat de trucha común y de aves de ribera, y sus orillas son el escenario ideal para un día de descanso sin alejarse del hotel.</p>
+        <p class="subtitulo">Descripción detallada del recorrido</p>
+        <p><strong>Tramo único — Senda de ribera (a vuestro ritmo):</strong> desde el entorno del hotel, seguid el río buscando los remansos más tranquilos y umbríos. No hay objetivo ni distancia marcada: caminar diez minutos, sentarse en una piedra, dejar que Greta chapotee, leer un rato y volver. Repetid las veces que queráis a lo largo del día.</p>
+        <table class="tabla ficha">
+          <tr><td>Punto de inicio</td><td>Entorno del Hotel Usón</td></tr>
+          <tr><td>Cómo llegar</td><td>A pie desde el alojamiento (día sin coche)</td></tr>
+          <tr><td>Distancia</td><td>2-4 km (totalmente flexible)</td></tr>
+          <tr><td>Desnivel</td><td>Llano</td></tr>
+          <tr><td>Tiempo estimado</td><td>El que queráis</td></tr>
+          <tr><td>Dificultad</td><td>⭐ Muy fácil</td></tr>
+          <tr><td>Apta para Greta</td><td><span class="tag si">✅ Sí</span> pozas tranquilas y poco profundas para refrescarse</td></tr>
+          <tr><td>Mejor horario</td><td>Mañana temprano o tarde-noche; evitad el sol central</td></tr>
+        </table>
+        <p class="subtitulo">Qué llevar</p>
         <ul>
-          <li><span class="label">Ruta:</span> Paseo de ribera junto al río Aragón Subordán, cerca del hotel</li>
-          <li><span class="label">Recorrido:</span> Senda junto al cauce buscando pozas tranquilas y sombra de ribera</li>
-          <li><span class="label">Firme y desnivel:</span> Llano, tierra y hierba</li>
-          <li><span class="label">Dificultad / distancia:</span> Muy fácil · 2-4 km · a vuestro aire</li>
-          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> pozas seguras para que se moje y se refresque</li>
-          <li><span class="label">Mejor horario:</span> Mañana temprano o tarde-noche</li>
+          <li>Toalla para secar a Greta tras el baño</li>
+          <li>Esterilla o manta ligera, libro, agua y algo de picar</li>
+          <li>Calzado que se pueda mojar</li>
+          <li>Sombrero y crema solar para los ratos de sol</li>
         </ul>
-        <p><strong>👀 Plan alternativo:</strong> si el cuerpo pide cero esfuerzo, día de hamaca y terraza en el hotel, con vistas al valle y a su ritmo.</p>
       </div>
+
       <div class="seccion destacado">
         <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
-        <p>Una poza de agua cristalina donde Greta chapotea feliz mientras vosotros descansáis a la sombra de los árboles, con el sonido constante del agua. El lujo de no tener nada que hacer ni ningún sitio al que llegar.</p>
+        <p>Una poza de agua cristalina, la sombra de un aliso, el sonido constante del río y Greta entrando y saliendo del agua con esa alegría tonta y contagiosa de los perros felices. Vosotros, descalzos sobre una piedra caliente, sin nada que hacer ni ningún sitio al que llegar. Ese es el momento — y dura todo lo que queráis.</p>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
-        <ul>
-          <li><span class="label">Lugar:</span> Picnic junto al río o comida en el hotel</li>
-          <li><span class="label">Qué:</span> Embutidos, quesos y fruta de la zona; algo fresco y ligero</li>
-          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span></li>
-          <li><span class="label">Alternativa:</span> Bar del pueblo de Echo con terraza</li>
-        </ul>
+        <div class="opcion">
+          <h5>Opción A — Bar-terraza en Echo</h5>
+          <p><span class="label">Contexto:</span> un día relajado pide una comida informal en una terraza del pueblo, viendo pasar la mañana.</p>
+          <p><span class="label">Cocina:</span> raciones y platos sencillos de montaña; tortilla, ensaladas, embutido, migas.</p>
+          <p><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> en terraza · <span class="label">Precio:</span> 15-25 € por persona</p>
+        </div>
+        <div class="opcion">
+          <h5>Opción B — Picnic junto al río</h5>
+          <p>La opción más fiel al espíritu del día: embutidos, quesos, ensalada de tomate, fruta y agua fresca, comidos a la sombra junto a una poza.</p>
+        </div>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
+        <p><strong>Restaurante Gaby – Casa Blasquico (Echo)</strong> — la cena gastronómica del bloque</p>
         <ul>
-          <li><span class="label">Lugar:</span> Restaurante Canteré o Gaby (Echo) — repetir el favorito de los días anteriores</li>
-          <li><span class="label">Cocina:</span> Producto local, postres caseros</li>
-          <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza</li>
-          <li><span class="label">Ambiente / hora:</span> Sin prisas · 21:00</li>
+          <li><span class="label">Contexto:</span> la mesa más célebre del Valle de Hecho, una institución de la cocina chesa en una casa pequeña y acogedora del casco antiguo. Pocas mesas, producto de temporada y guisos que son pura memoria del valle. El día de descanso, sin cansancio acumulado, es ideal para disfrutarla con calma</li>
+          <li><span class="label">Platos recomendados:</span> según mercado — setas, platos de caza (jabalí, corzo), guisos tradicionales y postres caseros. Dejaos aconsejar</li>
+          <li><span class="label">Para beber:</span> una buena botella de Somontano de su carta</li>
+          <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> local pequeño, preguntad al reservar</li>
+          <li><span class="label">Ambiente / hora:</span> íntimo y especial · 20:30 h · <strong>reserva imprescindible</strong></li>
         </ul>
       </div>
+
       <div class="seccion consejo">
         <h4><span class="emoji">⚠️</span> Consejo del día</h4>
-        <p>Evitad el sol directo entre las 13:00 y las 18:00. <strong>Comprobad que el agua del río esté tranquila</strong> y poco profunda antes de dejar bañarse a Greta: en julio aún puede llevar agua de deshielo, fría y con corriente en algunos tramos. Secadla bien después para evitar enfriamientos y revisad sus orejas (los caniches retienen humedad).</p>
+        <p><strong>Sobre los baños de Greta:</strong> comprobad que la poza esté tranquila y poco profunda antes de dejarla entrar; el agua de deshielo es fría y en algunos tramos hay corriente. Secadle bien las orejas después (los caniches son propensos a la otitis).</p>
+        <p><strong>Sobre el sol:</strong> aunque sea día de descanso, evitad la exposición directa entre las 13:00 y las 18:00. Buscad siempre sombra de ribera.</p>
+        <p><strong>Sobre las reservas:</strong> si vais a Casa Blasquico esta noche, confirmad la mesa con antelación; es la cena más difícil de conseguir del valle.</p>
       </div>
     </div>
   </article>
 
+
   <!-- ============ DÍA 5 ============ -->
   <article class="dia">
     <div class="dia-header">
-      <div><span class="num">Día 5</span><h3>Llanos de Guarrinza y paisaje alpino suave</h3></div>
+      <div><span class="num">Día 5</span><h3>El llano de los caballos</h3></div>
       <span class="fecha">Domingo 5 de julio</span>
     </div>
     <div class="dia-body">
       <div class="seccion">
         <h4><span class="emoji">📖</span> Introducción del día</h4>
-        <p class="evocador">Hoy subís al fondo del valle, más allá de la Selva de Oza, hasta los llanos de la Guarrinza: una amplia pradera de alta montaña rodeada de cumbres, donde pastan caballos y vacas en libertad y el río dibuja meandros perezosos sobre la hierba. Es uno de esos paisajes de postal alpina que parecen imposibles de tan perfectos.</p>
-        <p>Lo mejor es que se disfruta caminando casi en llano, sin necesidad de subir a la alta montaña: basta con seguir el río por la pradera el tiempo que el cuerpo pida. Aire puro, silencio y horizontes amplios para cerrar el bloque de naturaleza con una jornada memorable.</p>
+        <p class="evocador">Más allá de la Selva de Oza, la carretera se acaba y el valle se abre de golpe en una inmensa pradera de alta montaña: los llanos de la Guarrinza. Es un paisaje que no parece de aquí, sino de un documental de los Alpes o de Islandia: el río Aragón Subordán serpentea perezoso dibujando meandros sobre la hierba, caballos y vacas pastan en libertad, y las cumbres cierran el horizonte en todas direcciones.</p>
+        <p class="evocador">Caminar aquí no cuesta esfuerzo —es casi todo llano—, pero cuesta dejar de mirar. Hoy os espera el techo del valle en su versión más amable: amplitud, silencio y esa sensación rara y maravillosa de estar muy lejos de todo.</p>
       </div>
-      <div class="seccion timeline">
-        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
-        <ul>
-          <li><span class="hora">8:30</span> Salida temprana hacia el fondo del valle (más allá de Oza)</li>
-          <li><span class="hora">9:00</span> Paseo por los llanos de la Guarrinza siguiendo el río</li>
-          <li><span class="hora">12:30</span> Vuelta y picnic en Oza o la Guarrinza</li>
-          <li><span class="hora">15:00</span> Regreso al hotel: descanso</li>
-          <li><span class="hora">20:30</span> Cena en Echo o en el hotel</li>
-        </ul>
+
+      <div class="seccion">
+        <h4><span class="emoji">⏰</span> Horario orientativo del día</h4>
+        <table class="tabla">
+          <tr><th class="hora-col">Hora</th><th>Actividad</th></tr>
+          <tr><td class="hora-col">7:30 h</td><td>Desayuno y picnic preparado</td></tr>
+          <tr><td class="hora-col">8:00 h</td><td>Salida hacia el fondo del valle (más allá de Oza)</td></tr>
+          <tr><td class="hora-col">8:45 h</td><td>Inicio del paseo por los llanos de la Guarrinza</td></tr>
+          <tr><td class="hora-col">12:00 h</td><td>Vuelta tranquila</td></tr>
+          <tr><td class="hora-col">12:30 h</td><td>Picnic en la Guarrinza o de regreso en Oza</td></tr>
+          <tr><td class="hora-col">14:30 h</td><td>Regreso al hotel: descanso</td></tr>
+          <tr><td class="hora-col">18:30 h</td><td>Rato libre / paseo suave</td></tr>
+          <tr><td class="hora-col">20:30 h</td><td>Cena</td></tr>
+        </table>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <p><strong>Paseo por los llanos de la Guarrinza</strong></p>
+        <p class="subtitulo">Contexto geográfico y natural</p>
+        <p>La Guarrinza es una amplia pradera de origen glaciar situada en la cabecera del Valle de Hecho, a unos 1.350-1.400 m, dentro del Parque Natural de los Valles Occidentales. Aquí el Aragón Subordán, todavía joven, recorre el llano formando meandros antes de encajonarse aguas abajo. Es zona de pastos de verano: en julio encontraréis caballos, vacas y ovejas pastando en libertad, vigilados por mastines (perros guardianes de gran tamaño). En las laderas habitan marmotas, sarrios y rapaces, y no es raro ver al quebrantahuesos. Más arriba, para quien busque algo más exigente, se abre el valle colgado de Aguas Tuertas, otra pradera de meandros con un dolmen megalítico (ruta más larga y con desnivel).</p>
+        <p class="subtitulo">Descripción detallada del recorrido</p>
+        <p><strong>Tramo 1 — Del aparcamiento a la pradera:</strong> desde el final de la pista del valle, el camino entra en la Guarrinza por terreno llano, con el río a un lado y las montañas cerrando el fondo.</p>
+        <p><strong>Tramo 2 — A lo largo de los meandros:</strong> seguid el río por la pradera el tiempo que queráis, sin meta fija. El terreno es abierto y luminoso; cada pocos metros la perspectiva cambia y las montañas se reflejan en los remansos.</p>
+        <p><strong>Regreso:</strong> por el mismo itinerario, dándoos la vuelta cuando el cuerpo (o las patitas de Greta) lo pidan.</p>
+        <table class="tabla ficha">
+          <tr><td>Punto de inicio</td><td>Final de la pista del valle, más allá de la Selva de Oza</td></tr>
+          <tr><td>Cómo llegar</td><td>Misma carretera que a Oza, continuando hasta el fondo (~25-30 min desde el hotel). Último tramo más rústico; posible regulación en temporada</td></tr>
+          <tr><td>Distancia</td><td>5-8 km ida y vuelta (a vuestra elección)</td></tr>
+          <tr><td>Desnivel</td><td>Mínimo (terreno llano)</td></tr>
+          <tr><td>Tiempo estimado</td><td>2,5-3 h con paradas</td></tr>
+          <tr><td>Dificultad</td><td>⭐ Fácil (terreno) · ⚠️ por presencia de mastines</td></tr>
+          <tr><td>Apta para Greta</td><td><span class="tag precaucion">⚠️ Con precaución</span> ganado y mastines guardianes. Correa corta obligada</td></tr>
+          <tr><td>Mejor horario</td><td>Mañana (8:45-12:00), por el calor y el riesgo de tormentas de tarde</td></tr>
+        </table>
+        <p class="subtitulo">Qué llevar</p>
         <ul>
-          <li><span class="label">Ruta:</span> Paseo por los llanos de la Guarrinza, siguiendo el curso del río</li>
-          <li><span class="label">Recorrido:</span> Pradera abierta de alta montaña, con ganado pastando y cumbres alrededor; tan largo o tan corto como queráis</li>
-          <li><span class="label">Firme y desnivel:</span> Llano, hierba y pista; sin desnivel relevante</li>
-          <li><span class="label">Dificultad / distancia:</span> Fácil · 4-7 km (a vuestra elección) · 2-3 h</li>
-          <li><span class="label">Aparcamiento:</span> Final de la pista del valle (madrugad en domingo)</li>
-          <li><span class="label">Apta para Greta:</span> <span class="tag precaucion">⚠️ Con precaución</span> hay ganado y mastines guardianes</li>
-          <li><span class="label">Mejor horario:</span> Mañana (9:00-12:30), con luz suave y temperatura agradable</li>
+          <li>Agua abundante (aunque haya río) y picnic</li>
+          <li>Cortavientos o forro fino (a esta altura refresca y hay viento)</li>
+          <li>Gorra, gafas y crema solar (terreno abierto, sin sombra)</li>
+          <li>Correa corta y resistente para Greta</li>
+          <li>Cámara: los reflejos en los meandros son espectaculares</li>
         </ul>
-        <p><strong>👀 No te pierdas:</strong> los caballos y vacas pastando en libertad y los reflejos de las montañas en los meandros del río — un escenario de fotografía pura.</p>
       </div>
+
       <div class="seccion destacado">
         <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
-        <p>El silencio inmenso de los llanos, roto solo por el cencerro lejano del ganado y el viento, con las montañas reflejándose en el agua mansa del río. Una sensación de amplitud y calma que resume el espíritu de todo el viaje.</p>
+        <p>El silencio. Plantados en mitad de la pradera, lo único que se oye es el viento, el agua mansa del río y, de vez en cuando, el cencerro lejano de una vaca. Las montañas se reflejan invertidas en los meandros, los caballos pastan a lo lejos sin haceros caso, y Greta olfatea la hierba alta como si hubiera descubierto un mundo nuevo. La imagen que resume todo el viaje: amplitud, calma y naturaleza en estado puro.</p>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
-        <ul>
-          <li><span class="label">Lugar:</span> Picnic en la Guarrinza o de regreso en la pradera de Oza</li>
-          <li><span class="label">Qué:</span> Bocadillos de producto local, fruta y mucha agua</li>
-          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> al aire libre</li>
-          <li><span class="label">Alternativa:</span> Bar de la Selva de Oza al bajar (consultar apertura)</li>
-        </ul>
+        <div class="opcion">
+          <h5>Opción A — Picnic en la Guarrinza</h5>
+          <p><span class="label">Contexto:</span> no hay mejor comedor que esta pradera. Buscad un recodo del río con algo de sombra (un grupo de pinos o un bloque de roca) y comed con vistas a las cumbres.</p>
+          <p><span class="label">Qué:</span> bocadillos de embutido y queso de la Jacetania, fruta, frutos secos y mucha agua · <span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> al aire libre</p>
+        </div>
+        <div class="opcion">
+          <h5>Opción B — Bar de la Selva de Oza (al bajar)</h5>
+          <p><span class="label">Contexto:</span> si está abierto en temporada, el bar del camping de Oza ofrece platos sencillos de montaña y terraza a la sombra del bosque.</p>
+          <p><span class="label">Cocina:</span> montañera básica; bocadillos, raciones, platos del día · <span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza · <span class="label">Precio:</span> 15-20 € por persona</p>
+        </div>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
         <ul>
-          <li><span class="label">Lugar:</span> Cena en Echo o en el hotel</li>
-          <li><span class="label">Cocina:</span> Sopa de montaña, carnes a la brasa, algo reconfortante tras el día</li>
-          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> hotel / <span class="tag precaucion">⚠️ Consultar</span> restaurantes</li>
-          <li><span class="label">Ambiente / hora:</span> Tranquilo · 20:30</li>
+          <li><span class="label">Lugar:</span> Hotel Usón o restaurante en Echo</li>
+          <li><span class="label">Cocina:</span> de montaña, reconfortante tras el día al aire libre; sopa, carnes a la brasa</li>
+          <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span> (hotel) / <span class="tag precaucion">⚠️ Consultar</span> (restaurantes)</li>
+          <li><span class="label">Ambiente / hora:</span> tranquilo · 20:30 h</li>
         </ul>
       </div>
+
       <div class="seccion consejo">
         <h4><span class="emoji">⚠️</span> Consejo del día</h4>
-        <p><strong>Atención clave 🐕:</strong> en los pastos de la Guarrinza hay <strong>mastines protegiendo el rebaño</strong>. Llevad a Greta con correa corta y pegada a vosotros; <strong>si se acerca un mastín, no corráis ni gritéis</strong>: seguid caminando con calma alejándoos del ganado y dejad que el perro compruebe que no sois una amenaza. No os interpongáis entre el mastín y su rebaño, ni entre las crías y sus madres.</p>
+        <p><strong>Sobre los mastines (lo más importante):</strong> en los pastos de la Guarrinza hay perros guardianes protegiendo el ganado. Llevad a Greta con correa corta y pegada a vosotros. Si un mastín se acerca, no corráis ni gritéis ni lo miréis fijamente: seguid caminando con calma alejándoos del rebaño. Nunca os interpongáis entre el mastín y sus animales, ni entre las crías y sus madres.</p>
+        <p><strong>Sobre las tormentas:</strong> en julio son frecuentes las tormentas de tarde en montaña. La Guarrinza es terreno abierto y expuesto: haced la ruta por la mañana y consultad la previsión; si hay aviso, cambiad el plan por bosque (Oza) o pueblo (Siresa).</p>
+        <p><strong>Sobre el aparcamiento (domingo):</strong> en fin de semana el fondo del valle se llena pronto. Salid temprano para asegurar plaza.</p>
       </div>
     </div>
   </article>
 
+
   <!-- ============ DÍA 6 ============ -->
   <article class="dia">
     <div class="dia-header">
-      <div><span class="num">Día 6</span><h3>Siresa, monasterio y despedida del valle</h3></div>
+      <div><span class="num">Día 6</span><h3>Mil años de piedra</h3></div>
       <span class="fecha">Lunes 6 de julio</span>
     </div>
     <div class="dia-body">
       <div class="seccion">
         <h4><span class="emoji">📖</span> Introducción del día</h4>
-        <p class="evocador">Último día en el Valle de Hecho. Una mañana cultural y suave en Siresa, una pequeña localidad que guarda un tesoro: la iglesia-monasterio de San Pedro, joya del románico aragonés y uno de los lugares ligados al nacimiento del Reino de Aragón. Su sólida fábrica de piedra impone respeto y emociona.</p>
-        <p>Es una jornada pensada para cerrar el círculo sin prisa: visita cultural temprana, una última comida en el valle y una tarde tranquila para recoger, repasar lo vivido y dejar preparado el traslado al siguiente alojamiento. Una despedida serena de un valle que se queda en la memoria.</p>
+        <p class="evocador">El último día en el Valle de Hecho merece un cierre con alma, y lo tiene a cinco minutos del hotel. En Siresa, un pueblo diminuto, se alza uno de los monumentos más importantes del Pirineo: el monasterio de San Pedro, una iglesia románica de más de mil años ligada a los orígenes mismos del Reino de Aragón. Entrar en su nave, sentir el frescor de la piedra y el peso de los siglos, es una forma serena y emocionante de despedirse del valle.</p>
+        <p class="evocador">Después, una última comida chesa, la maleta hecha sin agobios y la promesa, casi seguro, de volver. Hoy se cierra un capítulo y se prepara el siguiente: mañana, rumbo a Broto.</p>
       </div>
-      <div class="seccion timeline">
-        <h4><span class="emoji">🕐</span> Horario sugerido</h4>
-        <ul>
-          <li><span class="hora">10:00</span> Visita a Siresa y su monasterio (≈5 min del hotel)</li>
-          <li><span class="hora">11:00</span> Paseo corto por el entorno (Camino de Santiago)</li>
-          <li><span class="hora">13:30</span> Comida de despedida en Echo</li>
-          <li><span class="hora">16:00</span> Tarde tranquila: recoger y preparar maletas</li>
-          <li><span class="hora">20:00</span> Cena ligera y temprana en el hotel</li>
-        </ul>
+
+      <div class="seccion">
+        <h4><span class="emoji">⏰</span> Horario orientativo del día</h4>
+        <table class="tabla">
+          <tr><th class="hora-col">Hora</th><th>Actividad</th></tr>
+          <tr><td class="hora-col">9:00 h</td><td>Desayuno</td></tr>
+          <tr><td class="hora-col">10:00 h</td><td>Visita a Siresa y al monasterio de San Pedro (~5 min del hotel)</td></tr>
+          <tr><td class="hora-col">11:00 h</td><td>Paseo corto por el entorno (tramo del Camino de Santiago)</td></tr>
+          <tr><td class="hora-col">13:30 h</td><td>Comida de despedida en Echo</td></tr>
+          <tr><td class="hora-col">16:00 h</td><td>Tarde tranquila: recoger y preparar maletas</td></tr>
+          <tr><td class="hora-col">20:00 h</td><td>Cena ligera y temprana</td></tr>
+        </table>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🥾</span> Actividad principal</h4>
+        <p><strong>Siresa: monasterio de San Pedro y paseo por su entorno</strong></p>
+        <p class="subtitulo">Contexto geográfico y natural</p>
+        <p>Siresa es un pequeño núcleo a apenas 2 km al norte de Echo, en la ribera del Aragón Subordán. Su joya es el monasterio de San Pedro de Siresa, uno de los más antiguos e importantes del Pirineo: su origen se remonta al siglo IX (época carolingia) y el grueso del edificio actual es de los siglos XI-XIII. Fue un centro religioso y cultural de primer orden en la formación del Reino de Aragón y está vinculado a la figura de Alfonso I el Batallador, que pasó allí parte de su juventud. Es una de las grandes muestras del románico aragonés, de volúmenes sobrios y rotundos. El entorno, de prados y ribera, es travesía del Camino de Santiago.</p>
+        <p class="subtitulo">Descripción detallada del recorrido</p>
+        <p><strong>Tramo 1 — El pueblo y el exterior del monasterio:</strong> recorred Siresa y rodead el monasterio para apreciar su robusta arquitectura, el ábside y la portada. Greta puede acompañaros por el exterior.</p>
+        <p><strong>Tramo 2 — Visita interior (por turnos):</strong> entrad a ver la iglesia por dentro —la nave, el ábside, los detalles románicos— turnándoos para quedaros con Greta, que no puede entrar.</p>
+        <p><strong>Tramo 3 — Paseo por el entorno:</strong> completad con una senda llana y suave por los alrededores, entre prados y con el río cerca, siguiendo señales del Camino de Santiago.</p>
+        <table class="tabla ficha">
+          <tr><td>Punto de inicio</td><td>Siresa (junto al monasterio)</td></tr>
+          <tr><td>Cómo llegar</td><td>Desde el hotel, ~5 min al sur. Aparcamiento sencillo junto al pueblo</td></tr>
+          <tr><td>Distancia</td><td>2-3 km (pueblo + senda)</td></tr>
+          <tr><td>Desnivel</td><td>Insignificante</td></tr>
+          <tr><td>Tiempo estimado</td><td>1-1,5 h</td></tr>
+          <tr><td>Dificultad</td><td>⭐ Muy fácil</td></tr>
+          <tr><td>Apta para Greta</td><td><span class="tag si">✅ Sí</span> en el exterior · <span class="tag no">❌ No</span> en el interior del monasterio</td></tr>
+          <tr><td>Mejor horario</td><td>Mañana (10:00-12:30 h), antes del calor</td></tr>
+        </table>
+        <p class="subtitulo">Qué llevar</p>
         <ul>
-          <li><span class="label">Ruta:</span> Visita a Siresa y paseo corto por su entorno (tramo llano del Camino de Santiago)</li>
-          <li><span class="label">Recorrido:</span> Pueblo, exterior del monasterio de San Pedro y senda suave por los alrededores</li>
-          <li><span class="label">Firme y desnivel:</span> Llano, empedrado y senda; muy cómodo</li>
-          <li><span class="label">Dificultad / distancia:</span> Muy fácil · 2-3 km · 1-1,5 h</li>
-          <li><span class="label">Apta para Greta:</span> <span class="tag si">✅ Sí</span> en el exterior · <span class="tag no">❌ No</span> al interior del monasterio</li>
-          <li><span class="label">Mejor horario:</span> Mañana (10:00-12:30), antes del calor</li>
+          <li>Agua y bolsas para Greta</li>
+          <li>Algo de efectivo para la entrada al monasterio (consultad horarios, suelen ser limitados)</li>
+          <li>Calzado cómodo</li>
         </ul>
-        <p><strong>👀 No te pierdas:</strong> el interior del monasterio (entrad por turnos mientras el otro espera con Greta a la sombra) — su ábside y su volumen románico merecen mucho la pena.</p>
       </div>
+
       <div class="seccion destacado">
         <h4><span class="emoji">🌅</span> Momento destacado del día</h4>
-        <p>La sólida silueta de <strong>San Pedro de Siresa</strong> recortada contra las montañas: más de mil años de historia en piedra, en un entorno de absoluta calma. La foto y el recuerdo de despedida del valle.</p>
+        <p>La silueta de San Pedro de Siresa recortada contra las montañas, sólida y serena, con más de mil años de historia a sus espaldas. Y, dentro, ese instante de frescor y penumbra en el que el bullicio del verano desaparece y solo queda la piedra, la luz tamizada y el eco de los siglos. La despedida perfecta de un valle que se queda grabado.</p>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🍽️</span> Comida — Dónde y qué comer</h4>
-        <ul>
-          <li><span class="label">Lugar:</span> Comida final en Echo (Canteré o Gaby) — despedida gastronómica</li>
-          <li><span class="label">Cocina:</span> Menú de cocina chesa, para rematar el bloque con producto local</li>
-          <li><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza</li>
-          <li><span class="label">Alternativa:</span> Picnic ligero si preferís adelantar el equipaje</li>
-        </ul>
+        <div class="opcion">
+          <h5>Opción A — Restaurante Canteré o Gaby–Casa Blasquico (Echo) · comida de despedida</h5>
+          <p><span class="label">Contexto:</span> cerrad el bloque con una comida en vuestra mesa favorita del valle, rematando la experiencia gastronómica chesa.</p>
+          <p><span class="label">Platos recomendados:</span> vuestro plato preferido de estos días — una carne de la Parda Alpina o un guiso/caza de la casa, y de postre crespillos o tarta casera.</p>
+          <p><span class="label">Admite perros:</span> <span class="tag precaucion">⚠️ Consultar</span> terraza · <span class="label">Precio:</span> 25-35 € por persona</p>
+        </div>
+        <div class="opcion">
+          <h5>Opción B — Picnic ligero</h5>
+          <p>Si preferís adelantar el equipaje y no comprometeros con horarios, un picnic sencillo con lo que quede de provisiones, junto al río.</p>
+        </div>
       </div>
+
       <div class="seccion">
         <h4><span class="emoji">🌙</span> Cena — Dónde y qué cenar</h4>
         <ul>
-          <li><span class="label">Lugar:</span> Cena ligera en el hotel antes del traslado</li>
-          <li><span class="label">Cocina:</span> Algo sencillo: ensalada, sopa, queso local</li>
+          <li><span class="label">Lugar:</span> cena ligera en el Hotel Usón (víspera del traslado)</li>
+          <li><span class="label">Cocina:</span> sencilla: ensalada, sopa, queso local</li>
           <li><span class="label">Admite perros:</span> <span class="tag si">✅ Sí</span></li>
-          <li><span class="label">Ambiente / hora:</span> Recogido y temprano · 20:00</li>
+          <li><span class="label">Ambiente / hora:</span> recogido y temprano · 20:00 h (para descansar antes del viaje a Broto)</li>
         </ul>
       </div>
+
       <div class="seccion consejo">
         <h4><span class="emoji">⚠️</span> Consejo del día</h4>
-        <p>El interior del monasterio <strong>no admite perros</strong>: turnaos para verlo o disfrutad solo del exterior con Greta. <strong>Dejad las maletas casi listas hoy</strong> para que mañana el traslado sea relajado, y consultad horarios de visita del monasterio (suelen ser limitados). Revisad el depósito de combustible: conviene salir mañana con el coche lleno.</p>
+        <p><strong>Sobre el monasterio:</strong> el interior no admite perros, así que organizaos por turnos y buscadle a Greta una sombra mientras esperáis. Consultad los horarios de visita antes de subir (suelen ser reducidos y pueden variar según temporada).</p>
+        <p><strong>Sobre el traslado de mañana:</strong> dejad las maletas casi listas hoy para que la salida hacia Broto sea relajada. Revisad la mochila de Greta (comida, premios, bolsas, toalla, pipeta, cartilla).</p>
+        <p><strong>Sobre el combustible:</strong> salid mañana con el depósito lleno; repostad hoy en Echo o, de camino, en Jaca, porque en la zona hay pocas gasolineras.</p>
       </div>
     </div>
   </article>
+
 
   <!-- ============ FINAL: GRETA ============ -->
   <section class="final">
     <h2>🐾 Consejos específicos para Greta en esta zona</h2>
     <ul>
-      <li><strong>Mastines y ganado:</strong> es la clave del Valle de Hecho/Ansó. En Guarrinza, Oza y pastos altos hay perros guardianes grandes. Correa siempre, calma y distancia con los rebaños; nunca os interpongáis entre el mastín y sus animales.</li>
-      <li><strong>Calor de julio:</strong> caniche toy = poca tolerancia al sol. Paseos a primera y última hora. Llevad bol plegable y agua siempre; aprovechad ríos y sombra (esta zona es de bosque, una gran ventaja).</li>
-      <li><strong>Garrapatas y pulgas:</strong> zona de bosque y ganado. Revisad a Greta tras cada paseo y comprobad que tiene la pipeta o collar al día.</li>
-      <li><strong>Almohadillas:</strong> los senderos son de tierra y hierba, suaves; vigilad solo las pistas pedregosas en horas de sol (pueden quemar).</li>
-      <li><strong>Baños en el río:</strong> elegid pozas tranquilas y poco profundas; el agua de deshielo es fría. Secadla bien después, sobre todo las orejas.</li>
-      <li><strong>Restaurantes:</strong> el valle es pequeño y muchos sitios aceptan perros en terraza — pedidlo siempre al reservar.</li>
-      <li><strong>Buena noticia:</strong> el Valle de Hecho NO es Parque Nacional, así que Greta puede ir casi a todas partes (al contrario que en Ordesa, donde los perros están prohibidos — tenedlo en cuenta para próximos bloques).</li>
+      <li><strong>Mastines y ganado:</strong> lo más importante, sobre todo en la Guarrinza y los pastos altos. Correa corta, calma y distancia; nunca interponerse entre el mastín y su rebaño.</li>
+      <li><strong>Calor de julio:</strong> caniche toy = poca tolerancia al sol. Paseos a primera y última hora; bol plegable y agua siempre; aprovechar ríos y sombra de bosque.</li>
+      <li><strong>Garrapatas y pulgas:</strong> revisión tras cada paseo; pipeta o collar al día.</li>
+      <li><strong>Almohadillas:</strong> suelos blandos en bosque; cuidado con pistas pedregosas y empedrados al sol.</li>
+      <li><strong>Baños:</strong> pozas tranquilas y poco profundas; secar bien las orejas para evitar otitis.</li>
+      <li><strong>Tormentas de tarde:</strong> habituales en julio; las zonas abiertas, mejor por la mañana.</li>
+      <li><strong>Buena noticia:</strong> Hecho NO es Parque Nacional; Greta puede ir casi a todo (al contrario que en Ordesa, el próximo bloque).</li>
     </ul>
   </section>
 
   <!-- ============ FINAL: MAPA ============ -->
   <section class="final">
     <h2>🗺️ Mapa mental de las zonas visitadas</h2>
-    <div class="mapa">           LLANOS DE GUARRINZA  (Día 5)
+    <div class="mapa">           LLANOS DE GUARRINZA (Día 5)
                     ▲
-                    │
-            SELVA DE OZA  (Día 2)
+            SELVA DE OZA (Día 2)
                     │
             BOCA DEL INFIERNO
                     │
    SIRESA (Día 6) ──┤
-                    │
    ★ HOTEL USÓN ────┤   ← BASE (1-6 julio)
-                    │
-        ECHO / HECHO  (Días 1 y 4)
-                    │
+        ECHO/HECHO (Días 1 y 4)
       ──────────────┴──────────────
       │                            │
   ANSÓ + FOZ DE                (río Aragón
   BINIÉS (Día 3)                Subordán)</div>
-    <p style="margin-top:14px;color:var(--gris-suave)"><strong>Eje principal:</strong> carretera del Valle de Hecho (norte-sur), siempre junto al río Aragón Subordán. Oza/Guarrinza al norte (15-25 min), Echo/Siresa al lado (5-10 min), Ansó al oeste (~30 min). Optimización conseguida: cero viajes largos. ✅</p>
+    <p style="margin-top:14px;color:var(--gris-suave)"><strong>Eje principal:</strong> carretera del Valle de Hecho (norte-sur), junto al río Aragón Subordán. Oza/Guarrinza al norte (15-30 min), Echo/Siresa al lado (5-10 min), Ansó al oeste (30-40 min). Cero viajes largos. ✅</p>
   </section>
 
   <!-- ============ FINAL: CHECKLIST ============ -->
   <section class="final checklist">
-    <h2>✅ Qué tener preparado para el siguiente alojamiento</h2>
+    <h2>✅ Qué tener preparado para el siguiente alojamiento (Casa Rincón de Broto)</h2>
     <ul>
-      <li>Confirmar el siguiente hotel: dirección, hora de check-in y que sea pet-friendly (confirmar por escrito).</li>
-      <li>Repostar y revisar el coche en Echo o Jaca antes de salir (la zona tiene pocas gasolineras).</li>
-      <li>Nevera de viaje con agua fría y snacks para Greta durante el traslado.</li>
-      <li>Lavar y secar calzado/botas y el equipo usado en ríos antes de empacar.</li>
-      <li>Comprar provisiones (queso y embutido de la Jacetania) si queréis llevaros producto local.</li>
+      <li>Confirmar Casa Rincón de Broto: dirección, hora de check-in y que sea pet-friendly (por escrito).</li>
+      <li>Repostar y revisar el coche en Echo o Jaca (pocas gasolineras en la zona).</li>
+      <li>Nevera de viaje con agua fría y snacks para Greta (~1h40-2h de trayecto vía Jaca y Biescas).</li>
+      <li>Lavar y secar calzado/botas y la toalla de Greta usados en ríos.</li>
+      <li>Comprar producto local de la Jacetania (queso, embutido) si queréis llevároslo.</li>
       <li>Repasar la mochila de Greta: comida, premios, bolsas, toalla, pipeta y cartilla veterinaria.</li>
-      <li><strong>Importante para el siguiente bloque:</strong> si os acercáis a Ordesa y Monte Perdido, recordad que los perros tienen prohibido el acceso al Parque Nacional. Conviene tener prevista una alternativa pet-friendly fuera del parque.</li>
+      <li><strong>Para el siguiente bloque:</strong> en Ordesa los perros tienen prohibido el acceso al Parque Nacional; el itinerario de Broto ya está diseñado con alternativas pet-friendly.</li>
     </ul>
   </section>
 
@@ -571,7 +737,7 @@
 <footer>
   <p><strong>Bloque 1 de 3</strong> · Ruta Pirineo Aragonés · Valle de Hecho (1-6 julio 2026)</p>
   <p>Itinerario pensado para Carles, Anna y Greta 🐾 · Ritmo tranquilo · 100% pet-friendly</p>
-  <p style="margin-top:10px"><a href="index.html" style="color:var(--azul-rio);text-decoration:none;">🏠 Índice del viaje</a> · <a href="ruta-pirineo-bloque2.html" style="color:var(--azul-rio);text-decoration:none;">Bloque 2 →</a></p>
+  <p style="margin-top:10px"><a href="index.html">🏠 Índice del viaje</a> · <a href="ruta-pirineo-bloque2.html">Bloque 2 →</a></p>
 </footer>
 
 </body>
