@@ -1,0 +1,2173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirineo Aragonés 2026 · El Viaje de Carles, Anna y Greta</title>
+    <style>
+        /* ===== RESET Y BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --verde-pirineo: #2d5a27;
+            --verde-claro: #4a7c59;
+            --verde-musgo: #6b8f61;
+            --azul-glaciar: #4a7fa5;
+            --azul-cielo: #87b5d4;
+            --ocre-piedra: #c4956a;
+            --ocre-claro: #e8c99a;
+            --crema: #f5f0e8;
+            --blanco-nieve: #fafaf8;
+            --gris-roca: #4a4a4a;
+            --gris-claro: #8a8a8a;
+            --negro-pizarra: #1a1a1a;
+            --dorado: #c9a84c;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: var(--blanco-nieve);
+            color: var(--negro-pizarra);
+            overflow-x: hidden;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(
+                160deg,
+                #0d1f0d 0%,
+                #1a3a1a 20%,
+                #2d5a27 45%,
+                #1a3a4a 70%,
+                #0d1a2a 100%
+            );
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(74, 127, 165, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(45, 90, 39, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 60% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        /* Montañas decorativas SVG */
+        .mountains-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 45%;
+            opacity: 0.12;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            animation-delay: var(--delay);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201, 168, 76, 0.15);
+            border: 1px solid rgba(201, 168, 76, 0.4);
+            color: var(--dorado);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-pretitle {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            color: white;
+            font-weight: normal;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+        }
+
+        .hero-title span {
+            color: var(--dorado);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 50px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-viajeros {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .viajero-chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.85);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .viajero-chip .emoji {
+            font-size: 1rem;
+        }
+
+        .viajero-sep {
+            color: rgba(255,255,255,0.2);
+            font-size: 1.2rem;
+        }
+
+        .hero-dates {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 60px;
+        }
+
+        .hero-dates-inner {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.7);
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-dates-inner strong {
+            color: white;
+        }
+
+        .hero-scroll {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .hero-scroll:hover {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .scroll-arrow {
+            width: 24px;
+            height: 24px;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(45deg);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: rotate(45deg) translateY(0); }
+            50% { transform: rotate(45deg) translateY(4px); }
+        }
+
+        /* ===== RESUMEN VIAJE ===== */
+        .resumen {
+            background: var(--crema);
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            text-align: center;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--verde-musgo);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--gris-roca);
+            font-weight: normal;
+            margin-bottom: 16px;
+        }
+
+        .section-title span {
+            color: var(--verde-pirineo);
+            font-style: italic;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--gris-claro);
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 24px;
+            margin-bottom: 0;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px 20px;
+            text-align: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .stat-emoji {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            color: var(--verde-pirineo);
+            font-weight: bold;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--gris-claro);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ===== BLOQUES SECTION ===== */
+        .bloques {
+            padding: 100px 20px;
+            background: var(--blanco-nieve);
+        }
+
+        .bloques-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 20px;
+        }
+
+        .bloque-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                        box-shadow 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bloque-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .bloque-header {
+            height: 220px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 28px;
+            overflow: hidden;
+        }
+
+        .bloque-1 .bloque-header {
+            background: linear-gradient(
+                160deg,
+                #1a3a1a 0%,
+                #2d5a27 40%,
+                #4a7c59 70%,
+                #3a6a45 100%
+            );
+        }
+
+        .bloque-2 .bloque-header {
+            background: linear-gradient(
+                160deg,
+                #1a2a3a 0%,
+                #2a4a6a 40%,
+                #4a7fa5 70%,
+                #2d5a7a 100%
+            );
+        }
+
+        .bloque-3 .bloque-header {
+            background: linear-gradient(
+                160deg,
+                #2a1a0a 0%,
+                #5a3a1a 40%,
+                #8a6a3a 70%,
+                #c4956a 100%
+            );
+        }
+
+        .bloque-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+        }
+
+        .bloque-1 .bloque-header::before {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cpath d='M0,200 L80,80 L140,120 L200,40 L260,90 L320,50 L400,100 L400,200Z' fill='white'/%3E%3C/svg%3E") bottom/cover;
+        }
+
+        .bloque-num {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+        }
+
+        .bloque-fechas {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: rgba(255,255,255,0.85);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            letter-spacing: 1px;
+            font-family: Arial, sans-serif;
+            margin-bottom: 10px;
+            width: fit-content;
+            backdrop-filter: blur(10px);
+        }
+
+        .bloque-nombre {
+            font-size: 1.5rem;
+            color: white;
+            font-weight: normal;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .bloque-nombre em {
+            display: block;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.65);
+            font-style: normal;
+            font-family: Arial, sans-serif;
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+
+        .bloque-body {
+            padding: 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bloque-alojamiento {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--crema);
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--verde-musgo);
+        }
+
+        .bloque-2 .bloque-alojamiento {
+            border-left-color: var(--azul-glaciar);
+        }
+
+        .bloque-3 .bloque-alojamiento {
+            border-left-color: var(--ocre-piedra);
+        }
+
+        .aloj-emoji {
+            font-size: 1.1rem;
+        }
+
+        .aloj-info {
+            flex: 1;
+        }
+
+        .aloj-nombre {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--gris-roca);
+            font-family: Arial, sans-serif;
+        }
+
+        .aloj-valle {
+            font-size: 0.75rem;
+            color: var(--gris-claro);
+            font-family: Arial, sans-serif;
+        }
+
+        .bloque-dias {
+            list-style: none;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        .bloque-dias li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.85rem;
+            color: var(--gris-roca);
+            font-family: Arial, sans-serif;
+            line-height: 1.4;
+        }
+
+        .bloque-dias li:last-child {
+            border-bottom: none;
+        }
+
+        .dia-fecha {
+            font-size: 0.7rem;
+            color: var(--gris-claro);
+            min-width: 70px;
+            padding-top: 1px;
+            letter-spacing: 0.5px;
+        }
+
+        .dia-icono {
+            font-size: 0.9rem;
+            min-width: 20px;
+        }
+
+        .dia-nombre {
+            flex: 1;
+        }
+
+        .bloque-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 24px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--crema);
+            color: var(--gris-roca);
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-family: Arial, sans-serif;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .bloque-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .bloque-1 .bloque-btn {
+            background: var(--verde-pirineo);
+            color: white;
+        }
+
+        .bloque-1 .bloque-btn:hover {
+            background: #1e3d1a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(45, 90, 39, 0.35);
+        }
+
+        .bloque-2 .bloque-btn {
+            background: var(--azul-glaciar);
+            color: white;
+        }
+
+        .bloque-2 .bloque-btn:hover {
+            background: #2d5f80;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 127, 165, 0.35);
+        }
+
+        .bloque-3 .bloque-btn {
+            background: var(--ocre-piedra);
+            color: white;
+        }
+
+        .bloque-3 .bloque-btn:hover {
+            background: #a07040;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(196, 149, 106, 0.35);
+        }
+
+        .btn-arrow {
+            transition: transform 0.3s;
+        }
+
+        .bloque-btn:hover .btn-arrow {
+            transform: translateX(4px);
+        }
+
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 20, 10, 0.85);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(30px) scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            scrollbar-width: thin;
+            scrollbar-color: var(--verde-musgo) transparent;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-header {
+            height: 180px;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 28px 32px;
+            flex-shrink: 0;
+        }
+
+        .modal-header-b1 {
+            background: linear-gradient(160deg, #1a3a1a 0%, #2d5a27 50%, #4a7c59 100%);
+        }
+
+        .modal-header-b2 {
+            background: linear-gradient(160deg, #1a2a3a 0%, #2a4a6a 50%, #4a7fa5 100%);
+        }
+
+        .modal-header-b3 {
+            background: linear-gradient(160deg, #2a1a0a 0%, #5a3a1a 50%, #c4956a 100%);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+            font-size: 1.2rem;
+            transition: background 0.2s;
+            backdrop-filter: blur(10px);
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .modal-title {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: normal;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .modal-title small {
+            display: block;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.65);
+            font-family: Arial, sans-serif;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .modal-body {
+            padding: 32px;
+        }
+
+        .modal-intro {
+            font-size: 1rem;
+            color: var(--gris-claro);
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .modal-dias-title {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gris-claro);
+            margin-bottom: 16px;
+            font-family: Arial, sans-serif;
+        }
+
+        .modal-dia-item {
+            display: grid;
+            grid-template-columns: 90px 1fr auto;
+            gap: 16px;
+            align-items: start;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .modal-dia-item:last-child {
+            border-bottom: none;
+        }
+
+        .modal-dia-fecha {
+            font-size: 0.75rem;
+            color: var(--gris-claro);
+            font-family: Arial, sans-serif;
+            padding-top: 3px;
+        }
+
+        .modal-dia-fecha strong {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--gris-roca);
+            margin-bottom: 2px;
+        }
+
+        .modal-dia-content {
+            flex: 1;
+        }
+
+        .modal-dia-nombre {
+            font-size: 1rem;
+            color: var(--negro-pizarra);
+            margin-bottom: 6px;
+        }
+
+        .modal-dia-desc {
+            font-size: 0.82rem;
+            color: var(--gris-claro);
+            line-height: 1.5;
+            font-family: Arial, sans-serif;
+        }
+
+        .modal-dia-tags {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: flex-end;
+        }
+
+        .modal-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            padding: 3px 8px;
+            border-radius: 50px;
+            font-size: 0.68rem;
+            font-family: Arial, sans-serif;
+            white-space: nowrap;
+        }
+
+        .tag-verde { background: #e8f5e9; color: #2d5a27; }
+        .tag-azul { background: #e3f2fd; color: #1565c0; }
+        .tag-ocre { background: #fff3e0; color: #e65100; }
+        .tag-paw { background: #fce4ec; color: #c2185b; }
+        .tag-star { background: #fffde7; color: #f57f17; }
+
+        .modal-highlights {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .modal-highlights-title {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gris-claro);
+            margin-bottom: 16px;
+            font-family: Arial, sans-serif;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+
+        .highlight-item {
+            background: var(--crema);
+            border-radius: 12px;
+            padding: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .highlight-emoji {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .highlight-text {
+            font-size: 0.8rem;
+            color: var(--gris-roca);
+            line-height: 1.4;
+            font-family: Arial, sans-serif;
+        }
+
+        .highlight-text strong {
+            display: block;
+            margin-bottom: 2px;
+            color: var(--negro-pizarra);
+        }
+
+        /* ===== GRETA SECTION ===== */
+        .greta-section {
+            background: linear-gradient(135deg, #fff8f0 0%, #f5f0e8 100%);
+            padding: 80px 20px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .greta-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .greta-emoji-grande {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .greta-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: var(--gris-roca);
+            font-weight: normal;
+            margin-bottom: 16px;
+        }
+
+        .greta-title span {
+            color: var(--ocre-piedra);
+            font-style: italic;
+        }
+
+        .greta-text {
+            font-size: 1rem;
+            color: var(--gris-claro);
+            line-height: 1.8;
+            margin-bottom: 32px;
+            font-style: italic;
+        }
+
+        .greta-facts {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .greta-fact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            color: var(--gris-roca);
+            font-family: Arial, sans-serif;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        /* ===== TIMELINE SECTION ===== */
+        .timeline-section {
+            padding: 80px 20px;
+            background: var(--blanco-nieve);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(
+                to bottom,
+                var(--verde-pirineo),
+                var(--azul-glaciar),
+                var(--ocre-piedra)
+            );
+            opacity: 0.3;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dot-verde { background: linear-gradient(135deg, var(--verde-pirineo), var(--verde-claro)); }
+        .dot-azul { background: linear-gradient(135deg, var(--azul-glaciar), var(--azul-cielo)); }
+        .dot-ocre { background: linear-gradient(135deg, var(--ocre-piedra), #e8a070); }
+
+        .timeline-content {
+            background: white;
+            border-radius: 16px;
+            padding: 20px 24px;
+            flex: 1;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: translateX(6px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+        }
+
+        .timeline-bloque-num {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            font-family: Arial, sans-serif;
+        }
+
+        .num-verde { color: var(--verde-pirineo); }
+        .num-azul { color: var(--azul-glaciar); }
+        .num-ocre { color: var(--ocre-piedra); }
+
+        .timeline-nombre {
+            font-size: 1.1rem;
+            color: var(--negro-pizarra);
+            margin-bottom: 4px;
+        }
+
+        .timeline-valle {
+            font-size: 0.8rem;
+            color: var(--gris-claro);
+            font-family: Arial, sans-serif;
+        }
+
+        .timeline-fechas-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 8px;
+            font-size: 0.72rem;
+            color: var(--gris-claro);
+            font-family: Arial, sans-serif;
+        }
+
+        /* ===== TIPS SECTION ===== */
+        .tips-section {
+            background: var(--crema);
+            padding: 80px 20px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .tip-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .tip-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .tip-content {}
+
+        .tip-title {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--negro-pizarra);
+            margin-bottom: 6px;
+            font-family: Arial, sans-serif;
+        }
+
+        .tip-text {
+            font-size: 0.82rem;
+            color: var(--gris-claro);
+            line-height: 1.5;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--negro-pizarra);
+            color: rgba(255,255,255,0.5);
+            padding: 48px 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .footer-sub {
+            font-size: 0.8rem;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .footer-line {
+            width: 40px;
+            height: 1px;
+            background: rgba(255,255,255,0.2);
+            margin: 20px auto;
+        }
+
+        .footer-text {
+            font-size: 0.75rem;
+            line-height: 1.7;
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .footer-paw {
+            font-size: 1.5rem;
+            margin-top: 24px;
+            display: block;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .bloques-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-dia-item {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .modal-dia-tags {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-dot {
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bloque-header {
+                height: 180px;
+            }
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== SCROLLBAR CUSTOM ===== */
+        .modal::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .modal::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .modal::-webkit-scrollbar-thumb {
+            background: var(--verde-musgo);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <!-- Estrellas decorativas -->
+        <div class="stars" id="stars"></div>
+
+        <!-- Montañas SVG decorativas -->
+        <svg class="mountains-bg" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
+            <path d="M0,300 L0,200 L100,120 L180,170 L280,80 L360,130 L450,50 L530,110 L620,30 L700,90 L780,40 L860,100 L940,20 L1020,80 L1100,50 L1200,90 L1200,300Z" fill="white"/>
+            <path d="M0,300 L0,230 L80,180 L160,210 L240,160 L320,200 L400,140 L500,190 L580,150 L660,200 L740,160 L820,200 L920,150 L1000,190 L1100,160 L1200,200 L1200,300Z" fill="white" opacity="0.5"/>
+        </svg>
+
+        <div class="hero-badge">
+            🏔️ Guía de viaje completa · Pirineo Aragonés
+        </div>
+
+        <p class="hero-pretitle">Julio · 2026</p>
+
+        <h1 class="hero-title">
+            Pirineo<br>
+            <span>Aragonés</span>
+        </h1>
+
+        <p class="hero-subtitle">
+            El viaje de Carles, Anna y Greta
+        </p>
+
+        <div class="hero-viajeros">
+            <div class="viajero-chip">
+                <span class="emoji">🧔</span>
+                Carles · 48 años
+            </div>
+            <span class="viajero-sep">·</span>
+            <div class="viajero-chip">
+                <span class="emoji">👩</span>
+                Anna · 44 años
+            </div>
+            <span class="viajero-sep">·</span>
+            <div class="viajero-chip">
+                <span class="emoji">🐩</span>
+                Greta · 4 años
+            </div>
+        </div>
+
+        <div class="hero-dates">
+            <div class="hero-dates-inner">
+                📅 <strong>1 de julio</strong> &nbsp;→&nbsp; <strong>16 de julio de 2026</strong>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                🗺️ <strong>3 valles</strong> · <strong>16 días</strong>
+            </div>
+        </div>
+
+        <div class="hero-scroll" onclick="document.getElementById('resumen').scrollIntoView()">
+            <span>Descubrir el viaje</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- ===== RESUMEN ===== -->
+    <section class="resumen" id="resumen">
+        <div class="container">
+            <p class="section-label">El viaje en números</p>
+            <h2 class="section-title">Un <span>Pirineo</span> de principio a fin</h2>
+            <p class="section-subtitle">
+                Tres valles, tres alojamientos y dieciséis días de montaña, ríos, 
+                pueblos de piedra y paisajes que no se olvidan.
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <span class="stat-emoji">📅</span>
+                    <div class="stat-number">16</div>
+                    <div class="stat-label">Días de viaje</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-emoji">🏠</span>
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Alojamientos</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-emoji">🥾</span>
+                    <div class="stat-number">~100</div>
+                    <div class="stat-label">Km senderismo</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-emoji">🏔️</span>
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Valles pirenaicos</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-emoji">🍽️</span>
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Restaurantes</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-emoji">🐾</span>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Pet-friendly</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BLOQUES ===== -->
+    <section class="bloques" id="bloques">
+        <div class="container">
+            <p class="section-label">La ruta completa</p>
+            <h2 class="section-title">Tres bloques, <span>un viaje</span></h2>
+            <p class="section-subtitle">
+                Cada bloque es una base diferente, un valle diferente y una experiencia 
+                diferente del Pirineo aragonés.
+            </p>
+
+            <div class="bloques-grid">
+
+                <!-- BLOQUE 1 -->
+                <div class="bloque-card bloque-1 fade-in">
+                    <div class="bloque-header">
+                        <div class="bloque-num">01</div>
+                        <div>
+                            <div class="bloque-fechas">📅 1 — 6 julio</div>
+                            <div class="bloque-nombre">
+                                Valle de Hecho
+                                <em>Pirineo Occidental Aragonés</em>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bloque-body">
+                        <div class="bloque-alojamiento">
+                            <span class="aloj-emoji">🏨</span>
+                            <div class="aloj-info">
+                                <div class="aloj-nombre">Hotel de Montaña Uson</div>
+                                <div class="aloj-valle">Valle de Hecho · 1.100 m altitud</div>
+                            </div>
+                        </div>
+
+                        <ul class="bloque-dias">
+                            <li>
+                                <span class="dia-fecha">Mié 1 jul</span>
+                                <span class="dia-icono">🚗</span>
+                                <span class="dia-nombre">Llegada y primer aliento de montaña</span>
+                            </li>
+                            <li>
+                                <span class="dia-fecha">Jue 2 jul</span>
+                                <span class="dia-icono">🌲</span>
+                                <span class="dia-nombre">El bosque que no olvidas · Selva de Oza</span>
+                            </li>
+                            <li>
+                                <span class="dia-fecha">Vie 3 jul</span>
+                                <span class="dia-icono">🧀</span>
+                                <span class="dia-nombre">Piedra, silencio y queso milenario · Roncal</span>
+                            </li>
+                            <li>
+                                <span class="dia-fecha">Sáb 4 jul</span>
+                                <span class="dia-icono">💧</span>
+                                <span class="dia-nombre">Agua, cascadas y frescor · Valle de Ansó</span>
+                            </li>
+                            <li>
+                                <span class="dia-fecha">Dom 5 jul</span>
+                                <span class="dia-icono">🎨</span>
+                                <span class="dia-nombre">Descanso activo y arte entre montañas</span>
+                            </li>
+                            <li>
+                                <span class="dia-fecha">Lun 6 jul</span>
+                                <span class="dia-icono">🏔️</span>
+                                <span class="dia-nombre">El valle más alto · Aguas Tuertas</span>
+                            </li>
+                        </ul>
+
+                        <div class="bloque-tags">
+                            <span class="tag">🌲 Selva de Oza</span>
+                            <span class="tag">🧀 Queso Roncal</span>
+                            <span class="tag">💧 Pozas del Veral</span>
+                            <span class="tag">🎨 Museo Aire Libre</span>
+                            <span class="tag">🏔️ Aguas Tuertas</span>
+                        </div>
+
+                        <button class="bloque-btn" onclick="abrirModal('bloque1')">
+                            Ver itinerario completo
+                            <span class="btn-arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- BLOQUE 2 -->
+                <div class="bloque-card bloque-2 fade-in">
+                    <div class="bloque-header">
+                        <div class="bloque-num">02</div>
+                        <div>
+                            <div class="bloque-fechas">📅 6 — 11 julio</div>
+                            <div class="bloque-nombre">
+                                Valle de Broto
+                                <em>Sobrarbe · Ordesa</em>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bloque-body">
+                        <div class="bloque-alojamiento">
+                            <span class="aloj-emoji">🏡</span>
+                            <div class="aloj-info">
+                                <div class="aloj-nombre">Casa Rincón de Broto</div>
+                                <div class="aloj-valle">Valle del Ara · 1.050 m altitud</div>
+                            </div>
+                        </div>
+
+                        <ul class="bloque-dias">
+                            <li>
+                                <span class="dia-fecha">Lun 6 jul</span>
+                                <span class="dia-icono">🚗</span>
+                                <span class="dia-nombre">El camino entre valles · Traslado</span>
+                            </li>
+                            <li>
+                                <span class="dia-fecha">Mar 7 jul</span>
+                                <span class="dia-icono">🏜️</span>
+                                <span class="dia-nombre">El cañón que dejó sin palabras · Añisclo</span>
+                            </li>
+                            <li>
+                                <span class="dia-fecha">Mié 8 jul</span>
+                                <span class="dia-icono">🌊</span>
+                                <span class="dia-nombre">El valle del río libre · Río Ara</span>
+                            </li>
+                            <li>
+                                <span class="dia-fecha">Jue 9 jul</span>
+                                <span class="dia-icono">💦</span>
+                                <span class="dia-nombre">Cascadas y pueblos de cuento · Sorrosal</span>
+                            </li>
+                            <li>
+                                <span class="dia-fecha">Vie 10 jul</span>
+                                <span class="dia-icono">🏘️</span>
+                                <span class="dia-nombre">Pueblos del Pirineo que el tiempo olvidó</span>
+                            </li>
+                            <li>
+                                <span class="dia-fecha">Sáb 11 jul</span>
+                                <span class="dia-icono">🌅</span>
+                                <span class="dia-nombre">La despedida del Valle del Ara</span>
+                            </li>
+                        </ul>
+
+                        <div class="bloque-tags">
+                            <span class="tag">🏜️ Cañón Añisclo</span>
+                            <span class="tag">🌊 Río Ara</span>
+                            <span class="tag">💦 Cascada Sorrosal</span>
+                            <span class="tag">🏘️ Oto deshabitado</span>
+                            <span class="tag">⭐ Casa Frauca</span>
+                        </div>
+
+                        <button class="bloque-btn" onclick="abrirModal('bloque2')">
+                            Ver itinerario completo
+                            <span class="btn-arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- BLOQUE 3 -->
+                <div class="bloque-card bloque-3 fade-in">
+                    <div class="bloque-header">
+                        <div class="bloque-num">03</div>
+                        <div>
+                            <div class="bloque-fechas">📅 11 — 16 julio</div>
+                            <div class="bloque-nombre">
+                                Valle de Benasque
+                                <em>Ribagorza · Maladeta</em>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bloque-body">
+                        <div class="bloque-alojamiento">
+                            <span class="aloj-emoji">🏘️</span>
+                            <div class="aloj-info">
+                                <div class="aloj-nombre">La Terraceta de Linsoles</div>
+                                <div class="aloj-valle">Linsoles · Valle de Benasque · 1.370 m</div>
+                            </div>
+                        </div>
+
+                        <ul class="bloque-dias">
+                            <li>
+                                <span class="dia-fecha">Sáb 11 jul</span>
+                                <span class="dia-icono">🚗</span>
+                                <span class="dia-nombre">El valle más alto · Llegada a Benasque</span>
+                            </li>
+                            <li>
+                                <span class="dia-fecha">Dom 12 jul</span>
+                                <span class="dia-icono">🏔️</span>
+                                <span class="dia-nombre">Praderas sobre el mundo · Plan de Senarta</span>
+                            </li>
+                            <li>
+                                <span class="dia-fecha">Lun 13 jul</span>
+                                <span class="dia-icono">🏛️</span>
+                                <span class="dia-nombre">Benasque, la villa del Pirineo</span>
+                            </li>
+                            <li>
+                                <span class="dia-fecha">Mar 14 jul</span>
+                                <span class="dia-icono">❄️</span>
+                                <span class="dia-nombre">Cascadas del fin del mundo · Coronas</span>
+                            </li>
+                            <li>
+                                <span class="dia-fecha">Mié 15 jul</span>
+                                <span class="dia-icono">🌿</span>
+                                <span class="dia-nombre">El valle que no conocía nadie · Salenques</span>
+                            </li>
+                            <li>
+                                <span class="dia-fecha">Jue 16 jul</span>
+                                <span class="dia-icono">💛</span>
+                                <span class="dia-nombre">La mañana de despedida · Regreso</span>
+                            </li>
+                        </ul>
+
+                        <div class="bloque-tags">
+                            <span class="tag">🏔️ Aneto 3.404m</span>
+                            <span class="tag">❄️ Glaciar Coronas</span>
+                            <span class="tag">🧀 Queso Benasque</span>
+                            <span class="tag">⭐ El Fogaril</span>
+                            <span class="tag">🌿 Valle Salenques</span>
+                        </div>
+
+                        <button class="bloque-btn" onclick="abrirModal('bloque3')">
+                            Ver itinerario completo
+                            <span class="btn-arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GRETA SECTION ===== -->
+    <section class="greta-section">
+        <div class="greta-inner">
+            <span class="greta-emoji-grande">🐩</span>
+            <h2 class="greta-title">El viaje de <span>Greta</span></h2>
+            <p class="greta-text">
+                Caniche toy, 4 años, exploradora oficial del Pirineo aragonés. 
+                Todas las rutas, restaurantes y alojamientos de este viaje 
+                están pensados también para ella.
+            </p>
+            <div class="greta-facts">
+                <div class="greta-fact">✅ 100% Pet-friendly</div>
+                <div class="greta-fact">🏔️ 16 días de montaña</div>
+                <div class="greta-fact">💧 Pozas, ríos y cascadas</div>
+                <div class="greta-fact">🐾 Botiquín completo incluido</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TIMELINE ===== -->
+    <section class="timeline-section">
+        <div class="container">
+            <p class="section-label">El recorrido</p>
+            <h2 class="section-title">De valle <span>en valle</span></h2>
+            <p class="section-subtitle" style="margin-bottom: 50px;">
+                Haz clic en cualquier bloque para ver el itinerario detallado.
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot dot-verde">🌲</div>
+                    <div class="timeline-content" onclick="abrirModal('bloque1')">
+                        <div class="timeline-bloque-num num-verde">Bloque 01</div>
+                        <div class="timeline-nombre">Valle de Hecho</div>
+                        <div class="timeline-valle">Parque Natural Valles Occidentales · Hotel de Montaña Uson</div>
+                        <div class="timeline-fechas-badge">📅 1 — 6 de julio · 5 noches</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot dot-azul">🌊</div>
+                    <div class="timeline-content" onclick="abrirModal('bloque2')">
+                        <div class="timeline-bloque-num num-azul">Bloque 02</div>
+                        <div class="timeline-nombre">Valle de Broto · Sobrarbe</div>
+                        <div class="timeline-valle">Entorno Parque Nacional Ordesa · Casa Rincón de Broto</div>
+                        <div class="timeline-fechas-badge">📅 6 — 11 de julio · 5 noches</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot dot-ocre">🏔️</div>
+                    <div class="timeline-content" onclick="abrirModal('bloque3')">
+                        <div class="timeline-bloque-num num-ocre">Bloque 03</div>
+                        <div class="timeline-nombre">Valle de Benasque · Ribagorza</div>
+                        <div class="timeline-valle">Parque Natural Posets-Maladeta · La Terraceta de Linsoles</div>
+                        <div class="timeline-fechas-badge">📅 11 — 16 de julio · 5 noches</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TIPS SECTION ===== -->
+    <section class="tips-section">
+        <div class="container">
+            <p class="section-label">Para tener en cuenta</p>
+            <h2 class="section-title">Claves del <span>viaje</span></h2>
+            <p class="section-subtitle" style="margin-bottom: 50px;">
+                Consejos esenciales para disfrutar del Pirineo en julio con mascota.
+            </p>
+
+            <div class="tips-grid">
+                <div class="tip-card fade-in">
+                    <div class="tip-icon">🌡️</div>
+                    <div class="tip-content">
+                        <div class="tip-title">Actividad en las franjas frescas</div>
+                        <div class="tip-text">Antes de las 10:00 h y después de las 18:30 h. El calor de julio en el Pirineo puede superar los 30°C en el fondo de los valles.</div>
+                    </div>
+                </div>
+                <div class="tip-card fade-in">
+                    <div class="tip-icon">🚫</div>
+                    <div class="tip-content">
+                        <div class="tip-title">Restricciones en Parques Nacionales</div>
+                        <div class="tip-text">Los perros están prohibidos en todos los senderos del P.N. de Ordesa. El P.N. Posets-Maladeta permite perros con correa en la mayoría de rutas.</div>
+                    </div>
+                </div>
+                <div class="tip-card fade-in">
+                    <div class="tip-icon">⛈️</div>
+                    <div class="tip-content">
+                        <div class="tip-title">Tormentas de tarde en julio</div>
+                        <div class="tip-text">Las tormentas de convección son frecuentes entre las 14:00 y 18:00 h. Planificad estar bajo el bosque o en el coche antes de esa hora.</div>
+                    </div>
+                </div>
+                <div class="tip-card fade-in">
+                    <div class="tip-icon">🐑</div>
+                    <div class="tip-content">
+                        <div class="tip-title">Mastines del Pirineo</div>
+                        <div class="tip-text">Al ver un rebaño, coged a Greta en brazos inmediatamente. Los mastines son perros de trabajo territoriales. No corráis: rodeád el rebaño con calma.</div>
+                    </div>
+                </div>
+                <div class="tip-card fade-in">
+                    <div class="tip-icon">🎫</div>
+                    <div class="tip-content">
+                        <div class="tip-title">Reserva con antelación</div>
+                        <div class="tip-text">Julio es alta temporada. Restaurantes como Casa Frauca (Sarvisé) o El Fogaril (Benasque) se llenan días antes. Reservad desde casa.</div>
+                    </div>
+                </div>
+                <div class="tip-card fade-in">
+                    <div class="tip-icon">⛽</div>
+                    <div class="tip-content">
+                        <div class="tip-title">Gasolineras escasas</div>
+                        <div class="tip-text">En el Pirineo interior las gasolineras son poco frecuentes. Llenad siempre en los pueblos principales: Jaca, Ainsa, Benasque o Castejón de Sos.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-logo">🏔️ Pirineo Aragonés 2026</div>
+        <div class="footer-sub">El viaje de Carles, Anna y Greta</div>
+        <div class="footer-line"></div>
+        <div class="footer-text">
+            Guía de viaje completa elaborada con información actualizada. 
+            Todos los establecimientos, normativas y restricciones para mascotas 
+            deben verificarse en julio de 2026.
+        </div>
+        <span class="footer-paw">🐾</span>
+    </footer>
+
+    <!-- ===== MODALES ===== -->
+
+    <!-- Modal Bloque 1 -->
+    <div class="modal-overlay" id="modal-bloque1" onclick="cerrarModal(event, 'bloque1')">
+        <div class="modal">
+            <div class="modal-header modal-header-b1">
+                <button class="modal-close" onclick="cerrarModalBtn('bloque1')">✕</button>
+                <div class="modal-title">
+                    <small>Bloque 01 · 1 — 6 julio · Hotel de Montaña Uson</small>
+                    Valle de Hecho
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">
+                    El Valle de Hecho, en el Pirineo occidental aragonés, abre el viaje con hayedos de catedral, 
+                    pozas turquesas, el Valle del Roncal y el queso más antiguo del Pirineo. 
+                    El Parque Natural de los Valles Occidentales como telón de fondo permanente.
+                </p>
+
+                <div class="modal-dias-title">Programa día a día</div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Mié 1 jul</strong>Día 1</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">Llegada y primer aliento de montaña</div>
+                        <div class="modal-dia-desc">Traslado al Valle de Hecho con parada opcional en Jaca. Paseo de reconocimiento por el pueblo medieval de Hecho y las orillas del Aragón Subordán al atardecer.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-verde">⭐ Fácil</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Jue 2 jul</strong>Día 2</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">El bosque que no olvidas</div>
+                        <div class="modal-dia-desc">Ruta por la Selva de Oza y el Circo de Oza. Hayedo centenario, río Aragón Subordán, apertura espectacular al circo glaciar. 8 km · +180 m.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-verde">⭐⭐ Fácil-Mod.</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Vie 3 jul</strong>Día 3</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">Piedra, silencio y queso milenario</div>
+                        <div class="modal-dia-desc">Excursión al Valle del Roncal (Navarra). Isaba, ruta por los prados del Belagua, collado con vistas al Anie. Compra de queso Roncal DOP en las queserías del pueblo.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-verde">⭐⭐ Fácil-Mod.</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Sáb 4 jul</strong>Día 4</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">Agua, cascadas y frescor</div>
+                        <div class="modal-dia-desc">Pozas turquesas del río Veral en Zuriza (Valle de Ansó). Baño de madrugada antes de que lleguen los turistas. Visita al pueblo medieval de Ansó por la mañana.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-azul">⭐ Fácil</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Dom 5 jul</strong>Día 5</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">Descanso activo y arte entre montañas</div>
+                        <div class="modal-dia-desc">Visita al Museo de Arte Contemporáneo al Aire Libre de Hecho (esculturas internacionales en el paisaje pirenaico) y paseo por el Camino de la Hoya. Día de ritmo suave.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-verde">⭐ Fácil</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Lun 6 jul</strong>Día 6</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">El valle más alto · Aguas Tuertas</div>
+                        <div class="modal-dia-desc">Ruta a la pradera glaciar de Aguas Tuertas (1.640 m). Meandros perfectos del Aragón Subordán. Uno de los paisajes más fotogénicosdel Pirineo. Último día en el Valle de Hecho.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-verde">⭐⭐ Fácil-Mod.</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-highlights">
+                    <div class="modal-highlights-title">Momentos y lugares imprescindibles</div>
+                    <div class="highlights-grid">
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">🌲</span>
+                            <div class="highlight-text">
+                                <strong>Selva de Oza</strong>
+                                Hayedo centenario con el Circo de Oza al fondo
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">💧</span>
+                            <div class="highlight-text">
+                                <strong>Pozas del Veral</strong>
+                                Agua turquesa entre paredes de caliza en Zuriza
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">🧀</span>
+                            <div class="highlight-text">
+                                <strong>Queso Roncal DOP</strong>
+                                Comprado directamente en Isaba
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">🏔️</span>
+                            <div class="highlight-text">
+                                <strong>Aguas Tuertas</strong>
+                                Pradera glaciar con meandros perfectos a 1.640 m
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">🎨</span>
+                            <div class="highlight-text">
+                                <strong>Museo Aire Libre</strong>
+                                20+ esculturas internacionales en el paisaje
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">⭐</span>
+                            <div class="highlight-text">
+                                <strong>Cielo nocturno</strong>
+                                Vía Láctea sobre el Valle de Hecho sin contaminación
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bloque 2 -->
+    <div class="modal-overlay" id="modal-bloque2" onclick="cerrarModal(event, 'bloque2')">
+        <div class="modal">
+            <div class="modal-header modal-header-b2">
+                <button class="modal-close" onclick="cerrarModalBtn('bloque2')">✕</button>
+                <div class="modal-title">
+                    <small>Bloque 02 · 6 — 11 julio · Casa Rincón de Broto</small>
+                    Valle de Broto · Sobrarbe
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">
+                    El Valle del Ara —el último río pirenaico sin presas— y el entorno del 
+                    Parque Nacional de Ordesa como protagonistas. Cañones verticales, 
+                    cascadas de 110 metros, pueblos medievales deshabitados y la mejor 
+                    cocina del Sobrarbe. Con alternativas pet-friendly para cada día.
+                </p>
+
+                <div class="modal-dias-title">Programa día a día</div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Lun 6 jul</strong>Día 6</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">El camino entre valles</div>
+                        <div class="modal-dia-desc">Traslado desde Hecho a Broto con parada en Ainsa (plaza medieval) y el Congosto de Ventamillo. Llegada al Valle del Ara. Primer paseo por Broto y las orillas del río.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-azul">🚗 Traslado</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Mar 7 jul</strong>Día 7</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">El cañón que dejó sin palabras</div>
+                        <div class="modal-dia-desc">Ruta por el mirador exterior del Cañón de Añisclo desde Escalona. Vistas de 600 m de verticalidad sin entrar al Parque Nacional (perros no admitidos en el interior). 5-6 km · +250 m.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-azul">⭐⭐ Fácil-Mod.</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Mié 8 jul</strong>Día 8</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">El valle del río libre</div>
+                        <div class="modal-dia-desc">Ruta fluvial del Ara entre Torla y Broto. Baño en las pozas del río. Visita al pueblo deshabitado de Oto (iglesia románica, silencio absoluto). 5-9 km.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-azul">⭐⭐ Fácil-Mod.</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Jue 9 jul</strong>Día 9</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">Cascadas y pueblos de cuento</div>
+                        <div class="modal-dia-desc">Cascada del Sorrosal (110 m de altura, a pie desde Broto). Visita al pueblo medieval de Ansó y sus pozas. Comida en Casa Frauca de Sarvisé (reserva imprescindible).</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-azul">⭐⭐ Fácil-Mod.</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Vie 10 jul</strong>Día 10</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">Pueblos del Pirineo que el tiempo olvidó</div>
+                        <div class="modal-dia-desc">Road trip tranquilo por Linás de Broto, Ayerbe de Broto y los prados de Albella. Pueblos casi deshabitados con iglesias románicas del siglo XII. Tarde de descanso total.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-azul">⭐⭐ Fácil-Mod.</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Sáb 11 jul</strong>Día 11</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">La despedida del Valle del Ara</div>
+                        <div class="modal-dia-desc">Ruta al mirador superior del Sorrosal (vistas panorámicas del Valle del Ara entero). Comida de despedida. Traslado al Valle de Benasque.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-azul">⭐⭐ Moderado</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-highlights">
+                    <div class="modal-highlights-title">Momentos y lugares imprescindibles</div>
+                    <div class="highlights-grid">
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">🏜️</span>
+                            <div class="highlight-text">
+                                <strong>Cañón de Añisclo</strong>
+                                800 m de verticalidad desde el mirador de Escalona
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">🏘️</span>
+                            <div class="highlight-text">
+                                <strong>Pueblo de Oto</strong>
+                                Deshabitado, románico, con una belleza melancólica única
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">💦</span>
+                            <div class="highlight-text">
+                                <strong>Cascada del Sorrosal</strong>
+                                110 metros de caída a 2 km del pueblo de Broto
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">⭐</span>
+                            <div class="highlight-text">
+                                <strong>Casa Frauca · Sarvisé</strong>
+                                La mejor cocina del Sobrarbe. Reserva con días de antelación
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">🌊</span>
+                            <div class="highlight-text">
+                                <strong>Río Ara</strong>
+                                El único río pirenaico sin presas. Pozas cristalinas
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">🏰</span>
+                            <div class="highlight-text">
+                                <strong>Ainsa medieval</strong>
+                                Una de las plazas mayores más bonitas de España
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bloque 3 -->
+    <div class="modal-overlay" id="modal-bloque3" onclick="cerrarModal(event, 'bloque3')">
+        <div class="modal">
+            <div class="modal-header modal-header-b3">
+                <button class="modal-close" onclick="cerrarModalBtn('bloque3')">✕</button>
+                <div class="modal-title">
+                    <small>Bloque 03 · 11 — 16 julio · La Terraceta de Linsoles</small>
+                    Valle de Benasque · Ribagorza
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">
+                    El cierre del viaje en el valle más alto: el Aneto (3.404 m, techo de los Pirineos), 
+                    los glaciares de la Maladeta, la villa medieval de Benasque y valles laterales 
+                    que casi nadie visita. El final más grande posible para un viaje grande.
+                </p>
+
+                <div class="modal-dias-title">Programa día a día</div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Sáb 11 jul</strong>Día 11</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">El valle más alto · Llegada</div>
+                        <div class="modal-dia-desc">Traslado desde Broto a Linsoles. Congosto de Ventamillo. Primera vista del Aneto al llegar al Valle de Benasque. Paseo de bienvenida por las orillas del río Ésera glacial.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-ocre">🚗 Traslado</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Dom 12 jul</strong>Día 12</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">Praderas sobre el mundo</div>
+                        <div class="modal-dia-desc">Ruta por el Plan de Senarta (1.780 m). El Aneto entero al fondo. Praderas alpinas con gencianas, sarrios y marmotas. Correa obligatoria (Parque Natural). 5-6 km · +150 m.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-ocre">⭐⭐ Fácil-Mod.</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Lun 13 jul</strong>Día 13</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">Benasque, la villa del Pirineo</div>
+                        <div class="modal-dia-desc">Palacio de los Condes de Ribagorza, Iglesia de la Asunción, mercado de productores locales, queserías artesanales. Tarde: ruta por el Barranco de Eristes (hayedo sombreado). 5 km.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-ocre">⭐⭐ Fácil-Mod.</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Mar 14 jul</strong>Día 14</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">Cascadas del fin del mundo</div>
+                        <div class="modal-dia-desc">Ruta a la Cascada del Coronas (2.100 m). Agua de deshielo glaciar cayendo sobre paredes de roca gris. La ruta más exigente del bloque y la más espectacular. 6 km · +350 m.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-ocre">⭐⭐⭐ Moderado</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Mié 15 jul</strong>Día 15</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">El valle que no conocía nadie</div>
+                        <div class="modal-dia-desc">Valle de Salenques y prados de Chía. Sahún, barranco de Salenques, vistas panorámicas del valle entero con el Aneto al fondo desde Chía. 7-8 km · +430 m. Cena de penúltima noche en El Fogaril.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-ocre">⭐⭐ Moderado</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-dia-item">
+                    <div class="modal-dia-fecha"><strong>Jue 16 jul</strong>Día 16</div>
+                    <div class="modal-dia-content">
+                        <div class="modal-dia-nombre">La mañana de despedida</div>
+                        <div class="modal-dia-desc">Último café en la terraza de La Terraceta con el Aneto al fondo. Paseo de despedida por Linsoles y el Ésera. Comida final en Benasque. Regreso a casa con el Pirineo en la memoria.</div>
+                    </div>
+                    <div class="modal-dia-tags">
+                        <span class="modal-tag tag-star">⭐ Muy fácil</span>
+                        <span class="modal-tag tag-paw">🐾 Greta ✅</span>
+                    </div>
+                </div>
+
+                <div class="modal-highlights">
+                    <div class="modal-highlights-title">Momentos y lugares imprescindibles</div>
+                    <div class="highlights-grid">
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">🏔️</span>
+                            <div class="highlight-text">
+                                <strong>El Aneto · 3.404 m</strong>
+                                El techo de los Pirineos visto desde Linsoles y Senarta
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">❄️</span>
+                            <div class="highlight-text">
+                                <strong>Cascada del Coronas</strong>
+                                Agua glacial cayendo desde 2.100 m de altitud
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">🧀</span>
+                            <div class="highlight-text">
+                                <strong>Queso de Benasque</strong>
+                                Fresco de leche de vaca del valle, comprado a los productores
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">⭐</span>
+                            <div class="highlight-text">
+                                <strong>El Fogaril · Benasque</strong>
+                                La referencia gastronómica del valle ribagorzano
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">🏛️</span>
+                            <div class="highlight-text">
+                                <strong>Palacio Condes Ribagorza</strong>
+                                Renacimiento aragonés en el corazón de Benasque
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-emoji">💛</span>
+                            <div class="highlight-text">
+                                <strong>La última mañana</strong>
+                                Café en la terraza de Linsoles. El Aneto. Greta. El cierre perfecto.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Generar estrellas
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 80; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.cssText = `
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 70}%;
+                --duration: ${2 + Math.random() * 3}s;
+                --delay: ${Math.random() * 3}s;
+                width: ${Math.random() > 0.8 ? '3px' : '2px'};
+                height: ${Math.random() > 0.8 ? '3px' : '2px'};
+            `;
+            starsContainer.appendChild(star);
+        }
+
+        // Abrir modal
+        function abrirModal(bloque) {
+            const modal = document.getElementById('modal-' + bloque);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Cerrar modal por click en overlay
+        function cerrarModal(event, bloque) {
+            if (event.target === document.getElementById('modal-' + bloque)) {
+                cerrarModalBtn(bloque);
+            }
+        }
+
+        // Cerrar modal por botón
+        function cerrarModalBtn(bloque) {
+            const modal = document.getElementById('modal-' + bloque);
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Cerrar con ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
